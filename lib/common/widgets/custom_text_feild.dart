@@ -1,20 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:sheta_store/common/app_colors.dart';
+import 'package:sheta_store/common/ui/app_colors.dart';
+import 'package:sheta_store/common/fonts/font_size_manager.dart';
 
 class CustomTextFeild extends StatefulWidget {
   const CustomTextFeild(
       {super.key,
       required this.hint,
       this.isPass = false,
-      required this.validator, this.keyboardType, required this.controller});
+      required this.validator,
+      this.keyboardType,
+      required this.controller});
   final String hint;
   final bool? isPass;
   final String? Function(String?)? validator;
   final TextInputType? keyboardType;
   final TextEditingController controller;
-
-  
 
   @override
   State<CustomTextFeild> createState() => _CustomTextFeildState();
@@ -41,9 +42,10 @@ class _CustomTextFeildState extends State<CustomTextFeild> {
         validator: widget.validator,
         controller: widget.controller,
         obscureText: visable,
-        keyboardType:widget.keyboardType ,
+        keyboardType: widget.keyboardType,
         cursorColor: AppColors.main,
         decoration: InputDecoration(
+            errorStyle: TextStyle(fontSize: FontSizeManager.s15),
             suffixIcon: widget.isPass!
                 ? IconButton(
                     icon:
@@ -57,13 +59,14 @@ class _CustomTextFeildState extends State<CustomTextFeild> {
                 : null,
             hintText: widget.hint,
             fillColor: Colors.white,
-            hintStyle: const TextStyle(
-              fontSize: 18,
-              fontWeight: FontWeight.normal,
+            hintStyle: TextStyle(
+              fontFamily: "Poppins",
+              fontSize: FontSizeManager.s18,
+              fontWeight: FontWeight.w300,
             ),
             filled: true,
             border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(15),
+              borderRadius: BorderRadius.circular(15.r),
               borderSide: const BorderSide(color: Colors.white, width: 1),
             ),
             focusedBorder: OutlineInputBorder(

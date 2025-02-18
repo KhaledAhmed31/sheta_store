@@ -1,8 +1,10 @@
-
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:sheta_store/auth/sign_in/view/sign_in_screen.dart';
-import 'package:sheta_store/common/app_colors.dart';
+import 'package:sheta_store/common/ui/app_colors.dart';
+import 'package:sheta_store/common/assets/assets.dart';
+import 'package:sheta_store/common/fonts/font_size_manager.dart';
+import 'package:sheta_store/common/ui/app_height.dart';
+import 'package:sheta_store/common/ui/app_padding_margin.dart';
 import 'package:sheta_store/common/validator/validators.dart';
 import 'package:sheta_store/common/widgets/custom_text_feild.dart';
 import 'package:sheta_store/common/widgets/sign_button.dart';
@@ -12,18 +14,17 @@ class SignUp extends StatelessWidget {
 
   final GlobalKey<FormState> formKey = GlobalKey();
 
-  final TextEditingController nameController=TextEditingController();
-  final TextEditingController phoneController=TextEditingController();
-  final TextEditingController emailController=TextEditingController();
-  final TextEditingController passwordController=TextEditingController();
-
+  final TextEditingController nameController = TextEditingController();
+  final TextEditingController phoneController = TextEditingController();
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.main,
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 17.0),
+        padding: EdgeInsets.symmetric(horizontal: AppMargin.m17),
         child: SingleChildScrollView(
           child: Form(
             key: formKey,
@@ -31,16 +32,16 @@ class SignUp extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 Padding(
-                  padding: const EdgeInsets.only(top: 40.0),
+                  padding: EdgeInsets.only(top: AppMargin.m40),
                   child: Image.asset(
-                    "assets/name.png",
+                   Assets.logo,
                   ),
                 ),
                 Text(
                   "Full Name",
                   style: TextStyle(
                       color: Colors.white,
-                      fontSize: 18.sp,
+                      fontSize: FontSizeManager.s18,
                       fontWeight: FontWeight.w500),
                   textAlign: TextAlign.left,
                 ),
@@ -50,13 +51,13 @@ class SignUp extends StatelessWidget {
                   validator: (textValue) => Validators.nameValidator(textValue),
                 ),
                 SizedBox(
-                  height: 32.h,
+                  height: AppHeight.h32,
                 ),
                 Text(
                   "Mobile number",
                   style: TextStyle(
                       color: Colors.white,
-                      fontSize: 18.sp,
+                      fontSize: FontSizeManager.s18,
                       fontWeight: FontWeight.w500),
                   textAlign: TextAlign.left,
                 ),
@@ -68,13 +69,13 @@ class SignUp extends StatelessWidget {
                       Validators.phoneValidator(textValue),
                 ),
                 SizedBox(
-                  height: 32.h,
+                  height: AppHeight.h32,
                 ),
                 Text(
                   "E-mail address",
                   style: TextStyle(
                       color: Colors.white,
-                      fontSize: 18.sp,
+                      fontSize: FontSizeManager.s18,
                       fontWeight: FontWeight.w500),
                   textAlign: TextAlign.left,
                 ),
@@ -86,13 +87,13 @@ class SignUp extends StatelessWidget {
                       Validators.emailValidator(textValue),
                 ),
                 SizedBox(
-                  height: 32.h,
+                  height: AppHeight.h32,
                 ),
                 Text(
                   "Password",
                   style: TextStyle(
                       color: Colors.white,
-                      fontSize: 18.sp,
+                      fontSize: FontSizeManager.s18,
                       fontWeight: FontWeight.w500),
                   textAlign: TextAlign.left,
                 ),
@@ -105,7 +106,7 @@ class SignUp extends StatelessWidget {
                   isPass: true,
                 ),
                 SizedBox(
-                  height: 32.h,
+                  height: AppHeight.h32,
                 ),
                 SignButton(
                   title: "Sign Up",
@@ -116,25 +117,23 @@ class SignUp extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    const Text(
+                     Text(
                       "Have an account? ",
-                      style: TextStyle(color: Colors.white),
+                      style: TextStyle(color: Colors.white, fontSize: FontSizeManager.s18),
                     ),
                     TextButton(
                       onPressed: () {
-                        Navigator.pushReplacement(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => SignIn(),
-                            ));
+                        Navigator.pushReplacement(context,
+                            MaterialPageRoute(builder: (context) => SignIn()));
                       },
                       style: TextButton.styleFrom(
                         minimumSize: const Size(0, 0),
                         padding: EdgeInsets.zero,
                       ),
-                      child: const Text(
+                      child: Text(
                         "Sign In",
                         style: TextStyle(
+                           fontSize: FontSizeManager.s18,
                             color: Colors.white,
                             decorationColor: Colors.white,
                             decoration: TextDecoration.underline,

@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:sheta_store/auth/sign_up/view/sign_up.dart';
-import 'package:sheta_store/common/app_colors.dart';
+import 'package:sheta_store/common/ui/app_colors.dart';
+import 'package:sheta_store/common/assets/assets.dart';
+import 'package:sheta_store/common/fonts/font_size_manager.dart';
+import 'package:sheta_store/common/ui/app_height.dart';
+import 'package:sheta_store/common/ui/app_padding_margin.dart';
 import 'package:sheta_store/common/validator/validators.dart';
 import 'package:sheta_store/common/widgets/custom_text_feild.dart';
 import 'package:sheta_store/common/widgets/sign_button.dart';
@@ -10,16 +13,15 @@ class SignIn extends StatelessWidget {
   SignIn({super.key});
 
   final GlobalKey<FormState> formKey = GlobalKey();
-  final TextEditingController nameController=TextEditingController();
-  final TextEditingController passwordController=TextEditingController();
-
+  final TextEditingController nameController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.main,
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 17.0),
+        padding: EdgeInsets.symmetric(horizontal: AppMargin.m17),
         child: SingleChildScrollView(
           child: Form(
             key: formKey,
@@ -27,9 +29,9 @@ class SignIn extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 40.0),
+                  padding: EdgeInsets.symmetric(vertical: AppMargin.m40),
                   child: Image.asset(
-                    "assets/name.png",
+                   Assets.logo2,
                   ),
                 ),
                 Text(
@@ -37,20 +39,20 @@ class SignIn extends StatelessWidget {
                   style: TextStyle(
                       color: Colors.white,
                       fontWeight: FontWeight.bold,
-                      fontSize: 22.sp),
+                      fontSize: FontSizeManager.s22),
                 ),
                 const Text(
                   "Please sign in with your mail",
                   style: TextStyle(color: Colors.white),
                 ),
                 SizedBox(
-                  height: 35.h,
+                  height: AppHeight.h35,
                 ),
                 Text(
                   "User Name",
                   style: TextStyle(
                       color: Colors.white,
-                      fontSize: 18.sp,
+                      fontSize: FontSizeManager.s22,
                       fontWeight: FontWeight.w500),
                   textAlign: TextAlign.left,
                 ),
@@ -60,13 +62,13 @@ class SignIn extends StatelessWidget {
                     validator: (textValue) =>
                         Validators.nameValidator(textValue)),
                 SizedBox(
-                  height: 32.h,
+                  height: AppHeight.h32,
                 ),
                 Text(
                   "Password",
                   style: TextStyle(
                       color: Colors.white,
-                      fontSize: 18.sp,
+                      fontSize: FontSizeManager.s18,
                       fontWeight: FontWeight.w500),
                   textAlign: TextAlign.left,
                 ),
@@ -84,10 +86,11 @@ class SignIn extends StatelessWidget {
                     onPressed: () {},
                     child: Text(
                       "Forget password",
-                      style: TextStyle(color: Colors.white, fontSize: 15.sp),
+                      style: TextStyle(
+                          color: Colors.white, fontSize: FontSizeManager.s18),
                     )),
                 SizedBox(
-                  height: 50.h,
+                  height: AppHeight.h50,
                 ),
                 SignButton(
                   title: "Log In",
@@ -98,9 +101,10 @@ class SignIn extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    const Text(
+                    Text(
                       "Don't have an account? ",
-                      style: TextStyle(color: Colors.white),
+                      style: TextStyle(
+                          color: Colors.white, fontSize: FontSizeManager.s18),
                     ),
                     TextButton(
                       onPressed: () {
@@ -110,10 +114,12 @@ class SignIn extends StatelessWidget {
                               builder: (context) => SignUp(),
                             ));
                       },
-                      style: TextButton.styleFrom(padding: EdgeInsets.zero),
-                      child: const Text(
+                      style: TextButton.styleFrom(
+                          padding: EdgeInsets.all(AppPadding.p0)),
+                      child: Text(
                         "Creat Account",
                         style: TextStyle(
+                            fontSize: FontSizeManager.s18,
                             color: Colors.white,
                             decorationColor: Colors.white,
                             decoration: TextDecoration.underline,

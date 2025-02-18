@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:sheta_store/common/app_colors.dart';
+import 'package:sheta_store/common/ui/app_colors.dart';
 
 class SignButton extends StatelessWidget {
   const SignButton({super.key, required this.title, required this.onpressed});

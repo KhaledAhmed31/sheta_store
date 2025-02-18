@@ -19,7 +19,7 @@ class Validators {
     if (val == null) {
       return "Enter your number";
     } else if (val.isEmpty) {
-      return "Enter your name";
+      return "Enter your number";
     } else if (!phoneRegExp.hasMatch(val)) {
       return "Enter valid number";
     } else {
