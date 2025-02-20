@@ -34,7 +34,7 @@ class SignUp extends StatelessWidget {
                 Padding(
                   padding: EdgeInsets.only(top: AppMargin.m40),
                   child: Image.asset(
-                   Assets.logo,
+                    Assets.logo2,
                   ),
                 ),
                 Text(
@@ -117,9 +117,10 @@ class SignUp extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                     Text(
+                    Text(
                       "Have an account? ",
-                      style: TextStyle(color: Colors.white, fontSize: FontSizeManager.s18),
+                      style: TextStyle(
+                          color: Colors.white, fontSize: FontSizeManager.s18),
                     ),
                     TextButton(
                       onPressed: () {
@@ -133,7 +134,7 @@ class SignUp extends StatelessWidget {
                       child: Text(
                         "Sign In",
                         style: TextStyle(
-                           fontSize: FontSizeManager.s18,
+                            fontSize: FontSizeManager.s18,
                             color: Colors.white,
                             decorationColor: Colors.white,
                             decoration: TextDecoration.underline,
