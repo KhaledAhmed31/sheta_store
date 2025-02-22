@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:sheta_store/auth/sign_in/view/sign_in_screen.dart';
+import 'package:sheta_store/auth/sign_in/presentation/screens/sign_in_screen.dart';
 import 'package:sheta_store/common/assets/assets.dart';
 
 class SplashScreen extends StatelessWidget {
