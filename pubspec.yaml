@@ -13,6 +13,8 @@ dependencies:
     sdk: flutter
   flutter_screenutil: ^5.9.3
   flutter_bloc: ^9.0.0
+  loader_overlay: ^4.0.4+1
+  fluttertoast: ^8.2.12
 
 dev_dependencies:
   flutter_test:
