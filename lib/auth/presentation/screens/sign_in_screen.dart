@@ -1,9 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:sheta_store/auth/data/models/sign_up_model.dart';
-import 'package:sheta_store/auth/sign_in/presentation/screens/sign_in_screen.dart';
-import 'package:sheta_store/auth/sign_up/presentation/cubit/sign_up_cubit.dart';
-import 'package:sheta_store/auth/sign_up/presentation/cubit/states/sign_in_state.dart';
+import 'package:fluttertoast/fluttertoast.dart';
+import 'package:loader_overlay/loader_overlay.dart';
+
+import 'package:sheta_store/auth/data/models/sign_in_params.dart';
+import 'package:sheta_store/auth/sign_in/presentation/cubit/sign_in_cubit.dart';
+import 'package:sheta_store/auth/sign_in/presentation/cubit/states/error_state.dart';
+import 'package:sheta_store/auth/sign_in/presentation/cubit/states/loading_state.dart';
+import 'package:sheta_store/auth/sign_in/presentation/cubit/states/sign_in_state.dart';
+import 'package:sheta_store/auth/sign_in/presentation/cubit/states/success_state.dart';
+import 'package:sheta_store/auth/sign_up/presentation/screens/sign_up.dart';
 import 'package:sheta_store/common/ui/app_colors.dart';
 import 'package:sheta_store/common/assets/assets.dart';
 import 'package:sheta_store/common/fonts/font_size_manager.dart';
@@ -13,22 +19,37 @@ import 'package:sheta_store/common/validator/validators.dart';
 import 'package:sheta_store/common/widgets/custom_text_feild.dart';
 import 'package:sheta_store/common/widgets/sign_button.dart';
 
-class SignUp extends StatelessWidget {
-  SignUp({super.key});
+class SignIn extends StatelessWidget {
+  SignIn({super.key});
 
   final GlobalKey<FormState> formKey = GlobalKey();
-
-  final TextEditingController nameController = TextEditingController();
-  final TextEditingController phoneController = TextEditingController();
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider<SignUpCubit>(
-        create: (_) => SignUpCubit(),
-        child: BlocBuilder<SignUpCubit, SignUpState>(
-         builder: (context, state) => Scaffold(
+    return BlocProvider<SignInCubit>(
+      create: (context) => SignInCubit(),
+      child: BlocListener<SignInCubit, AuthState>(
+        listener: (context, state) {
+          if (state is SignInLoadingState) {
+            context.loaderOverlay.show();
+          } else if (state is SignInSuccessState) {
+            context.loaderOverlay.hide();
+          } else if (state is SignInErrorState) {
+            context.loaderOverlay.hide();
+            Fluttertoast.showToast(
+                msg: state.errorMessage,
+                toastLength: Toast.LENGTH_SHORT,
+                gravity: ToastGravity.BOTTOM,
+                timeInSecForIosWeb: 2,
+                backgroundColor: Colors.white,
+                textColor: AppColors.main,
+                fontSize: 16.0);
+          }
+
+        },
+          child:  Scaffold(
             backgroundColor: AppColors.main,
             body: Padding(
               padding: EdgeInsets.symmetric(horizontal: AppMargin.m17),
@@ -39,61 +60,38 @@ class SignUp extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
                       Padding(
-                        padding: EdgeInsets.only(top: AppMargin.m40),
+                        padding: EdgeInsets.symmetric(vertical: AppMargin.m40),
                         child: Image.asset(
                           Assets.logo2,
                         ),
                       ),
                       Text(
-                        "Full Name",
+                        "Welcome Back",
                         style: TextStyle(
                             color: Colors.white,
-                            fontSize: FontSizeManager.s18,
-                            fontWeight: FontWeight.w500),
-                        textAlign: TextAlign.left,
+                            fontWeight: FontWeight.bold,
+                            fontSize: FontSizeManager.s22),
                       ),
-                      CustomTextFeild(
-                        hint: "Enter your name",
-                        controller: nameController,
-                        validator: (textValue) =>
-                            Validators.nameValidator(textValue),
+                      const Text(
+                        "Please sign in with your mail",
+                        style: TextStyle(color: Colors.white),
                       ),
                       SizedBox(
-                        height: AppHeight.h32,
+                        height: AppHeight.h35,
                       ),
                       Text(
-                        "Mobile number",
+                        "Email",
                         style: TextStyle(
                             color: Colors.white,
-                            fontSize: FontSizeManager.s18,
+                            fontSize: FontSizeManager.s22,
                             fontWeight: FontWeight.w500),
                         textAlign: TextAlign.left,
                       ),
                       CustomTextFeild(
-                        hint: "Enter your mobile no.",
-                        controller: phoneController,
-                        keyboardType: TextInputType.phone,
-                        validator: (textValue) =>
-                            Validators.phoneValidator(textValue),
-                      ),
-                      SizedBox(
-                        height: AppHeight.h32,
-                      ),
-                      Text(
-                        "E-mail address",
-                        style: TextStyle(
-                            color: Colors.white,
-                            fontSize: FontSizeManager.s18,
-                            fontWeight: FontWeight.w500),
-                        textAlign: TextAlign.left,
-                      ),
-                      CustomTextFeild(
-                        hint: "Enter your email address",
-                        controller: emailController,
-                        keyboardType: TextInputType.emailAddress,
-                        validator: (textValue) =>
-                            Validators.emailValidator(textValue),
-                      ),
+                          hint: "Enter your email",
+                          controller: emailController,
+                          validator: (textValue) =>
+                              Validators.nameValidator(textValue)),
                       SizedBox(
                         height: AppHeight.h32,
                       ),
@@ -113,18 +111,27 @@ class SignUp extends StatelessWidget {
                             Validators.passwordValidator(textValue),
                         isPass: true,
                       ),
+                      TextButton(
+                          style: TextButton.styleFrom(
+                              alignment: Alignment.centerRight),
+                          onPressed: () {},
+                          child: Text(
+                            "Forget password",
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: FontSizeManager.s18),
+                          )),
                       SizedBox(
-                        height: AppHeight.h32,
+                        height: AppHeight.h50,
                       ),
                       SignButton(
-                        title: "Sign Up",
+                        title: "Log In",
                         onpressed: () {
                           if (formKey.currentState!.validate()) {
-                            BlocProvider.of<SignUpCubit>(context).signUp(
-                               SignUpParams( name: nameController.text,
-                                phone: phoneController.text,
-                                email: emailController.text,
-                                password: passwordController.text));
+                            BlocProvider.of<SignInCubit>(context).signIn(
+                                SignInParams(
+                                    email: emailController.text,
+                                    password: passwordController.text));
                           }
                         },
                       ),
@@ -132,7 +139,7 @@ class SignUp extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Text(
-                            "Have an account? ",
+                            "Don't have an account? ",
                             style: TextStyle(
                                 color: Colors.white,
                                 fontSize: FontSizeManager.s18),
@@ -142,14 +149,13 @@ class SignUp extends StatelessWidget {
                               Navigator.pushReplacement(
                                   context,
                                   MaterialPageRoute(
-                                      builder: (context) => SignIn()));
+                                    builder: (context) => SignUpScreen(),
+                                  ));
                             },
                             style: TextButton.styleFrom(
-                              minimumSize: const Size(0, 0),
-                              padding: EdgeInsets.zero,
-                            ),
+                                padding: EdgeInsets.all(AppPadding.p0)),
                             child: Text(
-                              "Sign In",
+                              "Creat Account",
                               style: TextStyle(
                                   fontSize: FontSizeManager.s18,
                                   color: Colors.white,
@@ -166,13 +172,7 @@ class SignUp extends StatelessWidget {
               ),
             ),
           ),
-        ));
+      ),
+    );
   }
 }
-
-
-
-
-
-
-
