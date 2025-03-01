@@ -1,3 +1,4 @@
+import 'package:injectable/injectable.dart';
 import 'package:sheta_store/features/auth/data/models/sign_in_params.dart';
 import 'package:sheta_store/features/auth/data/repository/auth_repo.dart';
 import 'package:sheta_store/features/auth/presentation/cubit/states/error_state.dart';
@@ -9,16 +10,14 @@ import 'package:sheta_store/features/auth/presentation/cubit/states/sign_up_load
 import 'package:sheta_store/features/auth/presentation/cubit/states/sign_up_success_state.dart';
 import 'package:sheta_store/features/auth/presentation/cubit/states/success_state.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:sheta_store/core/constants/auth_data_identifiers/auth_data_identifiers.dart';
 
 import '../../data/models/sign_up_model.dart';
 
+@singleton
 class AuthCubit extends Cubit<AuthState> {
-  AuthRepo authRepo;
-  AuthCubit()
-      : authRepo = AuthRepo(
-            authRemoteData: AuthDataIdentifiers.dataBase,
-            authLocalData: AuthDataIdentifiers.cache),
+  final AuthRepo authRepo;
+  AuthCubit(this.authRepo)
+      :
         super(SignInInitialState());
 
   Future<void> signIn(SignInParams signupParams) async {

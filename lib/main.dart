@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:loader_overlay/loader_overlay.dart';
+import 'package:sheta_store/core/DI/auth_data_identifiers.dart';
 import 'package:sheta_store/core/routes/routes_generator.dart';
 import 'package:sheta_store/core/ui/app_colors.dart';
 import 'package:sheta_store/features/splash/splash_screen.dart';
@@ -8,7 +9,9 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'features/auth/presentation/cubit/sign_in_cubit.dart';
 
-void main() {
+void main() async{
+  WidgetsFlutterBinding.ensureInitialized();
+  await configureDependencies();
   runApp(const MyApp());
 }
 
@@ -30,7 +33,7 @@ class MyApp extends StatelessWidget {
             ),
           ),
           child: BlocProvider<AuthCubit>(
-            create: (context) => AuthCubit(),
+            create: (context) => getIt<AuthCubit>(),
             child: MaterialApp(
               debugShowCheckedModeBanner: false,
               title: 'Sheta store',

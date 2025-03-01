@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:loader_overlay/loader_overlay.dart';
-
 import 'package:sheta_store/features/auth/data/models/sign_in_params.dart';
 import 'package:sheta_store/features/auth/presentation/cubit/states/error_state.dart';
 import 'package:sheta_store/features/auth/presentation/cubit/states/loading_state.dart';
@@ -21,7 +20,6 @@ import '../cubit/sign_in_cubit.dart';
 import '../cubit/states/sign_in_state.dart';
 
 class SignIn extends StatefulWidget {
-
   const SignIn({super.key});
 
   @override
@@ -35,12 +33,13 @@ class _SignInState extends State<SignIn> {
 
   final TextEditingController passwordController = TextEditingController();
 
-@override
+  @override
   void dispose() {
     super.dispose();
     emailController.dispose();
     passwordController.dispose();
   }
+
   @override
   Widget build(BuildContext context) {
     return BlocListener<AuthCubit, AuthState>(
