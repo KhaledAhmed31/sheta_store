@@ -1,0 +1,2 @@
+C:/Users/Khaled Ahmed/VS code projects/sheta_store/android/app/.cxx/Debug/1ow2f6d4/x86/CMakeFiles/edit_cache.dir
+C:/Users/Khaled Ahmed/VS code projects/sheta_store/android/app/.cxx/Debug/1ow2f6d4/x86/CMakeFiles/rebuild_cache.dir
