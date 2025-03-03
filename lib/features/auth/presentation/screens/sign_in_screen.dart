@@ -16,7 +16,7 @@ import 'package:sheta_store/core/validator/validators.dart';
 import 'package:sheta_store/core/widgets/custom_text_feild.dart';
 import 'package:sheta_store/core/widgets/sign_button.dart';
 
-import '../cubit/sign_in_cubit.dart';
+import '../cubit/auth_cubit.dart';
 import '../cubit/states/sign_in_state.dart';
 
 class SignIn extends StatefulWidget {

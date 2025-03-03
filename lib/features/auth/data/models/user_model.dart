@@ -1,12 +1,9 @@
+import 'package:sheta_store/features/auth/domain/entities/user_entite.dart';
 
-class User {
-  String? name;
-  String? email;
-  String? role;
+class UserModel extends UserEntite {
+  UserModel({super.name, super.email, super.role});
 
-  User({this.name, this.email, this.role});
-
-  User.fromJson(Map<String, dynamic> json) {
+  UserModel.fromJson(Map<String, dynamic> json) {
     if (json["name"] is String) {
       name = json["name"];
     }

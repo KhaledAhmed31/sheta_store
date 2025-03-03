@@ -27,4 +27,13 @@ class AuthCacheData implements AuthLocalData {
       throw LocalErrorHandler(message: e.toString());
     }
   }
+  
+  @override
+  Future<bool> signOut() {
+    try {
+      return prefs.remove(SharedPreferencesKeys.tokenKey);
+    } catch (e) {
+      throw LocalErrorHandler(message: e.toString());
+    }
+  }
 }

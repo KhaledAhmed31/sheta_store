@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:loader_overlay/loader_overlay.dart';
-import 'package:sheta_store/core/DI/auth_data_identifiers.dart';
+import 'package:sheta_store/core/constants/auth_data_identifiers/auth_data_identifiers.dart';
 import 'package:sheta_store/core/routes/routes_generator.dart';
 import 'package:sheta_store/core/ui/app_colors.dart';
 import 'package:sheta_store/features/splash/splash_screen.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import 'features/auth/presentation/cubit/sign_in_cubit.dart';
+import 'features/auth/presentation/cubit/auth_cubit.dart';
 
 void main() async{
   WidgetsFlutterBinding.ensureInitialized();

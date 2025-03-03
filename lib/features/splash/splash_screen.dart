@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sheta_store/core/assets/assets.dart';
+import 'package:sheta_store/features/auth/presentation/cubit/auth_cubit.dart';
 import '../auth/presentation/screens/sign_in_screen.dart';
 
 class SplashScreen extends StatelessWidget {
@@ -12,7 +14,7 @@ class SplashScreen extends StatelessWidget {
         // ignore: use_build_context_synchronously
         context,
         MaterialPageRoute(
-          builder: (_) => SignIn(),
+          builder: (_) => (context.read<AuthCubit>().checkToken())?Container() : SignIn(),
         ),
       ),
     );
