@@ -3,5 +3,5 @@ class UserEntite {
   String? email;
   String? role;
 
-  UserEntite({ this.name, this.email, this.role});
+  UserEntite({this.name, this.email, this.role});
 }

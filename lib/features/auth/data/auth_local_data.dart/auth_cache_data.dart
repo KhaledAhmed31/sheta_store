@@ -27,7 +27,7 @@ class AuthCacheData implements AuthLocalData {
       throw LocalErrorHandler(message: e.toString());
     }
   }
-  
+
   @override
   Future<bool> signOut() {
     try {

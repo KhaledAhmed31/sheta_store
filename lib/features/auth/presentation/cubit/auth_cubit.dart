@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:injectable/injectable.dart';
 import 'package:sheta_store/features/auth/data/models/sign_in_params.dart';
 import 'package:sheta_store/features/auth/domain/use_cases/check_token_use_case.dart';

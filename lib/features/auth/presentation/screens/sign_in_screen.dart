@@ -48,6 +48,7 @@ class _SignInState extends State<SignIn> {
           context.loaderOverlay.show();
         } else if (state is SignInSuccessState) {
           context.loaderOverlay.hide();
+          Navigator.pushReplacementNamed(context, "MainScreen");
         } else if (state is SignInErrorState) {
           context.loaderOverlay.hide();
           Fluttertoast.showToast(
