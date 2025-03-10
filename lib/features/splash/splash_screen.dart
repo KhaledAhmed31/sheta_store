@@ -14,8 +14,10 @@ class SplashScreen extends StatelessWidget {
         // ignore: use_build_context_synchronously
         context,
         (context.read<AuthCubit>().checkToken())? RouteName.mainScreen : RouteName.signInScreen,
+     
       ),
     );
+
 
     return Image.asset(
       Assets.splash,

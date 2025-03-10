@@ -4,7 +4,7 @@ import 'package:sheta_store/core/ui/app_colors.dart';
 import 'package:sheta_store/core/ui/app_height.dart';
 import 'package:sheta_store/core/ui/app_padding_margin.dart';
 import 'package:sheta_store/features/main_layout/domain/entities/banner_entitie.dart';
-import 'package:sheta_store/features/main_layout/widgets/banner/banner_item.dart';
+import 'package:sheta_store/features/main_layout/presentation/home/widgets/banner/banner_item.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class AppBanner extends StatefulWidget {
@@ -28,10 +28,7 @@ class _AppBannerState extends State<AppBanner> {
         alignment: Alignment.bottomCenter,
         children: [
           PageView.builder(
-            physics: ClampingScrollPhysics(),
-
             itemCount: widget.bannerItems.length,
-
             itemBuilder:
                 (context, index) =>
                     BannerItem(bannerEntitie: widget.bannerItems[index]),
@@ -42,7 +39,6 @@ class _AppBannerState extends State<AppBanner> {
             bottom: AppMargin.m8,
             child: SmoothPageIndicator(
               controller: pageController,
-
               onDotClicked: (index) {
                 pageController.animateToPage(
                   index,

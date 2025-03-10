@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:sheta_store/features/auth/presentation/screens/sign_in_screen.dart';
 import 'package:sheta_store/features/auth/presentation/screens/sign_up_screen.dart';
-import 'package:sheta_store/features/main_layout/screens/main_layout.dart';
+import 'package:sheta_store/features/main_layout/presentation/main_layout.dart';
 
 class RoutesGenerator {
   static Route<dynamic> getRoute(RouteSettings settings) {

@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
 import 'package:sheta_store/core/constants/api/api_constants.dart';
@@ -12,13 +14,17 @@ class CategoriesApiDataSource implements CategoriesRemoteDataSource {
   CategoriesApiDataSource(this.dio);
   @override
   Future<List<CategoryModel>> getCategories() async {
+    print("loading categories");
+
     try {
+      print("got categories");
       var response = await dio.get(ApiConstants.categories);
       return CategoryResponseModel.fromJson(response.data).categories;
     } catch (e) {
+      log("error loading categories");
       String messege = e.toString();
       if (e is DioException) {
-        messege = e.response!.data['message'];
+        messege = e.response?.data['message'] ?? "some thing went wrong";
       }
       throw RemoteErrorsHandler(message: messege);
     }

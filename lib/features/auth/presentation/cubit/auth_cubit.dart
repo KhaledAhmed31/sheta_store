@@ -18,15 +18,15 @@ import '../../data/models/sign_up_model.dart';
 
 @singleton
 class AuthCubit extends Cubit<AuthState> {
-  final SignInUseCase signInUseCase;
-  final SignUpUseCase signUpUseCase;
-  final SignOutUseCase signOutUseCase;
-  final CheckTokenUseCase checkTokenUseCase;
-  AuthCubit( this.signInUseCase, this.signUpUseCase, this.signOutUseCase, this.checkTokenUseCase) : super(SignInInitialState());
+  final SignInUseCase _signInUseCase;
+  final SignUpUseCase _signUpUseCase;
+  final SignOutUseCase _signOutUseCase;
+  final CheckTokenUseCase _checkTokenUseCase;
+  AuthCubit( this._signInUseCase, this._signUpUseCase, this._signOutUseCase, this._checkTokenUseCase) : super(SignInInitialState());
 
   Future<void> signIn(SignInParams signInParams) async {
     emit(SignInLoadingState());
-    var response = await signInUseCase(signInParams);
+    var response = await _signInUseCase(signInParams);
     if (response.$1 == null) {
       emit(SignInSuccessState());
     } else {
@@ -37,7 +37,7 @@ class AuthCubit extends Cubit<AuthState> {
   Future<void> signUp(SignUpParams signInParams) async {
     emit(SignUpLoadingState());
 
-    var response = await signUpUseCase(signInParams);
+    var response = await _signUpUseCase(signInParams);
     if (response == null) {
       emit(SignUpSuccessState());
     } else {
@@ -46,11 +46,11 @@ class AuthCubit extends Cubit<AuthState> {
   }
 
   Future<void> signOut() async {
-    await signOutUseCase();
+    await _signOutUseCase();
   }
 
   bool checkToken()  {
-    bool isSigned = checkTokenUseCase();
+    bool isSigned = _checkTokenUseCase();
     if(isSigned){
       emit(SignInSuccessState());
     }

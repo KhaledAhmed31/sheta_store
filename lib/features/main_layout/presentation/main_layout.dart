@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:sheta_store/features/main_layout/presentation/home/home_tap.dart';
+import 'package:flutter_svg_provider/flutter_svg_provider.dart';
+
 
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
@@ -9,31 +11,45 @@ class MainScreen extends StatefulWidget {
 }
 
 class _MainScreenState extends State<MainScreen> {
-  List<Widget> taps = [HomeTap(), Container()];
+  List<Widget> taps = [HomeTap(), Container(), Container(), Container()];
   int currentTapIndex = 0;
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.white,
+    return SafeArea(
+      child: Scaffold(
+        body: taps[currentTapIndex],
 
-      body: taps[currentTapIndex],
-      bottomNavigationBar: BottomNavigationBar(
-        currentIndex: currentTapIndex,
-        onTap: (index) {
-          setState(() {
-            currentTapIndex = index;
-          });
-        },
-        items: [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.access_alarms_outlined),
-            label: "home",
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.access_alarms_outlined),
-            label: "tllt",
-          ),
-        ],
+        bottomNavigationBar: BottomNavigationBar(
+          showSelectedLabels: false,
+          showUnselectedLabels: false,
+          unselectedItemColor: Colors.red,
+          unselectedIconTheme: IconThemeData(color: Colors.red),
+          type: BottomNavigationBarType.fixed,
+          currentIndex: currentTapIndex,
+          onTap: (index) {
+            setState(() {
+              currentTapIndex = index;
+            });
+          },
+          items: [
+            BottomNavigationBarItem(
+              icon: ImageIcon(Svg("assets/icons/home.svg")),
+              label: '',
+            ),
+            BottomNavigationBarItem(
+              icon: ImageIcon(Svg("assets/icons/categories.svg")),
+              label: '',
+            ),
+            BottomNavigationBarItem(
+              icon: ImageIcon(Svg("assets/icons/favorite.svg")),
+              label: '',
+            ),
+            BottomNavigationBarItem(
+              icon: ImageIcon(Svg("assets/icons/profile.svg")),
+              label: '',
+            ),
+          ],
+        ),
       ),
     );
   }
