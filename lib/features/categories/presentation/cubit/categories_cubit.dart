@@ -10,7 +10,9 @@ import 'package:sheta_store/features/categories/presentation/cubit/states/catego
 @lazySingleton
 class CategoriesCubit extends Cubit<CategoriesState> {
   final GetCategoriesUseCase categoryUseCase;
-  CategoriesCubit(this.categoryUseCase) : super(CategoriesInitialState());
+  CategoriesCubit(this.categoryUseCase) : super(CategoriesInitialState()){
+    getCategories();
+  }
   Future<void> getCategories() async {
     emit(CategoriesLoadingState());
 

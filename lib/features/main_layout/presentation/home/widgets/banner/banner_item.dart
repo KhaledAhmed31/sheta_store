@@ -19,8 +19,8 @@ class BannerItem extends StatelessWidget {
         Image.asset(bannerEntitie.image, fit: BoxFit.fill),
         Positioned(
           top: AppMargin.m20,
-          left: (bannerEntitie.textOnLeft) ? AppMargin.m17 : null,
-          right: (bannerEntitie.textOnLeft) ? null : AppMargin.m17,
+          left: (bannerEntitie.textOnLeft) ? AppMargin.m36 : null,
+          right: (bannerEntitie.textOnLeft) ? null : AppMargin.m36,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [

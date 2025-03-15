@@ -5,7 +5,6 @@ import 'package:sheta_store/core/constants/auth_data_identifiers/auth_data_ident
 import 'package:sheta_store/core/routes/routes_generator.dart';
 import 'package:sheta_store/core/ui/app_colors.dart';
 import 'package:sheta_store/core/ui/app_theme.dart';
-import 'package:sheta_store/features/splash/splash_screen.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'features/auth/presentation/cubit/auth_cubit.dart';
@@ -35,12 +34,11 @@ class MyApp extends StatelessWidget {
           ),
           child: BlocProvider<AuthCubit>(
             create: (context) => getIt<AuthCubit>(),
-            child: MaterialApp(
+            child: MaterialApp.router(
               debugShowCheckedModeBanner: false,
               title: 'Sheta store',
-              home: SplashScreen(),
               theme: AppTheme.myTheme,
-              onGenerateRoute: RoutesGenerator.getRoute,
+              routerConfig: RoutesGenerator.getRoute,
             ),
           ),
         );

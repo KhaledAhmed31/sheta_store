@@ -14,10 +14,10 @@ class CategoriesApiDataSource implements CategoriesRemoteDataSource {
   CategoriesApiDataSource(this.dio);
   @override
   Future<List<CategoryModel>> getCategories() async {
-    print("loading categories");
+    log("loading categories");
 
     try {
-      print("got categories");
+      log("got categories");
       var response = await dio.get(ApiConstants.categories);
       return CategoryResponseModel.fromJson(response.data).categories;
     } catch (e) {

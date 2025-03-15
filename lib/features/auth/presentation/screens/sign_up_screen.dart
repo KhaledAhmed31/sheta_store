@@ -178,7 +178,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         Navigator.pushReplacement(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => SignIn()));
+                                builder: (context) => SignInScreen()));
                       },
                       style: TextButton.styleFrom(
                         minimumSize: const Size(0, 0),

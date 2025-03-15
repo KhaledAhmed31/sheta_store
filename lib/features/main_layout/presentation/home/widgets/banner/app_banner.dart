@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:sheta_store/core/ui/app_colors.dart';
@@ -15,13 +17,23 @@ class AppBanner extends StatefulWidget {
 }
 
 class _AppBannerState extends State<AppBanner> {
-  int currentIndex = 0;
+  int _currentPage = 0;
+  Timer? _timer;
+  late PageController pageController;
+
+  @override
+  void initState() {
+    super.initState();
+    pageController = PageController(initialPage: _currentPage);
+    _timer = Timer.periodic(Duration(seconds: 5), (Timer timer) {
+      switchBanner();
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
-    PageController pageController = PageController(initialPage: currentIndex);
-
     return Container(
-      width: double.infinity,
+      width: AppWidth.w400,
       height: AppHeight.h200,
       decoration: BoxDecoration(borderRadius: BorderRadius.circular(20.r)),
       child: Stack(
@@ -33,7 +45,7 @@ class _AppBannerState extends State<AppBanner> {
                 (context, index) =>
                     BannerItem(bannerEntitie: widget.bannerItems[index]),
             controller: pageController,
-            onPageChanged: (value) => setState(() => currentIndex = value),
+            onPageChanged: (value) => setState(() => _currentPage = value),
           ),
           Positioned(
             bottom: AppMargin.m8,
@@ -59,4 +71,19 @@ class _AppBannerState extends State<AppBanner> {
       ),
     );
   }
+  void switchBanner(){
+    if (_currentPage < 2) {
+      _currentPage++;
+    } else {
+      _currentPage = 0;
+    }
+
+    pageController.animateToPage(
+      _currentPage,
+      duration: Duration(milliseconds: 650),
+      curve: Curves.ease,
+    );
+  }
 }
+
+
