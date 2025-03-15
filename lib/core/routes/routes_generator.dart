@@ -13,15 +13,38 @@ class RoutesGenerator {
           GoRoute(path: "/", builder: (context, state) => SplashScreen()),
           GoRoute(
             path: RouteName.signInScreen,
-            builder: (context, state) => SignInScreen(),
+            pageBuilder: (context, state) => CustomTransitionPage(child: SignInScreen(),
+            key: state.pageKey,
+            transitionsBuilder: (context, animation, secondaryAnimation, child) => FadeTransition(
+              opacity:  CurveTween(curve: Curves.easeInOut).animate(animation),
+              child: child,
+            ),
+           reverseTransitionDuration: Duration(milliseconds: 500),
+          ),
           ),
           GoRoute(
             path: RouteName.signUpScreen,
-            builder: (context, state) => SignUpScreen(),
+            pageBuilder: (context, state) => CustomTransitionPage(child: SignUpScreen(),
+            key: state.pageKey,
+            transitionsBuilder: (context, animation, secondaryAnimation, child) => FadeTransition(
+              opacity:  CurveTween(curve: Curves.easeInOut).animate(animation),
+              child: child,
+            ),
+           reverseTransitionDuration: Duration(milliseconds: 500),
+          ),
           ),
           GoRoute(
-            path: RouteName.mainScreen,
-            builder: (context, state) => MainScreen(),
+              path: RouteName.mainScreen,
+            pageBuilder: (context, state) => CustomTransitionPage(child: MainScreen(),
+            key: state.pageKey,
+            transitionsBuilder: (context, animation, secondaryAnimation, child) => FadeTransition(
+              opacity:  CurveTween(curve: Curves.easeInOut).animate(animation),
+              child: child,
+            ),
+           reverseTransitionDuration: Duration(milliseconds: 500),
+          ),
+
+
           ),
         ],
   );
