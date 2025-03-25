@@ -1,7 +1,6 @@
-import 'package:sheta_store/features/categories/domain/entities/category_model.dart';
+import 'package:sheta_store/features/categories/domain/entities/category_entity.dart';
 
-class CategoryModel extends CategoryEntite{
-
+class CategoryModel extends CategoryEntity {
   CategoryModel.fromJson(Map<String, dynamic> json) {
     id = json['_id'];
     name = json['name'];

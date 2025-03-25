@@ -8,7 +8,7 @@ class FontStyleManager {
     required double size,
     required FontWeight weight,
     required Color color,
-    double? height
+    double? height,
   }) {
     return TextStyle(
       height: height,
@@ -19,19 +19,56 @@ class FontStyleManager {
     );
   }
 
-  static TextStyle lightStyle({required double size, required Color color,double? height}) =>
-      _getStyel(size: size, weight: FontWeight.w300, color: color ,height: height);
-  static TextStyle regularStyle({required double size, required Color color,double? height}) =>
-      _getStyel(size: size, weight: FontWeight.w400, color: color,height: height);
-  static TextStyle mediumStyle({required double size, required Color color,double? height}) =>
-      _getStyel(size: size, weight: FontWeight.w500, color: color,height: height);
+  static TextStyle lightStyle({
+    required double size,
+    required Color color,
+    double? height,
+  }) => _getStyel(
+    size: size,
+    weight: FontWeight.w300,
+    color: color,
+    height: height,
+  );
+  static TextStyle regularStyle({
+    required double size,
+    required Color color,
+    double? height,
+  }) => _getStyel(
+    size: size,
+    weight: FontWeight.w400,
+    color: color,
+    height: height,
+  );
+  static TextStyle mediumStyle({
+    required double size,
+    required Color color,
+    double? height,
+  }) => _getStyel(
+    size: size,
+    weight: FontWeight.w500,
+    color: color,
+    height: height,
+  );
   static TextStyle semiBoldStyle({
     required double size,
     required Color color,
-    double? height
-  }) => _getStyel(size: size, weight: FontWeight.w600, color: color,height: height);
-  static TextStyle boldStyle({required double size, required Color color,double? height}) =>
-      _getStyel(size: size, weight: FontWeight.w700, color: color,height: height);
+    double? height,
+  }) => _getStyel(
+    size: size,
+    weight: FontWeight.w600,
+    color: color,
+    height: height,
+  );
+  static TextStyle boldStyle({
+    required double size,
+    required Color color,
+    double? height,
+  }) => _getStyel(
+    size: size,
+    weight: FontWeight.w700,
+    color: color,
+    height: height,
+  );
 
   static TextStyle withLineThroygh() {
     return TextStyle(
@@ -42,6 +79,7 @@ class FontStyleManager {
       fontWeight: FontWeight.w400,
       decorationColor: AppColors.main,
       decorationThickness: 2,
+      height: 1,
     );
   }
 }

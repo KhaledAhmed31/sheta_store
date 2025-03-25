@@ -6,7 +6,7 @@ class AppMargin {
   static double m40 = 40.0;
   static double m17 = 17.0;
 
-  static double m6 = 6.0;
+  static double m3 = 3.0;
   static double m10 = 10.0;
   static double m20 = 20.0;
   static double m24 = 24.0;

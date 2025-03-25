@@ -10,6 +10,8 @@ class Assets {
   static const String categoryIcon = "assets/icons/categories.svg";
   static const String profileIcon = "assets/icons/profile.svg";
   static const String favoriteIcon = "assets/icons/favorite.svg";
+  static const String addToFavoriteIcon = "assets/icons/add_to_fav.svg";
   static const String cartIcon = "assets/icons/cart.svg";
   static const String searchIcon = "assets/icons/search.svg";
+  static const String addIcon = "assets/icons/add_to_cart.svg";
 }
