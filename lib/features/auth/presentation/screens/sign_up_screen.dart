@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:go_router/go_router.dart';
 import 'package:loader_overlay/loader_overlay.dart';
+import 'package:sheta_store/core/routes/route_name.dart';
 
 import 'package:sheta_store/features/auth/data/models/sign_up_model.dart';
 import 'package:sheta_store/features/auth/presentation/cubit/states/sign_up_error_state.dart';
 import 'package:sheta_store/features/auth/presentation/cubit/states/sign_up_success_state.dart';
-import 'package:sheta_store/features/auth/presentation/screens/sign_in_screen.dart';
 
 import 'package:sheta_store/core/ui/app_colors.dart';
 import 'package:sheta_store/core/assets/assets.dart';
@@ -175,10 +176,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     ),
                     TextButton(
                       onPressed: () {
-                        Navigator.pushReplacement(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => SignIn()));
+                       context.go(RouteName.signInScreen);
                       },
                       style: TextButton.styleFrom(
                         minimumSize: const Size(0, 0),
