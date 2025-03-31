@@ -26,53 +26,49 @@ class ProductScreen extends StatelessWidget {
       create:
           (context) =>
               productCubit..getProductsList(ProductRequest(categoryId: catId)),
-      child: BlocBuilder<ProductCubit, ProductState>(
-        builder: (context, state) {
-          if (state is ProductLoadingState) {
-            return Scaffold(
-              backgroundColor: Colors.white,
-              body: Center(
-                child: CircularProgressIndicator(color: AppColors.main),
-              ),
-            );
-          } else if (state is ProductErrorState) {
-            Fluttertoast.showToast(
-              msg: state.message,
-              toastLength: Toast.LENGTH_SHORT,
-              gravity: ToastGravity.BOTTOM,
-              timeInSecForIosWeb: 2,
-              backgroundColor: Colors.white,
-              textColor: AppColors.main,
-              fontSize: 16.0,
-            );
-            return Scaffold(backgroundColor: Colors.white);
-
-          } else if (state is ProductSuccessState) {
-            return Scaffold(
-              appBar: AppBar(
-                toolbarHeight: 50.h,
-                surfaceTintColor: Colors.white,
+      child: Scaffold(
+        appBar: AppBar(
+          toolbarHeight: 50.h,
+          surfaceTintColor: Colors.white,
+          backgroundColor: Colors.white,
+          systemOverlayStyle: SystemUiOverlayStyle(
+            statusBarIconBrightness: Brightness.dark,
+            statusBarColor: Colors.white,
+          ),
+          leading: IconButton(
+            onPressed: () {
+              context.pop();
+            },
+            icon: Icon(Icons.arrow_back_ios, color: AppColors.main),
+          ),
+          title: Image.asset(
+            Assets.logo3,
+            height: AppHeight.h22,
+            width: AppHeight.h66,
+            color: AppColors.main,
+            alignment: Alignment.centerLeft,
+          ),
+          titleSpacing: 0,
+        ),
+        body: BlocBuilder<ProductCubit,ProductState>(
+          builder: (context, state) {
+            if (state is ProductLoadingState) {
+              return  Center(
+                  child: CircularProgressIndicator(color: AppColors.main),
+                );
+            } else if (state is ProductErrorState) {
+              Fluttertoast.showToast(
+                msg: state.message,
+                toastLength: Toast.LENGTH_SHORT,
+                gravity: ToastGravity.BOTTOM,
+                timeInSecForIosWeb: 2,
                 backgroundColor: Colors.white,
-                systemOverlayStyle: SystemUiOverlayStyle(
-                  statusBarIconBrightness: Brightness.dark,
-                  statusBarColor: Colors.white,
-                ),
-                leading: IconButton(
-                  onPressed: () {
-                    context.pop();
-                  },
-                  icon: Icon(Icons.arrow_back_ios, color: AppColors.main),
-                ),
-                title: Image.asset(
-                  Assets.logo3,
-                  height: AppHeight.h22,
-                  width: AppHeight.h66,
-                  color: AppColors.main,
-                  alignment: Alignment.centerLeft,
-                ),
-                titleSpacing: 0,
-              ),
-              body: Padding(
+                textColor: AppColors.main,
+                fontSize: 16.0,
+              ).then((value) => context.pop(),);
+              return Scaffold(backgroundColor: Colors.white);
+            } else if (state is ProductSuccessState) {
+              return Padding(
                 padding: EdgeInsets.symmetric(horizontal: AppMargin.m17),
 
                 child: Column(
@@ -87,7 +83,6 @@ class ProductScreen extends StatelessWidget {
                         ],
                       ),
                     ),
-
                     Expanded(
                       child: GridView.builder(
                         itemCount: state.products.length,
@@ -104,12 +99,11 @@ class ProductScreen extends StatelessWidget {
                     ),
                   ],
                 ),
-              ),
-            );
-          }
-
-          return SizedBox.shrink();
-        },
+              );
+            }
+            return SizedBox();
+          },
+        ),
       ),
     );
   }

@@ -24,7 +24,7 @@ class _AppBannerState extends State<AppBanner> {
   @override
   void initState() {
     super.initState();
-    pageController = PageController(initialPage: _currentPage);
+    pageController = PageController();
     _timer = Timer.periodic(Duration(seconds: 5), (Timer timer) {
       switchBanner();
     });
@@ -40,12 +40,13 @@ class _AppBannerState extends State<AppBanner> {
         alignment: Alignment.bottomCenter,
         children: [
           PageView.builder(
+            padEnds: false,
             itemCount: widget.bannerItems.length,
             itemBuilder:
                 (context, index) =>
                     BannerItem(bannerEntitie: widget.bannerItems[index]),
             controller: pageController,
-            onPageChanged: (value) => setState(() => _currentPage = value),
+            physics: AlwaysScrollableScrollPhysics(),
           ),
           Positioned(
             bottom: AppMargin.m8,
@@ -59,7 +60,7 @@ class _AppBannerState extends State<AppBanner> {
                 );
               },
               count: widget.bannerItems.length,
-              effect: JumpingDotEffect(
+              effect: SwapEffect(
                 dotHeight: AppHeight.h12,
                 dotWidth: AppWidth.w12,
                 activeDotColor: AppColors.main,
@@ -71,7 +72,8 @@ class _AppBannerState extends State<AppBanner> {
       ),
     );
   }
-  void switchBanner(){
+
+  void switchBanner() {
     if (_currentPage < 2) {
       _currentPage++;
     } else {
@@ -85,5 +87,3 @@ class _AppBannerState extends State<AppBanner> {
     );
   }
 }
-
-

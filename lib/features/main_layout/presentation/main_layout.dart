@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:sheta_store/core/assets/assets.dart';
 import 'package:sheta_store/core/ui/app_colors.dart';
 import 'package:sheta_store/core/ui/app_height.dart';
+import 'package:sheta_store/core/ui/app_padding_margin.dart';
 import 'package:sheta_store/features/main_layout/presentation/home/home_tap.dart';
 import 'package:sheta_store/features/main_layout/presentation/home/widgets/bottom_nav_bar_item.dart';
+import 'package:sheta_store/features/main_layout/presentation/home/widgets/search_bar.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
@@ -14,11 +16,11 @@ class MainScreen extends StatefulWidget {
 }
 
 class _MainScreenState extends State<MainScreen> {
-  static const List<Widget> taps = [
+  static List<Widget> taps = [
     HomeTap(),
-    Scaffold(),
-    Scaffold(),
-    Scaffold(),
+   Container(),
+   Container(),
+   Container(),
   ];
   int currentTapIndex = 0;
 
@@ -26,11 +28,7 @@ class _MainScreenState extends State<MainScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.white,
-        systemOverlayStyle: SystemUiOverlayStyle(
-          statusBarIconBrightness: Brightness.dark,
-          statusBarColor: Colors.white,
-        ),
+        
         title: Image.asset(
           Assets.logo3,
           height: AppHeight.h22,
@@ -40,7 +38,22 @@ class _MainScreenState extends State<MainScreen> {
         ),
         titleSpacing: 25,
       ),
-      body: taps[currentTapIndex],
+      body: Column(
+        children: [
+          if(currentTapIndex != 3) Padding(
+          padding: EdgeInsets.only(
+            bottom: AppMargin.m17,
+            left: AppMargin.m17,
+            right: AppMargin.m17,
+          ),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [CustomSearchBar(), SvgPicture.asset(Assets.cartIcon)],
+          ),
+        ),
+          taps[currentTapIndex],
+        ],
+      ),
 
       bottomNavigationBar: ClipRRect(
         borderRadius: BorderRadius.only(

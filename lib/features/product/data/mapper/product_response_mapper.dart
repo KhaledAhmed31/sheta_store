@@ -5,13 +5,16 @@ extension ProductResponseMapper on ProductModel {
   ProductEntity toProductEntity() {
     return ProductEntity(
       id: id,
+      categoryId: category!.id,
       title: title,
       description: description,
       price: price,
-      priceAfterDiscount:priceAfterDiscount ,
-      ratingAverage:ratingsAverage ,
+      priceAfterDiscount: priceAfterDiscount,
+      ratingAverage: ratingsAverage,
+      ratingsQuantity: ratingsQuantity,
       sold: sold,
       images: images,
+      quantity: quantity,
     );
   }
-} 
+}

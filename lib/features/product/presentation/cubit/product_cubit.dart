@@ -9,6 +9,7 @@ import 'package:sheta_store/features/product/presentation/cubit/product_state.da
 class ProductCubit extends Cubit<ProductState> {
   GetProductDetails getProductDetailsUseCase;
   GetProductsList getProductsListUseCase;
+  int quantity = 1;
   ProductCubit(this.getProductDetailsUseCase, this.getProductsListUseCase) : super(ProductInitialState());
 
   getProductDetails (String id)async{
@@ -31,6 +32,10 @@ class ProductCubit extends Cubit<ProductState> {
     else{
       emit(ProductErrorState(result.$1!.message));
     }
+  }
+  changeQuantity(int value){
+    quantity = value;
+    emit(ProductChangeQuantityState());
   }
 
 }

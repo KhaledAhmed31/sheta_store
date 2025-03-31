@@ -7,8 +7,14 @@ class ProductEntity {
   final List<String>? images;
   final int? sold;
   final double? ratingAverage;
-
-  ProductEntity( {this.priceAfterDiscount,
+  final String? categoryId;
+  final int? ratingsQuantity ;
+  final int? quantity;
+  ProductEntity(  {
+this.quantity,
+    this.ratingsQuantity,
+    this.categoryId,
+    this.priceAfterDiscount,
     this.sold,
     this.ratingAverage,
     this.id,

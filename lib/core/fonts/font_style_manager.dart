@@ -70,12 +70,12 @@ class FontStyleManager {
     height: height,
   );
 
-  static TextStyle withLineThroygh() {
+  static TextStyle withLineThroygh({double? size}) {
     return TextStyle(
       color: AppColors.main,
       fontFamily: "Poppins",
       decoration: TextDecoration.lineThrough,
-      fontSize: FontSizeManager.s12,
+      fontSize:(size==null)? FontSizeManager.s12 : size,
       fontWeight: FontWeight.w400,
       decorationColor: AppColors.main,
       decorationThickness: 2,

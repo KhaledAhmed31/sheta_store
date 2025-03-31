@@ -49,9 +49,9 @@ import 'package:sheta_store/features/categories/domain/use_cases/get_categories.
     as _i645;
 import 'package:sheta_store/features/categories/presentation/cubit/categories_cubit.dart'
     as _i897;
-import 'package:sheta_store/features/product/data/datasources/products_data_source.dart'
+import 'package:sheta_store/features/product/data/data%20sources/products_data_source.dart'
     as _i723;
-import 'package:sheta_store/features/product/data/datasources/products_remote_data_source.dart'
+import 'package:sheta_store/features/product/data/data%20sources/products_remote_data_source.dart'
     as _i722;
 import 'package:sheta_store/features/product/data/repositories/product_repo.dart'
     as _i629;
