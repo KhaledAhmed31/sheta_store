@@ -1,8 +1,12 @@
 import 'package:flutter/widgets.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:sheta_store/core/constants/auth_data_identifiers/auth_data_identifiers.dart';
 import 'package:sheta_store/core/fonts/font_size_manager.dart';
 import 'package:sheta_store/core/fonts/font_style_manager.dart';
 import 'package:sheta_store/core/ui/app_colors.dart';
 import 'package:sheta_store/features/product/domain/entities/product_entity.dart';
+import 'package:sheta_store/features/product/presentation/cubit/product_cubit.dart';
+import 'package:sheta_store/features/product/presentation/cubit/product_state.dart';
 import 'package:sheta_store/features/product/presentation/widgets/add_to_cart_button.dart';
 
 class PriceCartSection extends StatefulWidget {
@@ -34,12 +38,16 @@ class _PriceCartSectionState extends State<PriceCartSection> {
                 color: AppColors.trasparentMain,
               ),
             ),
-            Text(
-              'EGP ${(widget.product.priceAfterDiscount??0) * widget.quantity}',
-              style: FontStyleManager.mediumStyle(
-                size: FontSizeManager.s18,
-                color: AppColors.textColor,
-              ),
+            BlocBuilder<ProductCubit, ProductState>(
+              builder: (BuildContext context, state) {
+                return Text(
+                  'EGP ${(widget.product.priceAfterDiscount ?? 0) * BlocProvider.of<ProductCubit>(context).quantity}',
+                  style: FontStyleManager.mediumStyle(
+                    size: FontSizeManager.s18,
+                    color: AppColors.textColor,
+                  ),
+                );
+              },
             ),
           ],
         ),

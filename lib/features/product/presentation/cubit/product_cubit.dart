@@ -10,32 +10,32 @@ class ProductCubit extends Cubit<ProductState> {
   GetProductDetails getProductDetailsUseCase;
   GetProductsList getProductsListUseCase;
   int quantity = 1;
-  ProductCubit(this.getProductDetailsUseCase, this.getProductsListUseCase) : super(ProductInitialState());
+  ProductCubit(this.getProductDetailsUseCase, this.getProductsListUseCase)
+    : super(ProductInitialState());
 
-  getProductDetails (String id)async{
+  getProductDetails(String id) async {
     emit(ProductLoadingState());
     var result = await getProductDetailsUseCase.call(id);
-    if(result.$1 == null){
+    if (result.$1 == null) {
       emit(ProductSuccessState([result.$2]));
-    }
-    else{
-      emit(ProductErrorState(result.$1!.message));
-    }
-  } 
-
-  getProductsList(ProductRequest productRequest)async{
-    emit(ProductLoadingState());
-    var result = await getProductsListUseCase.call(productRequest);
-    if(result.$1 == null){
-      emit(ProductSuccessState(result.$2));
-    }
-    else{
+    } else {
       emit(ProductErrorState(result.$1!.message));
     }
   }
-  changeQuantity(int value){
+
+  getProductsList(ProductRequest productRequest) async {
+    emit(ProductLoadingState());
+    var result = await getProductsListUseCase.call(productRequest);
+    if (result.$1 == null) {
+      emit(ProductSuccessState(result.$2));
+    } else {
+      emit(ProductErrorState(result.$1!.message));
+    }
+  }
+
+  changeQuantity(int value) {
+    emit(ProductInitialState());
     quantity = value;
     emit(ProductChangeQuantityState());
   }
-
 }

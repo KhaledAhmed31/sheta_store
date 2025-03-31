@@ -2,14 +2,17 @@ import 'dart:developer';
 
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:go_router/go_router.dart';
 import 'package:sheta_store/core/assets/assets.dart';
+import 'package:sheta_store/core/constants/auth_data_identifiers/auth_data_identifiers.dart';
 import 'package:sheta_store/core/ui/app_colors.dart';
 import 'package:sheta_store/core/ui/app_height.dart';
 import 'package:sheta_store/core/ui/app_padding_margin.dart';
 import 'package:sheta_store/features/product/domain/entities/product_entity.dart';
+import 'package:sheta_store/features/product/presentation/cubit/product_cubit.dart';
 import 'package:sheta_store/features/product/presentation/widgets/description_section.dart';
 import 'package:sheta_store/features/product/presentation/widgets/fav_botton.dart';
 import 'package:sheta_store/features/product/presentation/widgets/price_cart_section.dart';
@@ -27,108 +30,111 @@ class ProductDetails extends StatefulWidget {
 
 class _ProductDetailsState extends State<ProductDetails> {
   int quantity = 1;
-
+  ProductCubit productCubit = getIt.get<ProductCubit>();
   final PageController _pageController = PageController();
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        leading: IconButton(
-          icon: Icon(
-            Icons.arrow_back_ios,
-            color: Theme.of(context).primaryColor,
+    return BlocProvider(
+      create:(context) => productCubit,
+      child: Scaffold(
+        appBar: AppBar(
+          leading: IconButton(
+            icon: Icon(
+              Icons.arrow_back_ios,
+              color: Theme.of(context).primaryColor,
+            ),
+            onPressed: () {
+              context.pop();
+            },
           ),
-          onPressed: () {
-            context.pop();
-          },
-        ),
-        title: Image.asset(
-          Assets.logo3,
-          height: AppHeight.h22,
-          width: AppHeight.h66,
-          color: AppColors.main,
-          alignment: Alignment.centerLeft,
-        ),
-        actions: [
-          IconButton(
-            onPressed: () {},
-            icon: SvgPicture.asset(Assets.searchIcon),
+          title: Image.asset(
+            Assets.logo3,
+            height: AppHeight.h22,
+            width: AppHeight.h66,
+            color: AppColors.main,
+            alignment: Alignment.centerLeft,
           ),
-          IconButton(onPressed: () {}, icon: SvgPicture.asset(Assets.cartIcon)),
-        ],
-        centerTitle: true,
-      ),
-      body: Padding(
-        padding: EdgeInsets.symmetric(horizontal: AppMargin.m17),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            Container(
-              height: 300.h,
-              width: 400.w,
-              margin: EdgeInsets.only(bottom: AppMargin.m24),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(15),
-                border: Border.all(color: AppColors.stroke, width: 1),
-              ),
-              child: Stack(
-                alignment: Alignment.center,
-                children: [
-                  ClipRRect(
-                    borderRadius: BorderRadius.circular(15),
-                    child: PageView.builder(
-                      controller: _pageController,
-                      itemCount: widget.product.images?.length ?? 0,
-                      itemBuilder:
-                          (context, index) => CachedNetworkImage(
-                            imageUrl: widget.product.images?[index] ?? '',
-                            fit: BoxFit.contain,
-                          ),
-                    ),
-                  ),
-                  Positioned(
-                    bottom: AppMargin.m8,
-                    child: SmoothPageIndicator(
-                      onDotClicked:
-                          (index) => _pageController.animateToPage(
-                            index,
-                            duration: Duration(milliseconds: 500),
-                            curve: Curves.bounceInOut,
-                          ),
-                      count: widget.product.images?.length ?? 0,
-                      controller: _pageController,
-                      effect: SwapEffect(
-                        dotColor: AppColors.main,
-                        dotHeight: 7.h,
-                        dotWidth: 30.w,
-                        spacing: 6.w,
-                        radius: 30.r,
-                        paintStyle: PaintingStyle.stroke,
-                        activeDotColor: AppColors.main,
+          actions: [
+            IconButton(
+              onPressed: () {},
+              icon: SvgPicture.asset(Assets.searchIcon),
+            ),
+            IconButton(onPressed: () {}, icon: SvgPicture.asset(Assets.cartIcon)),
+          ],
+          centerTitle: true,
+        ),
+        body: Padding(
+          padding: EdgeInsets.symmetric(horizontal: AppMargin.m17),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              Container(
+                height: 300.h,
+                width: 400.w,
+                margin: EdgeInsets.only(bottom: AppMargin.m24),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(15),
+                  border: Border.all(color: AppColors.stroke, width: 1),
+                ),
+                child: Stack(
+                  alignment: Alignment.center,
+                  children: [
+                    ClipRRect(
+                      borderRadius: BorderRadius.circular(15),
+                      child: PageView.builder(
+                        controller: _pageController,
+                        itemCount: widget.product.images?.length ?? 0,
+                        itemBuilder:
+                            (context, index) => CachedNetworkImage(
+                              imageUrl: widget.product.images?[index] ?? '',
+                              fit: BoxFit.contain,
+                            ),
                       ),
                     ),
-                  ),
-                  Positioned(top: 0, right: 0, child: FavBotton(onTap: () {})),
-                ],
+                    Positioned(
+                      bottom: AppMargin.m8,
+                      child: SmoothPageIndicator(
+                        onDotClicked:
+                            (index) => _pageController.animateToPage(
+                              index,
+                              duration: Duration(milliseconds: 500),
+                              curve: Curves.bounceInOut,
+                            ),
+                        count: widget.product.images?.length ?? 0,
+                        controller: _pageController,
+                        effect: SwapEffect(
+                          dotColor: AppColors.main,
+                          dotHeight: 7.h,
+                          dotWidth: 30.w,
+                          spacing: 6.w,
+                          radius: 30.r,
+                          paintStyle: PaintingStyle.stroke,
+                          activeDotColor: AppColors.main,
+                        ),
+                      ),
+                    ),
+                    Positioned(top: 0, right: 0, child: FavBotton(onTap: () {})),
+                  ],
+                ),
               ),
-            ),
-            TitlePriceSection(product: widget.product),
-            SizedBox(height: AppMargin.m17),
-            RattingSoldSection(
-              product: widget.product,
-              onTapQuantatyButton: (int newQuantity) {
-                setState(() {
-                  log("call back $quantity");
-                  quantity = newQuantity;
-                });
-              },
-            ),
-            SizedBox(height: AppMargin.m17),
-            DescriptionSection(description: widget.product.description ?? ''),
-            Spacer(),
-            PriceCartSection(product: widget.product, quantity: quantity),
-          ],
+              TitlePriceSection(product: widget.product),
+              SizedBox(height: AppMargin.m17),
+              RattingSoldSection(
+                product: widget.product,
+                onTapQuantatyButton: (int newQuantity) {
+                  setState(() {
+                    log("call back $quantity");
+                    quantity = newQuantity;
+                  });
+                },
+              ),
+              SizedBox(height: AppMargin.m17),
+              DescriptionSection(description: widget.product.description ?? ''),
+              Spacer(),
+              PriceCartSection(product: widget.product, quantity: quantity),
+            ],
+          ),
         ),
       ),
     );
