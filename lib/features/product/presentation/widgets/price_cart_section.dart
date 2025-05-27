@@ -1,6 +1,6 @@
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:sheta_store/core/constants/auth_data_identifiers/auth_data_identifiers.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:sheta_store/core/fonts/font_size_manager.dart';
 import 'package:sheta_store/core/fonts/font_style_manager.dart';
 import 'package:sheta_store/core/ui/app_colors.dart';
@@ -25,34 +25,36 @@ class PriceCartSection extends StatefulWidget {
 class _PriceCartSectionState extends State<PriceCartSection> {
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
+  
+    return Padding(
+      padding: EdgeInsets.only(bottom: 8.0.h),
+      child: BlocBuilder<ProductCubit, ProductState>(
+          builder:(context, state) =>  Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Text(
-              'Total Price',
-              style: FontStyleManager.mediumStyle(
-                size: FontSizeManager.s18,
-                color: AppColors.trasparentMain,
-              ),
-            ),
-            BlocBuilder<ProductCubit, ProductState>(
-              builder: (BuildContext context, state) {
-                return Text(
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Text(
+                  'Total Price',
+                  style: FontStyleManager.mediumStyle(
+                    size: FontSizeManager.s18,
+                    color: AppColors.trasparentMain,
+                  ),
+                ),
+                Text(
                   'EGP ${(widget.product.priceAfterDiscount ?? 0) * BlocProvider.of<ProductCubit>(context).quantity}',
                   style: FontStyleManager.mediumStyle(
                     size: FontSizeManager.s18,
                     color: AppColors.textColor,
                   ),
-                );
-              },
+                ),
+              ],
             ),
+            AddToCartButton(productEntity: widget.product,),
           ],
         ),
-        AddToCartButton(productEntity: widget.product),
-      ],
+      ),
     );
   }
 }

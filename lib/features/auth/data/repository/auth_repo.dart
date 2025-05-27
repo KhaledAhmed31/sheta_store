@@ -1,5 +1,5 @@
 import 'package:injectable/injectable.dart';
-import 'package:sheta_store/features/auth/data/auth_local_data.dart/aurh_local_data.dart';
+import 'package:sheta_store/features/auth/data/auth_local_data.dart/auth_local_data.dart';
 import 'package:sheta_store/features/auth/data/auth_remote_data_source/auth_remote_data.dart';
 import 'package:sheta_store/features/auth/data/models/sign_in_params.dart';
 import 'package:sheta_store/features/auth/data/models/sign_in_response.dart';
@@ -43,5 +43,16 @@ class AuthRepo implements AuthRepoInterface {
   @override
   bool isSigned() {
     return authLocalData.getToken() != null;
+  }
+  @override
+  Future<void> saveUser(UserEntite user) async {
+    await authLocalData.saveUser(user);
+  }
+
+  @override
+  UserEntite getUser(){
+    return UserEntite(
+        name: authLocalData.getUser()["name"],
+        email: authLocalData.getUser()["email"]);
   }
 }

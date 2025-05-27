@@ -5,7 +5,7 @@ import 'package:sheta_store/core/ui/app_colors.dart';
 class FontStyleManager {
   // ignore: unused_element
   static TextStyle _getStyel({
-    required double size,
+     double? size,
     required FontWeight weight,
     required Color color,
     double? height,
@@ -40,7 +40,7 @@ class FontStyleManager {
     height: height,
   );
   static TextStyle mediumStyle({
-    required double size,
+    double? size,
     required Color color,
     double? height,
   }) => _getStyel(

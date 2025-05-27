@@ -18,6 +18,7 @@ class AppBanner extends StatefulWidget {
 
 class _AppBannerState extends State<AppBanner> {
   int _currentPage = 0;
+  // ignore: unused_field
   Timer? _timer;
   late PageController pageController;
 

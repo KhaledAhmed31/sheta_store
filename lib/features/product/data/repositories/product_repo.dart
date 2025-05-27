@@ -8,28 +8,30 @@ import 'package:sheta_store/features/product/domain/entities/product_entity.dart
 import 'package:sheta_store/features/product/domain/repositories/product_repo_interface.dart';
 
 @Singleton(as: ProductRepoInterface)
-class ProductRepo extends ProductRepoInterface{
+class ProductRepo extends ProductRepoInterface {
   ProductsDataSource productDataSource;
 
   ProductRepo({required this.productDataSource});
-  
+
   @override
-  Future<(Failure?, List<ProductEntity>)> getProductsList(ProductRequest productRequest) async{
-    try{
-      var products =await productDataSource.getProductsList(productRequest);
-      return (null,products.map((e) => e.toProductEntity()).toList());
-    }on AppException catch(e){
-      return (Failure(message: e.message),<ProductEntity>[]);
+  Future<(Failure?, List<ProductEntity>)> getProductsList(
+    ProductRequest productRequest,
+  ) async {
+    try {
+      var products = await productDataSource.getProductsList(productRequest);
+      return (null, products.map((e) => e.toEntity()).toList());
+    } on AppException catch (e) {
+      return (Failure(message: e.message), <ProductEntity>[]);
     }
   }
-  
+
   @override
-  Future<(Failure?, ProductEntity)> getProductDetail(String productId) async{
-     try{
-      var products =await productDataSource.getProductDetail(productId);
-      return (null,products.toProductEntity());
-    }on AppException catch(e){
-      return (Failure(message: e.toString()),ProductEntity());
+  Future<(Failure?, ProductEntity)> getProductDetail(String productId) async {
+    try {
+      var products = await productDataSource.getProductDetail(productId);
+      return (null, products.toEntity());
+    } on AppException catch (e) {
+      return (Failure(message: e.toString()), ProductEntity());
     }
   }
 }

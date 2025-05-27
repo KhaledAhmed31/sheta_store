@@ -14,4 +14,5 @@ class Assets {
   static const String cartIcon = "assets/icons/cart.svg";
   static const String searchIcon = "assets/icons/search.svg";
   static const String addIcon = "assets/icons/add_to_cart.svg";
+  static const String deleteIcon = "assets/icons/delete.svg";
 }

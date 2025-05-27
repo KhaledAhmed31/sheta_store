@@ -4,4 +4,5 @@ class RouteName {
   static const String mainScreen = '/main_screen';
   static const String productDetailScreen = '/product_detail_screen';
   static const String productScreen= '/product_screen';
+  static const String cartScreen = '/cart_screen';
 }

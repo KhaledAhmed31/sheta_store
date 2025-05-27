@@ -10,7 +10,8 @@ class ProductEntity {
   final String? categoryId;
   final int? ratingsQuantity ;
   final int? quantity;
-  ProductEntity(  {
+  final String? imageCover;
+  ProductEntity(  {this.imageCover, 
 this.quantity,
     this.ratingsQuantity,
     this.categoryId,

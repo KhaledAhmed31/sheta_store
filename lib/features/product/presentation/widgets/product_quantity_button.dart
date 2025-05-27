@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:sheta_store/core/constants/auth_data_identifiers/auth_data_identifiers.dart';
 import 'package:sheta_store/core/fonts/font_size_manager.dart';
 import 'package:sheta_store/core/fonts/font_style_manager.dart';
 import 'package:sheta_store/core/ui/app_colors.dart';

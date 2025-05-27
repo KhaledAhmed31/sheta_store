@@ -13,8 +13,6 @@ class SplashScreen extends StatelessWidget {
     Future.delayed(const Duration(milliseconds: 1500)).then(
       (value) =>GoRouter.of(context).go((context.read<AuthCubit>().checkToken())?RouteName.mainScreen:RouteName.signInScreen),
     );
-
-
     return Image.asset(
       Assets.splash,
       fit: BoxFit.cover,

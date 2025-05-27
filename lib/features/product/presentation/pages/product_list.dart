@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:go_router/go_router.dart';
 import 'package:sheta_store/core/assets/assets.dart';
-import 'package:sheta_store/core/constants/auth_data_identifiers/auth_data_identifiers.dart';
+import 'package:sheta_store/core/dependency_injection/identifiers.dart';
 import 'package:sheta_store/core/ui/app_colors.dart';
 import 'package:sheta_store/core/ui/app_height.dart';
 import 'package:sheta_store/core/ui/app_padding_margin.dart';
+import 'package:sheta_store/core/widgets/cart_button.dart';
 import 'package:sheta_store/features/main_layout/presentation/home/widgets/search_bar.dart';
 import 'package:sheta_store/features/product/data/models/product_request.dart';
 import 'package:sheta_store/features/product/presentation/cubit/product_cubit.dart';
@@ -50,12 +50,12 @@ class ProductScreen extends StatelessWidget {
           ),
           titleSpacing: 0,
         ),
-        body: BlocBuilder<ProductCubit,ProductState>(
+        body: BlocBuilder<ProductCubit, ProductState>(
           builder: (context, state) {
             if (state is ProductLoadingState) {
-              return  Center(
-                  child: CircularProgressIndicator(color: AppColors.main),
-                );
+              return Center(
+                child: CircularProgressIndicator(color: AppColors.main),
+              );
             } else if (state is ProductErrorState) {
               Fluttertoast.showToast(
                 msg: state.message,
@@ -65,7 +65,7 @@ class ProductScreen extends StatelessWidget {
                 backgroundColor: Colors.white,
                 textColor: AppColors.main,
                 fontSize: 16.0,
-              ).then((value) => context.pop(),);
+              ).then((value) => context.pop());
               return Scaffold(backgroundColor: Colors.white);
             } else if (state is ProductSuccessState) {
               return Padding(
@@ -77,10 +77,7 @@ class ProductScreen extends StatelessWidget {
                       padding: EdgeInsets.only(bottom: AppMargin.m17),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          CustomSearchBar(),
-                          SvgPicture.asset(Assets.cartIcon),
-                        ],
+                        children: [CustomSearchBar(), CartButton()],
                       ),
                     ),
                     Expanded(

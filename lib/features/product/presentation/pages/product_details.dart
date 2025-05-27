@@ -7,10 +7,11 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:go_router/go_router.dart';
 import 'package:sheta_store/core/assets/assets.dart';
-import 'package:sheta_store/core/constants/auth_data_identifiers/auth_data_identifiers.dart';
+import 'package:sheta_store/core/dependency_injection/identifiers.dart';
 import 'package:sheta_store/core/ui/app_colors.dart';
 import 'package:sheta_store/core/ui/app_height.dart';
 import 'package:sheta_store/core/ui/app_padding_margin.dart';
+import 'package:sheta_store/core/widgets/cart_button.dart';
 import 'package:sheta_store/features/product/domain/entities/product_entity.dart';
 import 'package:sheta_store/features/product/presentation/cubit/product_cubit.dart';
 import 'package:sheta_store/features/product/presentation/widgets/description_section.dart';
@@ -36,7 +37,7 @@ class _ProductDetailsState extends State<ProductDetails> {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create:(context) => productCubit,
+      create: (context) => productCubit,
       child: Scaffold(
         appBar: AppBar(
           leading: IconButton(
@@ -60,8 +61,9 @@ class _ProductDetailsState extends State<ProductDetails> {
               onPressed: () {},
               icon: SvgPicture.asset(Assets.searchIcon),
             ),
-            IconButton(onPressed: () {}, icon: SvgPicture.asset(Assets.cartIcon)),
+            CartButton(),
           ],
+          actionsPadding: EdgeInsets.symmetric(horizontal: AppMargin.m17),
           centerTitle: true,
         ),
         body: Padding(
@@ -114,7 +116,11 @@ class _ProductDetailsState extends State<ProductDetails> {
                         ),
                       ),
                     ),
-                    Positioned(top: 0, right: 0, child: FavBotton(onTap: () {})),
+                    Positioned(
+                      top: 0,
+                      right: 0,
+                      child: FavBotton(onTap: () {}),
+                    ),
                   ],
                 ),
               ),

@@ -18,7 +18,11 @@ class _FavBottonState extends State<FavBotton> {
   Widget build(BuildContext context) {
     return IconButton(
       highlightColor: Colors.transparent,
-      style: IconButton.styleFrom(elevation: 10,),
+      style: IconButton.styleFrom(
+        enableFeedback: true,
+        elevation: 10,
+        shadowColor: const Color.fromARGB(57, 158, 158, 158),
+      ),
       isSelected: isClicked,
       onPressed: () {
         setState(() {

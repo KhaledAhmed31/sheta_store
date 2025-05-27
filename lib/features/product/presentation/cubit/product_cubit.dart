@@ -1,6 +1,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:injectable/injectable.dart';
 import 'package:sheta_store/features/product/data/models/product_request.dart';
+import 'package:sheta_store/features/product/domain/entities/product_entity.dart';
 import 'package:sheta_store/features/product/domain/usecases/get_product_details.dart';
 import 'package:sheta_store/features/product/domain/usecases/get_products_list.dart';
 import 'package:sheta_store/features/product/presentation/cubit/product_state.dart';
@@ -13,13 +14,15 @@ class ProductCubit extends Cubit<ProductState> {
   ProductCubit(this.getProductDetailsUseCase, this.getProductsListUseCase)
     : super(ProductInitialState());
 
-  getProductDetails(String id) async {
+  Future<ProductEntity> getProductDetails(String id) async {
     emit(ProductLoadingState());
     var result = await getProductDetailsUseCase.call(id);
     if (result.$1 == null) {
       emit(ProductSuccessState([result.$2]));
+      return result.$2;
     } else {
       emit(ProductErrorState(result.$1!.message));
+      return ProductEntity();
     }
   }
 

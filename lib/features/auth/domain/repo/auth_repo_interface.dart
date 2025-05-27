@@ -8,4 +8,6 @@ abstract class AuthRepoInterface {
   Future<Failure?> signUp(SignUpParams signupParams);
   bool isSigned();
   Future<bool> signOut();
+  Future <void> saveUser(UserEntite user);
+  UserEntite getUser();
 }

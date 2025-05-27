@@ -46,10 +46,7 @@ class _ProductItemState extends State<ProductItem> {
                   height: 130.h,
                   width: 190.w,
                   child: ClipRRect(
-                    borderRadius: BorderRadius.vertical(
-                      top: Radius.circular(AppRadius.r13),
-                    ),
-
+                    borderRadius: BorderRadius.vertical(top: Radius.circular(AppRadius.r13)),
                     child: PageView.builder(
                       itemBuilder:
                           (context, index) => CachedNetworkImage(
@@ -120,13 +117,8 @@ class _ProductItemState extends State<ProductItem> {
               ],
             ),
           ),
-          Positioned(
-            right: 0.h,
-            bottom: 0.h,
-            child: CartBotton(onTap: (){})         ),
-          Positioned(
-            right: 0.h,
-            child:FavBotton(onTap:(){})         ),
+          Positioned(right: 0.h, bottom: 0.h, child: CartBotton(product: widget.product.id ?? '')),
+          Positioned(right: 0.h, child: FavBotton(onTap: () {})),
         ],
       ),
     );
