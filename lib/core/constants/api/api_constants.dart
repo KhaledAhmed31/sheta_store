@@ -6,5 +6,5 @@ class ApiConstants {
   static const String products = "/products";
   static const String favorites = "/favorites";
   static const String cart = "/cart";
-  
+  static const String subCategories = "/subcategories";
 }

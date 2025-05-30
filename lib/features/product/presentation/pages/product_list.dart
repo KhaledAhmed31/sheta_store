@@ -82,6 +82,7 @@ class ProductScreen extends StatelessWidget {
                     ),
                     Expanded(
                       child: GridView.builder(
+                        addAutomaticKeepAlives: false,
                         itemCount: state.products.length,
                         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                           mainAxisSpacing: AppMargin.m17,

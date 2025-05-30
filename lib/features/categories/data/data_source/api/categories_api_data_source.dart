@@ -15,7 +15,6 @@ class CategoriesApiDataSource implements CategoriesRemoteDataSource {
   @override
   Future<List<CategoryModel>> getCategories() async {
     log("loading categories");
-
     try {
       log("got categories");
       var response = await dio.get(ApiConstants.categories);
@@ -27,6 +26,20 @@ class CategoriesApiDataSource implements CategoriesRemoteDataSource {
         messege = e.response?.data['message'] ?? "some thing went wrong";
       }
       throw RemoteErrorsHandler(message: messege);
+    }
+  }
+
+  @override
+  Future<List<CategoryModel>> getSubCategories(String id) async {
+    try {
+      var response = await dio.get("${ApiConstants.categories}/$id${ApiConstants.subCategories}");
+      return CategoryResponseModel.fromJson(response.data).categories;
+    } catch (e) {
+      String message = e.toString();
+      if (e is DioException) {
+        message = e.response?.data["message"] ?? "some thing went wrong";
+      }
+      throw RemoteErrorsHandler(message: message);
     }
   }
 }
