@@ -14,8 +14,9 @@ import 'package:get_it/get_it.dart' as _i174;
 import 'package:injectable/injectable.dart' as _i526;
 import 'package:shared_preferences/shared_preferences.dart' as _i460;
 import 'package:sheta_store/core/dependency_injection/register_mudel.dart'
-    as _i974;
-import 'package:sheta_store/features/auth/data/auth_local_data.dart/auth_cache_data.dart';
+    as _i55;
+import 'package:sheta_store/features/auth/data/auth_local_data.dart/auth_cache_data.dart'
+    as _i923;
 import 'package:sheta_store/features/auth/data/auth_local_data.dart/auth_local_data.dart'
     as _i447;
 import 'package:sheta_store/features/auth/data/auth_remote_data_source/auth_data_base_data.dart'
@@ -68,6 +69,8 @@ import 'package:sheta_store/features/categories/domain/repo/categories_repo_inte
     as _i16;
 import 'package:sheta_store/features/categories/domain/use_cases/get_categories.dart'
     as _i645;
+import 'package:sheta_store/features/categories/domain/use_cases/get_sub_categories_use_case.dart'
+    as _i39;
 import 'package:sheta_store/features/categories/presentation/cubit/categories_cubit.dart'
     as _i897;
 import 'package:sheta_store/features/product/data/data%20sources/products_data_source.dart'
@@ -99,7 +102,7 @@ extension GetItInjectableX on _i174.GetIt {
     );
     gh.lazySingleton<_i361.Dio>(() => registerModule.dio);
     gh.singleton<_i447.AuthLocalData>(
-      () => AuthCacheData(gh<_i460.SharedPreferences>()),
+      () => _i923.AuthCacheData(gh<_i460.SharedPreferences>()),
     );
     gh.singleton<_i965.CartDataSource>(
       () => _i917.CartRemoteDataSource(gh<_i361.Dio>()),
@@ -137,13 +140,13 @@ extension GetItInjectableX on _i174.GetIt {
     gh.singleton<_i309.DeleteCartProductUseCase>(
       () => _i309.DeleteCartProductUseCase(gh<_i513.CartRepoInterface>()),
     );
+    gh.singleton<_i886.GetCartUseCase>(
+      () => _i886.GetCartUseCase(gh<_i513.CartRepoInterface>()),
+    );
     gh.singleton<_i521.UpdateCartProductQuantatiyUseCase>(
       () => _i521.UpdateCartProductQuantatiyUseCase(
         gh<_i513.CartRepoInterface>(),
       ),
-    );
-    gh.singleton<_i886.GetCartUseCase>(
-      () => _i886.GetCartUseCase(gh<_i513.CartRepoInterface>()),
     );
     gh.factory<_i1015.ProductCubit>(
       () => _i1015.ProductCubit(
@@ -159,6 +162,15 @@ extension GetItInjectableX on _i174.GetIt {
     );
     gh.singleton<_i645.GetCategoriesUseCase>(
       () => _i645.GetCategoriesUseCase(gh<_i16.CategoriesRepoInterface>()),
+    );
+    gh.singleton<_i39.GetSubCategoriesUseCase>(
+      () => _i39.GetSubCategoriesUseCase(gh<_i16.CategoriesRepoInterface>()),
+    );
+    gh.factory<_i897.CategoriesCubit>(
+      () => _i897.CategoriesCubit(
+        gh<_i645.GetCategoriesUseCase>(),
+        gh<_i39.GetSubCategoriesUseCase>(),
+      ),
     );
     gh.singleton<_i1013.CartCubit>(
       () => _i1013.CartCubit(
@@ -180,9 +192,6 @@ extension GetItInjectableX on _i174.GetIt {
     gh.singleton<_i422.SignUpUseCase>(
       () =>
           _i422.SignUpUseCase(authRepoInterface: gh<_i968.AuthRepoInterface>()),
-    );
-    gh.lazySingleton<_i897.CategoriesCubit>(
-      () => _i897.CategoriesCubit(gh<_i645.GetCategoriesUseCase>()),
     );
     gh.singleton<_i586.CheckTokenUseCase>(
       () => _i586.CheckTokenUseCase(gh<_i968.AuthRepoInterface>()),
@@ -207,4 +216,4 @@ extension GetItInjectableX on _i174.GetIt {
   }
 }
 
-class _$RegisterModule extends _i974.RegisterModule {}
+class _$RegisterModule extends _i55.RegisterModule {}

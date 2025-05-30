@@ -5,6 +5,7 @@ class CategoryModel extends CategoryEntity {
     id = json['_id'];
     name = json['name'];
     slug = json['slug'];
-    imageUrl = json['image'];
+
+    (json['image']==null)?imageUrl=null: imageUrl = json['image'];
   }
 }

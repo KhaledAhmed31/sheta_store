@@ -7,6 +7,7 @@ import 'package:sheta_store/core/ui/app_colors.dart';
 import 'package:sheta_store/core/ui/app_theme.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:sheta_store/features/cart/presentation/cubit/cart_cubit.dart';
+import 'package:sheta_store/features/categories/presentation/cubit/categories_cubit.dart';
 
 import 'features/auth/presentation/cubit/auth_cubit.dart';
 
@@ -34,7 +35,7 @@ class MyApp extends StatelessWidget {
             ),
           ),
           child: MultiBlocProvider(
-            providers: [BlocProvider(create:  (context) => getIt<AuthCubit>()),BlocProvider(create: (context) => getIt<CartCubit>())],
+            providers: [BlocProvider(create:  (context) => getIt<AuthCubit>()),BlocProvider(create: (context) => getIt<CartCubit>()),BlocProvider(create: (context) => getIt<CategoriesCubit>(),)],
             child: MaterialApp.router(
               debugShowCheckedModeBanner: false,
               title: 'Sheta store',

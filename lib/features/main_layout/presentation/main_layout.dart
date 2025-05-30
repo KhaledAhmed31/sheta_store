@@ -4,6 +4,7 @@ import 'package:sheta_store/core/ui/app_colors.dart';
 import 'package:sheta_store/core/ui/app_height.dart';
 import 'package:sheta_store/core/ui/app_padding_margin.dart';
 import 'package:sheta_store/core/widgets/cart_button.dart';
+import 'package:sheta_store/features/categories/presentation/category_tap/category_tap.dart';
 import 'package:sheta_store/features/main_layout/presentation/home/home_tap.dart';
 import 'package:sheta_store/features/main_layout/presentation/home/widgets/bottom_nav_bar_item.dart';
 import 'package:sheta_store/features/main_layout/presentation/home/widgets/search_bar.dart';
@@ -16,7 +17,12 @@ class MainScreen extends StatefulWidget {
 }
 
 class _MainScreenState extends State<MainScreen> {
-  static List<Widget> taps = [HomeTap(), Container(), Container(), Container()];
+  static List<Widget> taps = [
+    HomeTap(),
+    CategoryTap(),
+    Container(),
+    Container(),
+  ];
   int currentTapIndex = 0;
 
   @override
@@ -31,6 +37,7 @@ class _MainScreenState extends State<MainScreen> {
           alignment: Alignment.centerLeft,
         ),
         titleSpacing: 25,
+        surfaceTintColor: Colors.transparent,
       ),
       body: Column(
         children: [
@@ -46,6 +53,7 @@ class _MainScreenState extends State<MainScreen> {
                 children: [CustomSearchBar(), CartButton()],
               ),
             ),
+
           taps[currentTapIndex],
         ],
       ),
