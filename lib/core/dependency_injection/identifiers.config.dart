@@ -73,6 +73,22 @@ import 'package:sheta_store/features/categories/domain/use_cases/get_sub_categor
     as _i39;
 import 'package:sheta_store/features/categories/presentation/cubit/categories_cubit.dart'
     as _i897;
+import 'package:sheta_store/features/favorite/data/datasources/wishlist_data_source.dart'
+    as _i651;
+import 'package:sheta_store/features/favorite/data/datasources/wishlist_remote_data_source.dart'
+    as _i862;
+import 'package:sheta_store/features/favorite/data/repositories/wishlist_repo.dart'
+    as _i806;
+import 'package:sheta_store/features/favorite/domain/repositories/wishlist_repo_interface.dart'
+    as _i481;
+import 'package:sheta_store/features/favorite/domain/usecases/add_to_wishlist_usecase.dart'
+    as _i963;
+import 'package:sheta_store/features/favorite/domain/usecases/get_wishlist_usecase.dart'
+    as _i740;
+import 'package:sheta_store/features/favorite/domain/usecases/remove_from_wishlist_usecase.dart'
+    as _i677;
+import 'package:sheta_store/features/favorite/presentation/cubit/wishlist_cubit.dart'
+    as _i206;
 import 'package:sheta_store/features/product/data/data%20sources/products_data_source.dart'
     as _i525;
 import 'package:sheta_store/features/product/data/data%20sources/products_remote_data_source.dart'
@@ -117,6 +133,9 @@ extension GetItInjectableX on _i174.GetIt {
       () =>
           _i629.ProductRepo(productDataSource: gh<_i525.ProductsDataSource>()),
     );
+    gh.lazySingleton<_i651.WishlistDataSource>(
+      () => _i862.WishlistRemoteDataSource(dio: gh<_i361.Dio>()),
+    );
     gh.singleton<_i812.AuthRemoteData>(
       () => _i713.AuthDataBaseData(dio: gh<_i361.Dio>()),
     );
@@ -129,6 +148,11 @@ extension GetItInjectableX on _i174.GetIt {
     gh.lazySingleton<_i16.CategoriesRepoInterface>(
       () => _i533.CategoriesRepo(
         categoriesRemoteDataSource: gh<_i1059.CategoriesRemoteDataSource>(),
+      ),
+    );
+    gh.lazySingleton<_i481.WishlistRepoInterface>(
+      () => _i806.WishlistRepo(
+        wishlistDataSource: gh<_i651.WishlistDataSource>(),
       ),
     );
     gh.singleton<_i513.CartRepoInterface>(
@@ -148,16 +172,34 @@ extension GetItInjectableX on _i174.GetIt {
         gh<_i513.CartRepoInterface>(),
       ),
     );
+    gh.singleton<_i963.AddToWishlistUsecase>(
+      () => _i963.AddToWishlistUsecase(
+        wishlistRepoInterface: gh<_i481.WishlistRepoInterface>(),
+      ),
+    );
     gh.factory<_i1015.ProductCubit>(
       () => _i1015.ProductCubit(
         gh<_i225.GetProductDetails>(),
         gh<_i992.GetProductsList>(),
       ),
     );
+    gh.singleton<_i740.GetWishlistUsecase>(
+      () => _i740.GetWishlistUsecase(gh<_i481.WishlistRepoInterface>()),
+    );
+    gh.singleton<_i677.RemoveFromWishlistUsecase>(
+      () => _i677.RemoveFromWishlistUsecase(gh<_i481.WishlistRepoInterface>()),
+    );
     gh.singleton<_i968.AuthRepoInterface>(
       () => _i118.AuthRepo(
         authRemoteData: gh<_i812.AuthRemoteData>(),
         authLocalData: gh<_i447.AuthLocalData>(),
+      ),
+    );
+    gh.singleton<_i206.WishlistCubit>(
+      () => _i206.WishlistCubit(
+        gh<_i963.AddToWishlistUsecase>(),
+        gh<_i677.RemoveFromWishlistUsecase>(),
+        gh<_i740.GetWishlistUsecase>(),
       ),
     );
     gh.singleton<_i645.GetCategoriesUseCase>(

@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -43,9 +41,7 @@ class _CartBottonState extends State<CartBotton> {
                 context,
               ).removeFromCart(widget.product);
           isClicked = !isClicked;
-          log(
-            BlocProvider.of<CartCubit>(context).cart!.numOfCartItems.toString(),
-          );
+          
         });
       },
       icon: CircleAvatar(

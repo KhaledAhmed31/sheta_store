@@ -20,21 +20,6 @@ class ProductResponse {
     }
   }
 
-  static List<ProductResponse> fromList(List<Map<String, dynamic>> list) {
-    return list.map(ProductResponse.fromJson).toList();
-  }
-
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> _data = <String, dynamic>{};
-    _data["results"] = results;
-    if(metadata != null) {
-      _data["metadata"] = metadata?.toJson();
-    }
-    if(data != null) {
-      _data["data"] = data?.map((e) => e.toJson()).toList();
-    }
-    return _data;
-  }
 }
 
 class ProductModel {
@@ -112,40 +97,6 @@ class ProductModel {
     }
   }
 
-  static List<ProductModel> fromList(List<Map<String, dynamic>> list) {
-    return list.map(ProductModel.fromJson).toList();
-  }
-
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> _data = <String, dynamic>{};
-    _data["sold"] = sold;
-    if(images != null) {
-      _data["images"] = images;
-    }
-    if(subcategory != null) {
-      _data["subcategory"] = subcategory?.map((e) => e.toJson()).toList();
-    }
-    _data["ratingsQuantity"] = ratingsQuantity;
-    _data["_id"] = id;
-    _data["title"] = title;
-    _data["slug"] = slug;
-    _data["description"] = description;
-    _data["quantity"] = quantity;
-    _data["price"] = price;
-    _data["priceAfterDiscount"] = priceAfterDiscount;
-    _data["imageCover"] = imageCover;
-    if(category != null) {
-      _data["category"] = category?.toJson();
-    }
-    if(brand != null) {
-      _data["brand"] = brand?.toJson();
-    }
-    _data["ratingsAverage"] = ratingsAverage;
-    _data["createdAt"] = createdAt;
-    _data["updatedAt"] = updatedAt;
-    _data["id"] = id;
-    return _data;
-  }
 }
 
 class Brand {
@@ -171,18 +122,6 @@ class Brand {
     }
   }
 
-  static List<Brand> fromList(List<Map<String, dynamic>> list) {
-    return list.map(Brand.fromJson).toList();
-  }
-
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> _data = <String, dynamic>{};
-    _data["_id"] = id;
-    _data["name"] = name;
-    _data["slug"] = slug;
-    _data["image"] = image;
-    return _data;
-  }
 }
 
 class Category {
@@ -208,18 +147,6 @@ class Category {
     }
   }
 
-  static List<Category> fromList(List<Map<String, dynamic>> list) {
-    return list.map(Category.fromJson).toList();
-  }
-
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> _data = <String, dynamic>{};
-    _data["_id"] = id;
-    _data["name"] = name;
-    _data["slug"] = slug;
-    _data["image"] = image;
-    return _data;
-  }
 }
 
 class Subcategory {
@@ -245,18 +172,6 @@ class Subcategory {
     }
   }
 
-  static List<Subcategory> fromList(List<Map<String, dynamic>> list) {
-    return list.map(Subcategory.fromJson).toList();
-  }
-
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> _data = <String, dynamic>{};
-    _data["_id"] = id;
-    _data["name"] = name;
-    _data["slug"] = slug;
-    _data["category"] = category;
-    return _data;
-  }
 }
 
 class Metadata {
@@ -278,15 +193,4 @@ class Metadata {
     }
   }
 
-  static List<Metadata> fromList(List<Map<String, dynamic>> list) {
-    return list.map(Metadata.fromJson).toList();
-  }
-
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> _data = <String, dynamic>{};
-    _data["currentPage"] = currentPage;
-    _data["numberOfPages"] = numberOfPages;
-    _data["limit"] = limit;
-    return _data;
-  }
 }

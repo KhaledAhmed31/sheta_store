@@ -1,7 +1,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:injectable/injectable.dart';
 import 'package:sheta_store/core/errors/failure/failure.dart';
-import 'package:sheta_store/features/cart/domain/entities/Add_to_cart_model.dart';
+import 'package:sheta_store/features/cart/domain/entities/add_to_cart_model.dart';
 import 'package:sheta_store/features/cart/domain/entities/cart_model.dart';
 import 'package:sheta_store/features/cart/domain/usecases/add_to_cart_use_case.dart';
 import 'package:sheta_store/features/cart/domain/usecases/delete_cart_product_use_case.dart';

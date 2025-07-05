@@ -1,19 +1,23 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:sheta_store/core/assets/assets.dart';
 import 'package:sheta_store/core/ui/app_colors.dart';
+import 'package:sheta_store/features/favorite/presentation/cubit/wishlist_cubit.dart';
 
-class FavBotton extends StatefulWidget {
-  const FavBotton({super.key, required this.onTap});
-  final void Function() onTap;
+class FavButton extends StatefulWidget {
+  const FavButton({super.key, this.isSelected, this.productId});
+  final String? productId;
+  final bool? isSelected;
 
   @override
-  State<FavBotton> createState() => _FavBottonState();
+  State<FavButton> createState() => _FavButtonState();
 }
 
-class _FavBottonState extends State<FavBotton> {
-  bool isClicked = false;
+class _FavButtonState extends State<FavButton> {
+  late bool isClicked = widget.isSelected ?? false;
+  
   @override
   Widget build(BuildContext context) {
     return IconButton(
@@ -26,8 +30,12 @@ class _FavBottonState extends State<FavBotton> {
       isSelected: isClicked,
       onPressed: () {
         setState(() {
+           !isClicked
+              ? BlocProvider.of<WishlistCubit>(context).addToWishlist(widget.productId!)
+              : BlocProvider.of<WishlistCubit>(
+                context,
+              ).removeFromWishlist(widget.productId!);
           isClicked = !isClicked;
-          widget.onTap.call();
         });
       },
       selectedIcon: CircleAvatar(

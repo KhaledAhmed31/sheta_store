@@ -4,7 +4,7 @@ class ApiConstants {
   static const String signUp = "/auth/signup";
   static const String categories = "/categories";
   static const String products = "/products";
-  static const String favorites = "/favorites";
+  static const String wishlist = "/wishlist";
   static const String cart = "/cart";
   static const String subCategories = "/subcategories";
 }

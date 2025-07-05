@@ -18,20 +18,6 @@ class CartResponse {
     cartDetailsResponse = json["data"] == null ? null : CartDetailsResponse.fromJson(json["data"]);
   }
 
-  static List<CartResponse> fromList(List<Map<String, dynamic>> list) {
-    return list.map(CartResponse.fromJson).toList();
-  }
-
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> _data = <String, dynamic>{};
-    _data["status"] = status;
-    _data["numOfCartItems"] = numOfCartItems;
-    _data["cartId"] = cartId;
-    if(cartDetailsResponse != null) {
-      _data["data"] = cartDetailsResponse?.toJson();
-    }
-    return _data;
-  }
 }
 
 class CartDetailsResponse {
@@ -56,23 +42,6 @@ class CartDetailsResponse {
     totalCartPrice = json["totalCartPrice"];
   }
 
-  static List<CartDetailsResponse> fromList(List<Map<String, dynamic>> list) {
-    return list.map(CartDetailsResponse.fromJson).toList();
-  }
-
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> _data = <String, dynamic>{};
-    _data["_id"] = id;
-    _data["cartOwner"] = cartOwner;
-    if(productItems != null) {
-      _data["products"] = productItems?.map((e) => e.toJson()).toList();
-    }
-    _data["createdAt"] = createdAt;
-    _data["updatedAt"] = updatedAt;
-    _data["__v"] = v;
-    _data["totalCartPrice"] = totalCartPrice;
-    return _data;
-  }
 }
 
 class CartItemResponse {
@@ -90,19 +59,5 @@ class CartItemResponse {
     price = json["price"];
   }
 
-  static List<CartItemResponse> fromList(List<Map<String, dynamic>> list) {
-    return list.map(CartItemResponse.fromJson).toList();
-  }
-
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> _data = <String, dynamic>{};
-    _data["count"] = count;
-    _data["_id"] = id;
-    if(product != null) {
-      _data["product"] = product?.toJson();
-    }
-    _data["price"] = price;
-    return _data;
-  }
 }
 
