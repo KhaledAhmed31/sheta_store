@@ -89,6 +89,9 @@ class _ProductDetailsState extends State<ProductDetails> {
                         itemCount: widget.product.images?.length ?? 0,
                         itemBuilder:
                             (context, index) => CachedNetworkImage(
+                              errorWidget:
+                                  (context, url, error) =>
+                                      const Icon(Icons.broken_image_rounded),
                               imageUrl: widget.product.images?[index] ?? '',
                               fit: BoxFit.contain,
                             ),
@@ -119,7 +122,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                     Positioned(
                       top: 0,
                       right: 0,
-                      child: FavBotton(onTap: () {}),
+                      child: FavButton(productId: widget.product.id),
                     ),
                   ],
                 ),

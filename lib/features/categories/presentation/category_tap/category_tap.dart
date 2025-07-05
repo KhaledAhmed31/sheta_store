@@ -15,8 +15,10 @@ class CategoryTap extends StatefulWidget {
   State<CategoryTap> createState() => _CategoryTapState();
 }
 
-class _CategoryTapState extends State<CategoryTap> {
+class _CategoryTapState extends State<CategoryTap>
+     {
   int selectedCategory = 0;
+
   @override
   Widget build(BuildContext context) {
     var state = BlocProvider.of<CategoriesCubit>(context).state;
@@ -25,6 +27,7 @@ class _CategoryTapState extends State<CategoryTap> {
       categories = state.categories;
     } else {
       categories = [];
+      return SizedBox();
     }
     return Padding(
       padding: EdgeInsets.only(
@@ -44,9 +47,16 @@ class _CategoryTapState extends State<CategoryTap> {
           ),
           BlocProvider(
             create: (context) => getIt<CategoriesCubit>(),
-            child: SubCategoriesList(title: categories[selectedCategory].name ?? '',image: categories[selectedCategory].imageUrl ?? '',catId: categories[selectedCategory].id ?? '',)),
+            child: SubCategoriesList(
+              title: categories[selectedCategory].name ?? '',
+              image: categories[selectedCategory].imageUrl ?? '',
+              catId: categories[selectedCategory].id ?? '',
+            ),
+          ),
         ],
       ),
     );
   }
+
+  
 }
