@@ -5,7 +5,7 @@ import 'package:sheta_store/core/ui/app_height.dart';
 import 'package:sheta_store/core/ui/app_padding_margin.dart';
 import 'package:sheta_store/core/widgets/cart_button.dart';
 import 'package:sheta_store/features/categories/presentation/category_tap/category_tap.dart';
-import 'package:sheta_store/features/favorite/presentation/pages/wishlist_tap.dart';
+import 'package:sheta_store/features/wishlist/presentation/pages/wishlist_tap.dart';
 import 'package:sheta_store/features/main_layout/presentation/home/home_tap.dart';
 import 'package:sheta_store/features/main_layout/presentation/home/widgets/bottom_nav_bar_item.dart';
 import 'package:sheta_store/features/main_layout/presentation/home/widgets/search_bar.dart';

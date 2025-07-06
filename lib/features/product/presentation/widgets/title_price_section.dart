@@ -34,12 +34,13 @@ class TitlePriceSection extends StatelessWidget {
                 color: AppColors.textColor,
               ),
             ),
-            if(product.price != null) Text(
-              (product.price ?? 0).ceil().toString(),
-              style: FontStyleManager.withLineThroygh(
-                size: FontSizeManager.s15,
+            if (product.price != null)
+              Text(
+                (product.price ?? 0).ceil().toString(),
+                style: FontStyleManager.withLineThroygh(
+                  size: FontSizeManager.s15,
+                ),
               ),
-            ),
           ],
         ),
       ],

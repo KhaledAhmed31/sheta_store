@@ -1,0 +1,2 @@
+D:/VS code projects/sheta_store/android/app/.cxx/RelWithDebInfo/194r184q/armeabi-v7a/CMakeFiles/edit_cache.dir
+D:/VS code projects/sheta_store/android/app/.cxx/RelWithDebInfo/194r184q/armeabi-v7a/CMakeFiles/rebuild_cache.dir

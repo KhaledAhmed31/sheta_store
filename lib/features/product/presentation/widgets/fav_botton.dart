@@ -4,7 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:sheta_store/core/assets/assets.dart';
 import 'package:sheta_store/core/ui/app_colors.dart';
-import 'package:sheta_store/features/favorite/presentation/cubit/wishlist_cubit.dart';
+import 'package:sheta_store/features/wishlist/presentation/cubit/wishlist_cubit.dart';
 
 class FavButton extends StatefulWidget {
   const FavButton({super.key, this.isSelected, this.productId});

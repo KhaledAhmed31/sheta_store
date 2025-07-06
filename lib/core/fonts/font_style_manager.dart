@@ -3,7 +3,6 @@ import 'package:sheta_store/core/fonts/font_size_manager.dart';
 import 'package:sheta_store/core/ui/app_colors.dart';
 
 class FontStyleManager {
-  // ignore: unused_element
   static TextStyle _getStyel({
      double? size,
     required FontWeight weight,
