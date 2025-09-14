@@ -2,6 +2,7 @@ C/C++ Structured Loga
 _
 ]D:\Program Files\Flutter\flutter\packages\flutter_tools\gradle\src\main\groovy\CMakeLists.txtC
 A
+<<<<<<< Updated upstream
 ?com.android.build.gradle.internal.cxx.io.EncodedFileFingerPrint	®–æØý2§ “Ð×ôÔ2j
 h
 fD:\VS code projects\sheta_store\android\app\.cxx\Debug\103w124a\arm64-v8a\additional_project_files.txt	®–æØý2 ¤ßêú2g
@@ -26,3 +27,29 @@ iD:\VS code projects\sheta_store\android\app\.cxx\Debug\103w124a\arm64-v8a\metad
 \D:\VS code projects\sheta_store\android\app\.cxx\Debug\103w124a\arm64-v8a\prefab_config.json	®–æØý2( ¸ßêú2e
 c
 aD:\VS code projects\sheta_store\android\app\.cxx\Debug\103w124a\arm64-v8a\symbol_folder_index.txt	®–æØý2X ¸ßêú2
+=======
+?com.android.build.gradle.internal.cxx.io.EncodedFileFingerPrint	ÅìŽþ2§ “Ð×ôÔ2j
+h
+fD:\VS code projects\sheta_store\android\app\.cxx\Debug\103w124a\arm64-v8a\additional_project_files.txt	žÅìŽþ2 ¤ßêú2g
+e
+cD:\VS code projects\sheta_store\android\app\.cxx\Debug\103w124a\arm64-v8a\android_gradle_build.json	žÅìŽþ2€ ©ßêú2l
+j
+hD:\VS code projects\sheta_store\android\app\.cxx\Debug\103w124a\arm64-v8a\android_gradle_build_mini.json	žÅìŽþ2û ¶ßêú2Y
+W
+UD:\VS code projects\sheta_store\android\app\.cxx\Debug\103w124a\arm64-v8a\build.ninja	žÅìŽþ2ÿÂ ÃÞêú2]
+[
+YD:\VS code projects\sheta_store\android\app\.cxx\Debug\103w124a\arm64-v8a\build.ninja.txt	žÅìŽþ2b
+`
+^D:\VS code projects\sheta_store\android\app\.cxx\Debug\103w124a\arm64-v8a\build_file_index.txt	žÅìŽþ2] ¸ßêú2c
+a
+_D:\VS code projects\sheta_store\android\app\.cxx\Debug\103w124a\arm64-v8a\compile_commands.json	žÅìŽþ2	g
+e
+cD:\VS code projects\sheta_store\android\app\.cxx\Debug\103w124a\arm64-v8a\compile_commands.json.bin	žÅìŽþ2
+m
+k
+iD:\VS code projects\sheta_store\android\app\.cxx\Debug\103w124a\arm64-v8a\metadata_generation_command.txt	žÅìŽþ2Ÿ ·ßêú2`
+^
+\D:\VS code projects\sheta_store\android\app\.cxx\Debug\103w124a\arm64-v8a\prefab_config.json	žÅìŽþ2( ¸ßêú2e
+c
+aD:\VS code projects\sheta_store\android\app\.cxx\Debug\103w124a\arm64-v8a\symbol_folder_index.txt	žÅìŽþ2X ¸ßêú2
+>>>>>>> Stashed changes

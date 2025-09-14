@@ -2,6 +2,7 @@ C/C++ Structured Loga
 _
 ]D:\Program Files\Flutter\flutter\packages\flutter_tools\gradle\src\main\groovy\CMakeLists.txtC
 A
+<<<<<<< Updated upstream
 ?com.android.build.gradle.internal.cxx.io.EncodedFileFingerPrint	˜—æØý2§ “Ð×ôÔ2g
 e
 cD:\VS code projects\sheta_store\android\app\.cxx\Debug\103w124a\x86_64\additional_project_files.txt	˜—æØý2 ÷êú2d
@@ -26,3 +27,29 @@ fD:\VS code projects\sheta_store\android\app\.cxx\Debug\103w124a\x86_64\metadata
 YD:\VS code projects\sheta_store\android\app\.cxx\Debug\103w124a\x86_64\prefab_config.json	˜—æØý2( §÷êú2b
 `
 ^D:\VS code projects\sheta_store\android\app\.cxx\Debug\103w124a\x86_64\symbol_folder_index.txt	˜—æØý2U §÷êú2
+=======
+?com.android.build.gradle.internal.cxx.io.EncodedFileFingerPrint	ÍÆìŽþ2§ “Ð×ôÔ2g
+e
+cD:\VS code projects\sheta_store\android\app\.cxx\Debug\103w124a\x86_64\additional_project_files.txt	ÍÆìŽþ2 ÷êú2d
+b
+`D:\VS code projects\sheta_store\android\app\.cxx\Debug\103w124a\x86_64\android_gradle_build.json	ÍÆìŽþ2ú ž÷êú2i
+g
+eD:\VS code projects\sheta_store\android\app\.cxx\Debug\103w124a\x86_64\android_gradle_build_mini.json	ÍÆìŽþ2õ §÷êú2V
+T
+RD:\VS code projects\sheta_store\android\app\.cxx\Debug\103w124a\x86_64\build.ninja	ÍÆìŽþ2ðÂ Íöêú2Z
+X
+VD:\VS code projects\sheta_store\android\app\.cxx\Debug\103w124a\x86_64\build.ninja.txt	ÍÆìŽþ2_
+]
+[D:\VS code projects\sheta_store\android\app\.cxx\Debug\103w124a\x86_64\build_file_index.txt	ÍÆìŽþ2] §÷êú2`
+^
+\D:\VS code projects\sheta_store\android\app\.cxx\Debug\103w124a\x86_64\compile_commands.json	ÍÆìŽþ2	d
+b
+`D:\VS code projects\sheta_store\android\app\.cxx\Debug\103w124a\x86_64\compile_commands.json.bin	ÍÆìŽþ2
+j
+h
+fD:\VS code projects\sheta_store\android\app\.cxx\Debug\103w124a\x86_64\metadata_generation_command.txt	ÍÆìŽþ2 §÷êú2]
+[
+YD:\VS code projects\sheta_store\android\app\.cxx\Debug\103w124a\x86_64\prefab_config.json	ÍÆìŽþ2( §÷êú2b
+`
+^D:\VS code projects\sheta_store\android\app\.cxx\Debug\103w124a\x86_64\symbol_folder_index.txt	ÍÆìŽþ2U §÷êú2
+>>>>>>> Stashed changes

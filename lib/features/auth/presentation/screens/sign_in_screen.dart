@@ -103,7 +103,7 @@ class _SignInScreenState extends State<SignInScreen> {
                     hint: "Enter your email",
                     controller: emailController,
                     validator:
-                        (textValue) => Validators.nameValidator(textValue),
+                        (textValue) => Validators.emailValidator(textValue),
                   ),
                   SizedBox(height: AppHeight.h32),
                   Text(

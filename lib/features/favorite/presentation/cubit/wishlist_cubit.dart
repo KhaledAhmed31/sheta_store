@@ -6,7 +6,7 @@ import 'package:sheta_store/features/favorite/domain/usecases/get_wishlist_useca
 import 'package:sheta_store/features/favorite/domain/usecases/remove_from_wishlist_usecase.dart';
 import 'package:sheta_store/features/favorite/presentation/cubit/wishlist_state.dart';
 
-@singleton
+@lazySingleton
 class WishlistCubit extends Cubit<WishlistState> {
   final AddToWishlistUsecase addToWishlistUsecase;
   final RemoveFromWishlistUsecase removeFromWishlistUsecase;
@@ -16,7 +16,9 @@ class WishlistCubit extends Cubit<WishlistState> {
     this.addToWishlistUsecase,
     this.removeFromWishlistUsecase,
     this.getWishlistUsecase,
-  ) : super(WishlistInitialState());
+  ) : super(WishlistInitialState()){
+    getWishlist();
+  }
 
   Future<void> addToWishlist(String productId) async {
     emit(EditeWishlistLoadingState());

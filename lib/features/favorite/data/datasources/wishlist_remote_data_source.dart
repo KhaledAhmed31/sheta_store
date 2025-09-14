@@ -1,4 +1,3 @@
-import 'dart:developer';
 
 import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
@@ -29,7 +28,6 @@ class WishlistRemoteDataSource implements WishlistDataSource {
   @override
   Future<WishlistResponse> getWishlist()async {
     try{
-      log("loading wishlist in back");
       return await dio.get(ApiConstants.wishlist).then((value) => WishlistResponse.fromJson(value.data));
     }
     catch(e){

@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:sheta_store/core/assets/assets.dart';
+import 'package:sheta_store/core/dependency_injection/identifiers.dart';
 import 'package:sheta_store/core/ui/app_colors.dart';
 import 'package:sheta_store/features/favorite/presentation/cubit/wishlist_cubit.dart';
 
@@ -17,6 +18,12 @@ class FavButton extends StatefulWidget {
 
 class _FavButtonState extends State<FavButton> {
   late bool isClicked = widget.isSelected ?? false;
+  late WishlistCubit wishlistCubit;
+  @override
+  void initState() {
+    wishlistCubit = getIt<WishlistCubit>();
+    super.initState();
+  }
   
   @override
   Widget build(BuildContext context) {
@@ -31,10 +38,8 @@ class _FavButtonState extends State<FavButton> {
       onPressed: () {
         setState(() {
            !isClicked
-              ? BlocProvider.of<WishlistCubit>(context).addToWishlist(widget.productId!)
-              : BlocProvider.of<WishlistCubit>(
-                context,
-              ).removeFromWishlist(widget.productId!);
+              ? wishlistCubit.addToWishlist(widget.productId!)
+              : wishlistCubit.removeFromWishlist(widget.productId!);
           isClicked = !isClicked;
         });
       },
