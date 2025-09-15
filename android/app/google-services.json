@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "634254470250",
+    "project_id": "sheta-store-e561d",
+    "storage_bucket": "sheta-store-e561d.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:634254470250:android:9a9bb3346b2516fe0a2e13",
+        "android_client_info": {
+          "package_name": "com.example.sheta_store"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAz9pTCG6sKxV37lgE8XORDvmQ6gC7etH8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

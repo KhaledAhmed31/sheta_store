@@ -26,86 +26,89 @@ class _CartScreenState extends State<CartScreen> {
   late CartCubit cubit;
   @override
   void initState() {
-    cubit = BlocProvider.of<CartCubit>(context)..getCart();
+    cubit = getIt.get<CartCubit>()..getCart();
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        surfaceTintColor: Colors.transparent,
-        leading: IconButton(
-          onPressed: () => context.pop(),
-          icon: Icon(Icons.arrow_back_ios, color: AppColors.main),
-        ),
-        title: Text(
-          'Cart',
-          style: FontStyleManager.mediumStyle(
-            size: FontSizeManager.s20,
-            color: AppColors.main,
+    return BlocProvider<CartCubit>.value(
+      value: cubit,
+      child: Scaffold(
+        appBar: AppBar(
+          surfaceTintColor: Colors.transparent,
+          leading: IconButton(
+            onPressed: () => context.pop(),
+            icon: Icon(Icons.arrow_back_ios, color: AppColors.main),
           ),
-        ),
-        centerTitle: true,
-        backgroundColor: Colors.white,
-        actions: [
-          IconButton(
-            onPressed: () {},
-            icon: SvgPicture.asset(Assets.searchIcon),
+          title: Text(
+            'Cart',
+            style: FontStyleManager.mediumStyle(
+              size: FontSizeManager.s20,
+              color: AppColors.main,
+            ),
           ),
-        ],
-      ),
-      body: BlocConsumer<CartCubit, CartState>(
-        listener: (context, state) {
-          if (state is DeleteFromCartLoadingState ||
-              state is UpdateCartProductQuantityLoadingState) {
-            context.loaderOverlay.show();
-          }
-          if (state is DeleteFromCartSuccessState ||
-              state is UpdateCartProductQuantitySuccessState) {
-            context.loaderOverlay.hide();
-          }
-        },
-        builder: (context, state) {
-          if (state is GetCartLoadingState) {
-            return Center(
-              child: CircularProgressIndicator(color: AppColors.main),
-            );
-          } else if (state is GetCartErrorState) {
-            return Center(child: Text(state.message));
-          } else {
-            return Padding(
-              padding: EdgeInsets.symmetric(horizontal: 16.w),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: [
-                  Expanded(
-                    child: BlocProvider<ProductCubit>(
-                      create: (context) => getIt.get<ProductCubit>(),
-                      child: ListView.builder(
-                        itemCount:
-                            (cubit.cart!.cartDetails!.productItems ?? [])
-                                .length,
-                        itemBuilder:
-                            (context, index) => CartCard(
-                              cartItemModel:
-                                  cubit.cart!.cartDetails!.productItems![index],
-                            ),
+          centerTitle: true,
+          backgroundColor: Colors.white,
+          actions: [
+            IconButton(
+              onPressed: () {},
+              icon: SvgPicture.asset(Assets.searchIcon),
+            ),
+          ],
+        ),
+        body: BlocConsumer<CartCubit, CartState>(
+          listener: (context, state) {
+            if (state is DeleteFromCartLoadingState ||
+                state is UpdateCartProductQuantityLoadingState) {
+              context.loaderOverlay.show();
+            }
+            if (state is DeleteFromCartSuccessState ||
+                state is UpdateCartProductQuantitySuccessState) {
+              context.loaderOverlay.hide();
+            }
+          },
+          builder: (context, state) {
+            if (state is GetCartLoadingState) {
+              return Center(
+                child: CircularProgressIndicator(color: AppColors.main),
+              );
+            } else if (state is GetCartErrorState) {
+              return Center(child: Text(state.message));
+            } else {
+              return Padding(
+                padding: EdgeInsets.symmetric(horizontal: 16.w),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    Expanded(
+                      child: BlocProvider<ProductCubit>(
+                        create: (context) => getIt.get<ProductCubit>(),
+                        child: ListView.builder(
+                          itemCount:
+                              (cubit.cart!.cartDetails!.productItems ?? [])
+                                  .length,
+                          itemBuilder:
+                              (context, index) => CartCard(
+                                cartItemModel:
+                                    cubit.cart!.cartDetails!.productItems![index],
+                              ),
+                        ),
                       ),
                     ),
-                  ),
-                  SizedBox(height: 5.h),
-                  PriceCheckOutSection(
-                    totalPrice:
-                        (cubit.cart!.cartDetails?.totalCartPrice ?? 0)
-                            .toString(),
-                    onTap: () {},
-                  ),
-                ],
-              ),
-            );
-          }
-        },
+                    SizedBox(height: 5.h),
+                    PriceCheckOutSection(
+                      totalPrice:
+                          (cubit.cart!.cartDetails?.totalCartPrice ?? 0)
+                              .toString(),
+                      onTap: () {},
+                    ),
+                  ],
+                ),
+              );
+            }
+          },
+        ),
       ),
     );
   }

@@ -1,4 +1,3 @@
-import 'dart:developer';
 
 import 'package:injectable/injectable.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -25,7 +24,6 @@ class AuthCacheData implements AuthLocalData {
   @override
   String? getToken() {
     try {
-      log(prefs.getString(SharedPreferencesKeys.tokenKey).toString());
       return prefs.getString(SharedPreferencesKeys.tokenKey);
     } catch (e) {
       throw LocalErrorHandler(message: e.toString());

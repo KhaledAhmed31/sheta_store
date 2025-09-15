@@ -2,27 +2,62 @@ C/C++ Structured Loga
 _
 ]D:\Program Files\Flutter\flutter\packages\flutter_tools\gradle\src\main\groovy\CMakeLists.txtC
 A
-?com.android.build.gradle.internal.cxx.io.EncodedFileFingerPrint	…ø”åý2§ “Ð×ôÔ2j
+<<<<<<< Updated upstream
+?com.android.build.gradle.internal.cxx.io.EncodedFileFingerPrint	ï¿½ï¿½ï¿½ï¿½ï¿½2ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½2j
 h
-fD:\VS code projects\sheta_store\android\app\.cxx\Debug\103w124a\arm64-v8a\additional_project_files.txt	†ø”åý2 ¤ßêú2g
+fD:\VS code projects\sheta_store\android\app\.cxx\Debug\103w124a\arm64-v8a\additional_project_files.txt	ï¿½ï¿½ï¿½ï¿½ï¿½2 ï¿½ßï¿½ï¿½2g
 e
-cD:\VS code projects\sheta_store\android\app\.cxx\Debug\103w124a\arm64-v8a\android_gradle_build.json	†ø”åý2€ ©ßêú2l
+cD:\VS code projects\sheta_store\android\app\.cxx\Debug\103w124a\arm64-v8a\android_gradle_build.json	ï¿½ï¿½ï¿½ï¿½ï¿½2ï¿½ ï¿½ßï¿½ï¿½2l
 j
-hD:\VS code projects\sheta_store\android\app\.cxx\Debug\103w124a\arm64-v8a\android_gradle_build_mini.json	†ø”åý2û ¶ßêú2Y
+hD:\VS code projects\sheta_store\android\app\.cxx\Debug\103w124a\arm64-v8a\android_gradle_build_mini.json	ï¿½ï¿½ï¿½ï¿½ï¿½2ï¿½ ï¿½ßï¿½ï¿½2Y
 W
-UD:\VS code projects\sheta_store\android\app\.cxx\Debug\103w124a\arm64-v8a\build.ninja	†ø”åý2ÿÂ ÃÞêú2]
+UD:\VS code projects\sheta_store\android\app\.cxx\Debug\103w124a\arm64-v8a\build.ninja	ï¿½ï¿½ï¿½ï¿½ï¿½2ï¿½ï¿½ ï¿½Þï¿½ï¿½2]
 [
-YD:\VS code projects\sheta_store\android\app\.cxx\Debug\103w124a\arm64-v8a\build.ninja.txt	†ø”åý2b
+YD:\VS code projects\sheta_store\android\app\.cxx\Debug\103w124a\arm64-v8a\build.ninja.txt	ï¿½ï¿½ï¿½ï¿½ï¿½2b
 `
-^D:\VS code projects\sheta_store\android\app\.cxx\Debug\103w124a\arm64-v8a\build_file_index.txt	†ø”åý2] ¸ßêú2c
+^D:\VS code projects\sheta_store\android\app\.cxx\Debug\103w124a\arm64-v8a\build_file_index.txt	ï¿½ï¿½ï¿½ï¿½ï¿½2
+] ï¿½ßï¿½ï¿½2c
 a
-_D:\VS code projects\sheta_store\android\app\.cxx\Debug\103w124a\arm64-v8a\compile_commands.json	†ø”åý2	g
+_D:\VS code projects\sheta_store\android\app\.cxx\Debug\103w124a\arm64-v8a\compile_commands.json	ï¿½ï¿½ï¿½ï¿½ï¿½2	g
 e
-cD:\VS code projects\sheta_store\android\app\.cxx\Debug\103w124a\arm64-v8a\compile_commands.json.bin	†ø”åý2
+cD:\VS code projects\sheta_store\android\app\.cxx\Debug\103w124a\arm64-v8a\compile_commands.json.bin	ï¿½ï¿½ï¿½ï¿½ï¿½2
 m
 k
-iD:\VS code projects\sheta_store\android\app\.cxx\Debug\103w124a\arm64-v8a\metadata_generation_command.txt	†ø”åý2Ÿ ·ßêú2`
+iD:\VS code projects\sheta_store\android\app\.cxx\Debug\103w124a\arm64-v8a\metadata_generation_command.txt	ï¿½ï¿½ï¿½ï¿½ï¿½2ï¿½ ï¿½ßï¿½ï¿½2`
 ^
-\D:\VS code projects\sheta_store\android\app\.cxx\Debug\103w124a\arm64-v8a\prefab_config.json	†ø”åý2( ¸ßêú2e
+\D:\VS code projects\sheta_store\android\app\.cxx\Debug\103w124a\arm64-v8a\prefab_config.json	ï¿½ï¿½ï¿½ï¿½ï¿½2
+( ï¿½ßï¿½ï¿½2e
 c
-aD:\VS code projects\sheta_store\android\app\.cxx\Debug\103w124a\arm64-v8a\symbol_folder_index.txt	†ø”åý2X ¸ßêú2
+aD:\VS code projects\sheta_store\android\app\.cxx\Debug\103w124a\arm64-v8a\symbol_folder_index.txt	ï¿½ï¿½ï¿½ï¿½ï¿½2
+
+X ï¿½ßï¿½ï¿½2
+=======
+?com.android.build.gradle.internal.cxx.io.EncodedFileFingerPrint	ï¿½ï¿½ï¿½ï¿½2ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½2j
+h
+fD:\VS code projects\sheta_store\android\app\.cxx\Debug\103w124a\arm64-v8a\additional_project_files.txt	ï¿½ï¿½ï¿½ï¿½2 ï¿½ßï¿½ï¿½2g
+e
+cD:\VS code projects\sheta_store\android\app\.cxx\Debug\103w124a\arm64-v8a\android_gradle_build.json	ï¿½ï¿½ï¿½ï¿½2ï¿½ ï¿½ßï¿½ï¿½2l
+j
+hD:\VS code projects\sheta_store\android\app\.cxx\Debug\103w124a\arm64-v8a\android_gradle_build_mini.json	ï¿½ï¿½ï¿½ï¿½2ï¿½ ï¿½ßï¿½ï¿½2Y
+W
+UD:\VS code projects\sheta_store\android\app\.cxx\Debug\103w124a\arm64-v8a\build.ninja	ï¿½ï¿½ï¿½ï¿½2ï¿½ï¿½ ï¿½Þï¿½ï¿½2]
+[
+YD:\VS code projects\sheta_store\android\app\.cxx\Debug\103w124a\arm64-v8a\build.ninja.txt	ï¿½ï¿½ï¿½ï¿½2b
+`
+^D:\VS code projects\sheta_store\android\app\.cxx\Debug\103w124a\arm64-v8a\build_file_index.txt	ï¿½ï¿½ï¿½ï¿½2
+] ï¿½ßï¿½ï¿½2c
+a
+_D:\VS code projects\sheta_store\android\app\.cxx\Debug\103w124a\arm64-v8a\compile_commands.json	ï¿½ï¿½ï¿½ï¿½2	g
+e
+cD:\VS code projects\sheta_store\android\app\.cxx\Debug\103w124a\arm64-v8a\compile_commands.json.bin	ï¿½ï¿½ï¿½ï¿½2
+m
+k
+iD:\VS code projects\sheta_store\android\app\.cxx\Debug\103w124a\arm64-v8a\metadata_generation_command.txt	ï¿½ï¿½ï¿½ï¿½2ï¿½ ï¿½ßï¿½ï¿½2`
+^
+\D:\VS code projects\sheta_store\android\app\.cxx\Debug\103w124a\arm64-v8a\prefab_config.json	ï¿½ï¿½ï¿½ï¿½2
+( ï¿½ßï¿½ï¿½2e
+c
+aD:\VS code projects\sheta_store\android\app\.cxx\Debug\103w124a\arm64-v8a\symbol_folder_index.txt	ï¿½ï¿½ï¿½ï¿½2
+
+X ï¿½ßï¿½ï¿½2
+>>>>>>> Stashed changes

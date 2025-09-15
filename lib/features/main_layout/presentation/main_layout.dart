@@ -2,13 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:sheta_store/core/assets/assets.dart';
 import 'package:sheta_store/core/ui/app_colors.dart';
 import 'package:sheta_store/core/ui/app_height.dart';
-import 'package:sheta_store/core/ui/app_padding_margin.dart';
-import 'package:sheta_store/core/widgets/cart_button.dart';
 import 'package:sheta_store/features/categories/presentation/category_tap/category_tap.dart';
 import 'package:sheta_store/features/wishlist/presentation/pages/wishlist_tap.dart';
 import 'package:sheta_store/features/main_layout/presentation/home/home_tap.dart';
 import 'package:sheta_store/features/main_layout/presentation/home/widgets/bottom_nav_bar_item.dart';
-import 'package:sheta_store/features/main_layout/presentation/home/widgets/search_bar.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
@@ -25,6 +22,17 @@ class _MainScreenState extends State<MainScreen> {
     Container(),
   ];
   int currentTapIndex = 0;
+  late final PageController pageController;
+  @override
+  void initState() {
+    super.initState();
+    pageController = PageController(initialPage: currentTapIndex);
+  }
+  @override
+  void dispose() {
+    pageController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -40,25 +48,16 @@ class _MainScreenState extends State<MainScreen> {
         titleSpacing: 25,
         surfaceTintColor: Colors.transparent,
       ),
-      body: Column(
-        children: [
-          if (currentTapIndex != 3)
-            Padding(
-              padding: EdgeInsets.only(
-                bottom: AppMargin.m17,
-                left: AppMargin.m17,
-                right: AppMargin.m17,
-              ),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [CustomSearchBar(), CartButton()],
-              ),
-            ),
+      body: PageView(
+        controller: pageController,
+        onPageChanged: (index) {
+          setState(() {
+            currentTapIndex = index;
+          });
+        },
 
-          taps[currentTapIndex],
-        ],
+        children: taps,
       ),
-
       bottomNavigationBar: ClipRRect(
         borderRadius: BorderRadius.only(
           topLeft: Radius.circular(15.0),
@@ -70,9 +69,7 @@ class _MainScreenState extends State<MainScreen> {
           child: BottomNavigationBar(
             currentIndex: currentTapIndex,
             onTap: (index) {
-              setState(() {
-                currentTapIndex = index;
-              });
+              pageController.animateToPage(index, duration: Duration(milliseconds: 300), curve: Curves.easeInOut);
             },
             items: [
               CustomBottomNavBarItem(Assets.homeIcon),
@@ -86,3 +83,6 @@ class _MainScreenState extends State<MainScreen> {
     );
   }
 }
+
+
+

@@ -11,22 +11,24 @@ class WishlistCubit extends Cubit<WishlistState> {
   final AddToWishlistUsecase addToWishlistUsecase;
   final RemoveFromWishlistUsecase removeFromWishlistUsecase;
   final GetWishlistUsecase getWishlistUsecase;
+  
   WishlistEntity? wishlistEntity;
   WishlistCubit(
     this.addToWishlistUsecase,
     this.removeFromWishlistUsecase,
     this.getWishlistUsecase,
-  ) : super(WishlistInitialState());
+  ) : super(WishlistInitialState()){
+    getWishlist();
+  }
 
   Future<void> addToWishlist(String productId) async {
     emit(EditeWishlistLoadingState());
     final result = await addToWishlistUsecase(productId);
     if (result == null) {
       await getWishlist();
-
       emit(EditeWishlistSuccessState());
     } else {
-      emit(EditeWishlistErrorState(message: result.message));
+      emit(EditeWishlistErrorState(productId, message: result.message));
     }
   }
 
@@ -35,11 +37,10 @@ class WishlistCubit extends Cubit<WishlistState> {
     final result = await removeFromWishlistUsecase(productId);
     if (result == null) {
       await getWishlist();
-
       emit(EditeWishlistSuccessState());
 
     } else {
-      emit(EditeWishlistErrorState(message: result.message));
+      emit(EditeWishlistErrorState(productId, message: result.message));
     }
   }
 
@@ -47,6 +48,7 @@ class WishlistCubit extends Cubit<WishlistState> {
     emit(GetWishlistLoadingState());
     final result = await getWishlistUsecase();
     if (result.$1 == null) {
+      
       wishlistEntity = result.$2;
       emit(GetWishlistSuccessState());
     } else {

@@ -1,4 +1,3 @@
-import 'dart:developer';
 
 import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
@@ -7,7 +6,7 @@ import 'package:sheta_store/core/errors/remote_errors_handler/remote_errors_hand
 import '../models/wishlist_response.dart';
 import 'wishlist_data_source.dart';
 
-@LazySingleton(as: WishlistDataSource)
+@Singleton(as: WishlistDataSource)
 class WishlistRemoteDataSource implements WishlistDataSource {
   final Dio dio;
   WishlistRemoteDataSource({required this.dio});
@@ -29,7 +28,6 @@ class WishlistRemoteDataSource implements WishlistDataSource {
   @override
   Future<WishlistResponse> getWishlist()async {
     try{
-      log("loading wishlist in back");
       return await dio.get(ApiConstants.wishlist).then((value) => WishlistResponse.fromJson(value.data));
     }
     catch(e){

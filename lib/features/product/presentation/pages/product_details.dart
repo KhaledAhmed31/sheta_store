@@ -1,4 +1,4 @@
-import 'dart:developer';
+
 
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
@@ -133,7 +133,6 @@ class _ProductDetailsState extends State<ProductDetails> {
                 product: widget.product,
                 onTapQuantatyButton: (int newQuantity) {
                   setState(() {
-                    log("call back $quantity");
                     quantity = newQuantity;
                   });
                 },

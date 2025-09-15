@@ -2,7 +2,12 @@ C/C++ Structured Loga
 _
 ]D:\Program Files\Flutter\flutter\packages\flutter_tools\gradle\src\main\groovy\CMakeLists.txtC
 A
+<<<<<<< HEAD
 ?com.android.build.gradle.internal.cxx.io.EncodedFileFingerPrint	ìø”åı2§ “Ğ×ôÔ2d
+=======
+<<<<<<< Updated upstream
+?com.android.build.gradle.internal.cxx.io.EncodedFileFingerPrint	ñ–æØı2§ “Ğ×ôÔ2d
+>>>>>>> developement
 b
 `D:\VS code projects\sheta_store\android\app\.cxx\Debug\103w124a\x86\additional_project_files.txt	ìø”åı2 ½ïêú2a
 _
@@ -25,4 +30,34 @@ cD:\VS code projects\sheta_store\android\app\.cxx\Debug\103w124a\x86\metadata_ge
 X
 VD:\VS code projects\sheta_store\android\app\.cxx\Debug\103w124a\x86\prefab_config.json	ìø”åı2( Ëïêú2_
 ]
+<<<<<<< HEAD
 [D:\VS code projects\sheta_store\android\app\.cxx\Debug\103w124a\x86\symbol_folder_index.txt	ìø”åı2R Ëïêú2
+=======
+[D:\VS code projects\sheta_store\android\app\.cxx\Debug\103w124a\x86\symbol_folder_index.txt	ó–æØı2R Ëïêú2
+=======
+?com.android.build.gradle.internal.cxx.io.EncodedFileFingerPrint	‹Æìş2§ “Ğ×ôÔ2d
+b
+`D:\VS code projects\sheta_store\android\app\.cxx\Debug\103w124a\x86\additional_project_files.txt	‹Æìş2 ½ïêú2a
+_
+]D:\VS code projects\sheta_store\android\app\.cxx\Debug\103w124a\x86\android_gradle_build.json	‹Æìş2ô ¾ïêú2f
+d
+bD:\VS code projects\sheta_store\android\app\.cxx\Debug\103w124a\x86\android_gradle_build_mini.json	‹Æìş2ï Ëïêú2S
+Q
+OD:\VS code projects\sheta_store\android\app\.cxx\Debug\103w124a\x86\build.ninja	‹Æìş2áÂ ğîêú2W
+U
+SD:\VS code projects\sheta_store\android\app\.cxx\Debug\103w124a\x86\build.ninja.txt	‹Æìş2\
+Z
+XD:\VS code projects\sheta_store\android\app\.cxx\Debug\103w124a\x86\build_file_index.txt	‹Æìş2] Ëïêú2]
+[
+YD:\VS code projects\sheta_store\android\app\.cxx\Debug\103w124a\x86\compile_commands.json	‹Æìş2	a
+_
+]D:\VS code projects\sheta_store\android\app\.cxx\Debug\103w124a\x86\compile_commands.json.bin	‹Æìş2
+g
+e
+cD:\VS code projects\sheta_store\android\app\.cxx\Debug\103w124a\x86\metadata_generation_command.txt	‹Æìş2 Ëïêú2Z
+X
+VD:\VS code projects\sheta_store\android\app\.cxx\Debug\103w124a\x86\prefab_config.json	‹Æìş2( Ëïêú2_
+]
+[D:\VS code projects\sheta_store\android\app\.cxx\Debug\103w124a\x86\symbol_folder_index.txt	‹Æìş2R Ëïêú2
+>>>>>>> Stashed changes
+>>>>>>> developement

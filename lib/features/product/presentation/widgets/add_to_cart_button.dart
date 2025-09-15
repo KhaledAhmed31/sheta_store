@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:sheta_store/core/dependency_injection/identifiers.dart';
 import 'package:sheta_store/core/fonts/font_size_manager.dart';
 import 'package:sheta_store/core/fonts/font_style_manager.dart';
 import 'package:sheta_store/core/ui/app_colors.dart';
@@ -20,7 +21,7 @@ class AddToCartButton extends StatelessWidget {
   final ProductEntity productEntity;
   @override
   Widget build(BuildContext context) {
-    CartCubit cartCubit = BlocProvider.of<CartCubit>(context);
+    CartCubit cartCubit = getIt.get<CartCubit>();
     ProductCubit productCubit = BlocProvider.of<ProductCubit>(context);
     return SizedBox(
       height: 48.h,
@@ -63,6 +64,7 @@ class AddToCartButton extends StatelessWidget {
           }
         },
         child: BlocBuilder<CartCubit, CartState>(
+          bloc: cartCubit,
           builder: (context, state) {
             if (state is UpdateCartProductQuantityLoadingState ||
                 state is AddToCartLoadingState) {

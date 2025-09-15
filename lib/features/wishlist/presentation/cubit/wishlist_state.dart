@@ -32,7 +32,7 @@ class EditeWishlistLoadingState extends WishlistState {}
 class EditeWishlistSuccessState extends WishlistState {}
 
 class EditeWishlistErrorState extends WishlistState {
-
+  final String productId;
   final String message;
-  const EditeWishlistErrorState({required this.message});
+  const EditeWishlistErrorState(this.productId, {required this.message});
 }

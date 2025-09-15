@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:go_router/go_router.dart';
 import 'package:sheta_store/core/assets/assets.dart';
+import 'package:sheta_store/core/dependency_injection/identifiers.dart';
 import 'package:sheta_store/core/routes/route_name.dart';
 import 'package:sheta_store/features/cart/presentation/cubit/cart_cubit.dart';
 import 'package:sheta_store/features/cart/presentation/cubit/cart_state.dart';
@@ -16,9 +17,15 @@ class CartButton extends StatefulWidget {
 }
 
 class _CartButtonState extends State<CartButton> {
+  late CartCubit cubit;
+  @override
+  void initState() {
+    super.initState();
+    cubit = getIt.get<CartCubit>();
+  }
   @override
   Widget build(BuildContext context) {
-    int count = BlocProvider.of<CartCubit>(context).cart?.numOfCartItems ?? 0;
+    int count = cubit.cart?.numOfCartItems ?? 0;
     return SizedBox(
       width: 25.w,
       child: IconButton(
@@ -27,12 +34,9 @@ class _CartButtonState extends State<CartButton> {
           context.push(RouteName.cartScreen);
         },
         icon: BlocListener<CartCubit, CartState>(
+          bloc: getIt.get<CartCubit>(),
           listener: (context, state) {
-            if (state is GetCartSuccessState ||
-                state is AddToCartSuccessState ||
-                state is DeleteFromCartSuccessState) {
-              setState(() {});
-            }
+            
             setState(() {});
           },
 

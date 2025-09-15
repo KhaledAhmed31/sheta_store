@@ -133,7 +133,7 @@ extension GetItInjectableX on _i174.GetIt {
       () =>
           _i629.ProductRepo(productDataSource: gh<_i525.ProductsDataSource>()),
     );
-    gh.lazySingleton<_i651.WishlistDataSource>(
+    gh.singleton<_i651.WishlistDataSource>(
       () => _i862.WishlistRemoteDataSource(dio: gh<_i361.Dio>()),
     );
     gh.singleton<_i812.AuthRemoteData>(

@@ -122,7 +122,7 @@ class _ProductItemState extends State<ProductItem> {
           Positioned(
             right: 0.h,
             bottom: 0.h,
-            child: CartBotton(product: widget.product.id ?? ''),
+            child: CartBotton(productId: widget.product.id ?? ''),
           ),
           Positioned(
             right: 0.h,

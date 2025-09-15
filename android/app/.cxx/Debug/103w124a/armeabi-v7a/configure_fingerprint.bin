@@ -2,7 +2,12 @@ C/C++ Structured Loga
 _
 ]D:\Program Files\Flutter\flutter\packages\flutter_tools\gradle\src\main\groovy\CMakeLists.txtC
 A
+<<<<<<< HEAD
 ?com.android.build.gradle.internal.cxx.io.EncodedFileFingerPrint	Åø”åı2§ “Ğ×ôÔ2l
+=======
+<<<<<<< Updated upstream
+?com.android.build.gradle.internal.cxx.io.EncodedFileFingerPrint	Ò–æØı2§ “Ğ×ôÔ2l
+>>>>>>> developement
 j
 hD:\VS code projects\sheta_store\android\app\.cxx\Debug\103w124a\armeabi-v7a\additional_project_files.txt	Åø”åı2 Ûçêú2i
 g
@@ -25,4 +30,34 @@ kD:\VS code projects\sheta_store\android\app\.cxx\Debug\103w124a\armeabi-v7a\met
 `
 ^D:\VS code projects\sheta_store\android\app\.cxx\Debug\103w124a\armeabi-v7a\prefab_config.json	Åø”åı2( æçêú2g
 e
+<<<<<<< HEAD
 cD:\VS code projects\sheta_store\android\app\.cxx\Debug\103w124a\armeabi-v7a\symbol_folder_index.txt	Åø”åı2Z æçêú2
+=======
+cD:\VS code projects\sheta_store\android\app\.cxx\Debug\103w124a\armeabi-v7a\symbol_folder_index.txt	Ò–æØı2Z æçêú2
+=======
+?com.android.build.gradle.internal.cxx.io.EncodedFileFingerPrint	×Åìş2§ “Ğ×ôÔ2l
+j
+hD:\VS code projects\sheta_store\android\app\.cxx\Debug\103w124a\armeabi-v7a\additional_project_files.txt	×Åìş2 Ûçêú2i
+g
+eD:\VS code projects\sheta_store\android\app\.cxx\Debug\103w124a\armeabi-v7a\android_gradle_build.json	×Åìş2„ Üçêú2n
+l
+jD:\VS code projects\sheta_store\android\app\.cxx\Debug\103w124a\armeabi-v7a\android_gradle_build_mini.json	×Åìş2ÿ åçêú2[
+Y
+WD:\VS code projects\sheta_store\android\app\.cxx\Debug\103w124a\armeabi-v7a\build.ninja	×Åìş2‰Ã „çêú2_
+]
+[D:\VS code projects\sheta_store\android\app\.cxx\Debug\103w124a\armeabi-v7a\build.ninja.txt	×Åìş2d
+b
+`D:\VS code projects\sheta_store\android\app\.cxx\Debug\103w124a\armeabi-v7a\build_file_index.txt	×Åìş2] æçêú2e
+c
+aD:\VS code projects\sheta_store\android\app\.cxx\Debug\103w124a\armeabi-v7a\compile_commands.json	×Åìş2	i
+g
+eD:\VS code projects\sheta_store\android\app\.cxx\Debug\103w124a\armeabi-v7a\compile_commands.json.bin	×Åìş2
+o
+m
+kD:\VS code projects\sheta_store\android\app\.cxx\Debug\103w124a\armeabi-v7a\metadata_generation_command.txt	×Åìş2© åçêú2b
+`
+^D:\VS code projects\sheta_store\android\app\.cxx\Debug\103w124a\armeabi-v7a\prefab_config.json	×Åìş2( æçêú2g
+e
+cD:\VS code projects\sheta_store\android\app\.cxx\Debug\103w124a\armeabi-v7a\symbol_folder_index.txt	×Åìş2Z æçêú2
+>>>>>>> Stashed changes
+>>>>>>> developement
