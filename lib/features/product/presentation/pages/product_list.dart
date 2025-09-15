@@ -10,6 +10,7 @@ import 'package:sheta_store/core/ui/app_colors.dart';
 import 'package:sheta_store/core/ui/app_height.dart';
 import 'package:sheta_store/core/ui/app_padding_margin.dart';
 import 'package:sheta_store/core/widgets/cart_button.dart';
+import 'package:sheta_store/features/favorite/presentation/cubit/wishlist_cubit.dart';
 import 'package:sheta_store/features/main_layout/presentation/home/widgets/search_bar.dart';
 import 'package:sheta_store/features/product/data/models/product_request.dart';
 import 'package:sheta_store/features/product/presentation/cubit/product_cubit.dart';
@@ -22,10 +23,14 @@ class ProductScreen extends StatelessWidget {
   final ProductCubit productCubit = getIt.get<ProductCubit>();
   @override
   Widget build(BuildContext context) {
-    return BlocProvider<ProductCubit>(
-      create:
-          (context) =>
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider<ProductCubit>.value(
+          value:
               productCubit..getProductsList(ProductRequest(categoryId: catId)),
+        ),
+        BlocProvider(create: (context) => getIt.get<WishlistCubit>()),
+      ],
       child: Scaffold(
         appBar: AppBar(
           toolbarHeight: 50.h,
@@ -82,7 +87,7 @@ class ProductScreen extends StatelessWidget {
                     ),
                     Expanded(
                       child: GridView.builder(
-                        addAutomaticKeepAlives: false,
+                        addAutomaticKeepAlives: true,
                         itemCount: state.products.length,
                         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                           mainAxisSpacing: AppMargin.m17,

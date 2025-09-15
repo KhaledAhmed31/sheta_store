@@ -1,3 +1,4 @@
+
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:injectable/injectable.dart';
 import 'package:sheta_store/core/errors/failure/failure.dart';
@@ -43,7 +44,7 @@ class CartCubit extends Cubit<CartState> {
 
       emit(AddToCartSuccessState());
     } else {
-      emit(AddToCartErrorState(message: cartRespones.$1!.message));
+      emit(AddToCartErrorState(productId: productId,message: cartRespones.$1!.message));
     }
   }
 
@@ -57,7 +58,7 @@ class CartCubit extends Cubit<CartState> {
 
       emit(DeleteFromCartSuccessState());
     } else {
-      emit(DeleteFromCartErrorState(message: cartRespones.$1!.message));
+      emit(DeleteFromCartErrorState(productId: productId,message: cartRespones.$1!.message));
     }
   }
 

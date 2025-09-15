@@ -6,7 +6,7 @@ import 'package:sheta_store/core/errors/remote_errors_handler/remote_errors_hand
 import '../models/wishlist_response.dart';
 import 'wishlist_data_source.dart';
 
-@LazySingleton(as: WishlistDataSource)
+@Singleton(as: WishlistDataSource)
 class WishlistRemoteDataSource implements WishlistDataSource {
   final Dio dio;
   WishlistRemoteDataSource({required this.dio});

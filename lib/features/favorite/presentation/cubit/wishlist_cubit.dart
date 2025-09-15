@@ -6,11 +6,12 @@ import 'package:sheta_store/features/favorite/domain/usecases/get_wishlist_useca
 import 'package:sheta_store/features/favorite/domain/usecases/remove_from_wishlist_usecase.dart';
 import 'package:sheta_store/features/favorite/presentation/cubit/wishlist_state.dart';
 
-@lazySingleton
+@singleton
 class WishlistCubit extends Cubit<WishlistState> {
   final AddToWishlistUsecase addToWishlistUsecase;
   final RemoveFromWishlistUsecase removeFromWishlistUsecase;
   final GetWishlistUsecase getWishlistUsecase;
+  
   WishlistEntity? wishlistEntity;
   WishlistCubit(
     this.addToWishlistUsecase,
@@ -25,10 +26,9 @@ class WishlistCubit extends Cubit<WishlistState> {
     final result = await addToWishlistUsecase(productId);
     if (result == null) {
       await getWishlist();
-
       emit(EditeWishlistSuccessState());
     } else {
-      emit(EditeWishlistErrorState(message: result.message));
+      emit(EditeWishlistErrorState(productId, message: result.message));
     }
   }
 
@@ -37,11 +37,10 @@ class WishlistCubit extends Cubit<WishlistState> {
     final result = await removeFromWishlistUsecase(productId);
     if (result == null) {
       await getWishlist();
-
       emit(EditeWishlistSuccessState());
 
     } else {
-      emit(EditeWishlistErrorState(message: result.message));
+      emit(EditeWishlistErrorState(productId, message: result.message));
     }
   }
 
@@ -49,6 +48,7 @@ class WishlistCubit extends Cubit<WishlistState> {
     emit(GetWishlistLoadingState());
     final result = await getWishlistUsecase();
     if (result.$1 == null) {
+      
       wishlistEntity = result.$2;
       emit(GetWishlistSuccessState());
     } else {

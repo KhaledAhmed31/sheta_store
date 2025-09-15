@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:go_router/go_router.dart';
 import 'package:loader_overlay/loader_overlay.dart';
+import 'package:sheta_store/core/dependency_injection/identifiers.dart';
 import 'package:sheta_store/core/routes/route_name.dart';
 import 'package:sheta_store/features/auth/data/models/sign_in_params.dart';
 import 'package:sheta_store/features/auth/presentation/cubit/states/error_state.dart';
@@ -43,145 +44,148 @@ class _SignInScreenState extends State<SignInScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocListener<AuthCubit, AuthState>(
-      listener: (context, state) {
-        if (state is SignInLoadingState) {
-          context.loaderOverlay.show();
-        } else if (state is SignInSuccessState) {
-          context.loaderOverlay.hide();
-          context.go(RouteName.mainScreen);
-        } else if (state is SignInErrorState) {
-          context.loaderOverlay.hide();
-          Fluttertoast.showToast(
-            msg: state.errorMessage,
-            toastLength: Toast.LENGTH_SHORT,
-            gravity: ToastGravity.BOTTOM,
-            timeInSecForIosWeb: 2,
-            backgroundColor: Colors.white,
-            textColor: AppColors.main,
-            fontSize: 16.0,
-          );
-        }
-      },
-      child: Scaffold(
-        backgroundColor: AppColors.main,
-        body: Padding(
-          padding: EdgeInsets.symmetric(horizontal: AppMargin.m17),
-          child: SingleChildScrollView(
-            child: Form(
-              key: formKey,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: [
-                  Padding(
-                    padding: EdgeInsets.symmetric(vertical: AppMargin.m40),
-                    child: Image.asset(Assets.logo2),
-                  ),
-                  Text(
-                    "Welcome Back",
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold,
-                      fontSize: FontSizeManager.s22,
+    return BlocProvider<AuthCubit>(
+      create: (context) => getIt<AuthCubit>(),
+      child: BlocListener<AuthCubit, AuthState>(
+        listener: (context, state) {
+          if (state is SignInLoadingState) {
+            context.loaderOverlay.show();
+          } else if (state is SignInSuccessState) {
+            context.loaderOverlay.hide();
+            context.go(RouteName.mainScreen);
+          } else if (state is SignInErrorState) {
+            context.loaderOverlay.hide();
+            Fluttertoast.showToast(
+              msg: state.errorMessage,
+              toastLength: Toast.LENGTH_SHORT,
+              gravity: ToastGravity.BOTTOM,
+              timeInSecForIosWeb: 2,
+              backgroundColor: Colors.white,
+              textColor: AppColors.main,
+              fontSize: 16.0,
+            );
+          }
+        },
+        child: Scaffold(
+          backgroundColor: AppColors.main,
+          body: Padding(
+            padding: EdgeInsets.symmetric(horizontal: AppMargin.m17),
+            child: SingleChildScrollView(
+              child: Form(
+                key: formKey,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    Padding(
+                      padding: EdgeInsets.symmetric(vertical: AppMargin.m40),
+                      child: Image.asset(Assets.logo2),
                     ),
-                  ),
-                  const Text(
-                    "Please sign in with your mail",
-                    style: TextStyle(color: Colors.white),
-                  ),
-                  SizedBox(height: AppHeight.h35),
-                  Text(
-                    "Email",
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: FontSizeManager.s22,
-                      fontWeight: FontWeight.w500,
+                    Text(
+                      "Welcome Back",
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                        fontSize: FontSizeManager.s22,
+                      ),
                     ),
-                    textAlign: TextAlign.left,
-                  ),
-                  CustomTextFeild(
-                    hint: "Enter your email",
-                    controller: emailController,
-                    validator:
-                        (textValue) => Validators.emailValidator(textValue),
-                  ),
-                  SizedBox(height: AppHeight.h32),
-                  Text(
-                    "Password",
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: FontSizeManager.s18,
-                      fontWeight: FontWeight.w500,
+                    const Text(
+                      "Please sign in with your mail",
+                      style: TextStyle(color: Colors.white),
                     ),
-                    textAlign: TextAlign.left,
-                  ),
-                  CustomTextFeild(
-                    hint: "Enter your password",
-                    controller: passwordController,
-                    keyboardType: TextInputType.visiblePassword,
-                    validator:
-                        (textValue) =>
-                            Validators.signInPasswordValidator(textValue),
-                    isPass: true,
-                  ),
-                  TextButton(
-                    style: TextButton.styleFrom(
-                      alignment: Alignment.centerRight,
+                    SizedBox(height: AppHeight.h35),
+                    Text(
+                      "Email",
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: FontSizeManager.s22,
+                        fontWeight: FontWeight.w500,
+                      ),
+                      textAlign: TextAlign.left,
                     ),
-                    onPressed: () {},
-                    child: Text(
-                      "Forget password",
+                    CustomTextFeild(
+                      hint: "Enter your email",
+                      controller: emailController,
+                      validator:
+                          (textValue) => Validators.emailValidator(textValue),
+                    ),
+                    SizedBox(height: AppHeight.h32),
+                    Text(
+                      "Password",
                       style: TextStyle(
                         color: Colors.white,
                         fontSize: FontSizeManager.s18,
+                        fontWeight: FontWeight.w500,
                       ),
+                      textAlign: TextAlign.left,
                     ),
-                  ),
-                  SizedBox(height: AppHeight.h50),
-                  SignButton(
-                    title: "Log In",
-                    onpressed: () {
-                      if (formKey.currentState!.validate()) {
-                        BlocProvider.of<AuthCubit>(context).signIn(
-                          SignInParams(
-                            email: emailController.text,
-                            password: passwordController.text,
-                          ),
-                        );
-                      }
-                    },
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(
-                        "Don't have an account? ",
+                    CustomTextFeild(
+                      hint: "Enter your password",
+                      controller: passwordController,
+                      keyboardType: TextInputType.visiblePassword,
+                      validator:
+                          (textValue) =>
+                              Validators.signInPasswordValidator(textValue),
+                      isPass: true,
+                    ),
+                    TextButton(
+                      style: TextButton.styleFrom(
+                        alignment: Alignment.centerRight,
+                      ),
+                      onPressed: () {},
+                      child: Text(
+                        "Forget password",
                         style: TextStyle(
                           color: Colors.white,
                           fontSize: FontSizeManager.s18,
                         ),
                       ),
-                      TextButton(
-                        onPressed: () {
-                          context.go(RouteName.signUpScreen);
-                        },
-                        style: TextButton.styleFrom(
-                          padding: EdgeInsets.all(AppPadding.p0),
-                        ),
-                        child: Text(
-                          "Creat Account",
+                    ),
+                    SizedBox(height: AppHeight.h50),
+                    SignButton(
+                      title: "Log In",
+                      onpressed: () {
+                        if (formKey.currentState!.validate()) {
+                          BlocProvider.of<AuthCubit>(context).signIn(
+                            SignInParams(
+                              email: emailController.text,
+                              password: passwordController.text,
+                            ),
+                          );
+                        }
+                      },
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          "Don't have an account? ",
                           style: TextStyle(
-                            fontSize: FontSizeManager.s18,
                             color: Colors.white,
-                            decorationColor: Colors.white,
-                            decoration: TextDecoration.underline,
-                            decorationThickness: 2,
+                            fontSize: FontSizeManager.s18,
                           ),
                         ),
-                      ),
-                    ],
-                  ),
-                ],
+                        TextButton(
+                          onPressed: () {
+                            context.go(RouteName.signUpScreen);
+                          },
+                          style: TextButton.styleFrom(
+                            padding: EdgeInsets.all(AppPadding.p0),
+                          ),
+                          child: Text(
+                            "Creat Account",
+                            style: TextStyle(
+                              fontSize: FontSizeManager.s18,
+                              color: Colors.white,
+                              decorationColor: Colors.white,
+                              decoration: TextDecoration.underline,
+                              decorationThickness: 2,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
               ),
             ),
           ),

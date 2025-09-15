@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:injectable/injectable.dart';
 import 'package:sheta_store/core/errors/failure/failure.dart';
 import 'package:sheta_store/features/favorite/data/datasources/wishlist_data_source.dart';
@@ -21,12 +23,13 @@ class WishlistRepo implements WishlistRepoInterface{
   }
 
   @override
-  Future<(Failure?,WishlistEntity)> getWishlist() async{
+  Future<(Failure?,WishlistEntity?)> getWishlist() async{
     try{
       WishlistEntity wishlistEntity = (await wishlistDataSource.getWishlist()).toEntity();
       return(null,wishlistEntity); 
     }catch(e){
-      throw Failure(message: e.toString());
+log(e.toString());
+      return( Failure(message: e.toString()),null);
     }
   }
 

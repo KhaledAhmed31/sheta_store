@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:sheta_store/core/dependency_injection/identifiers.dart';
 import 'package:sheta_store/core/fonts/font_size_manager.dart';
 import 'package:sheta_store/core/fonts/font_style_manager.dart';
 import 'package:sheta_store/core/ui/app_colors.dart';
@@ -25,14 +26,14 @@ class _CategoriesSectionState extends State<CategoriesSection> {
   @override
   void initState() {
     super.initState();
-    categoriesCubit = BlocProvider.of<CategoriesCubit>(context);
+    categoriesCubit = getIt<CategoriesCubit>();
     
   }
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider<CategoriesCubit>(
-      create: (context) => categoriesCubit,
+    return BlocProvider<CategoriesCubit>.value(
+      value: categoriesCubit,
       child: BlocBuilder<CategoriesCubit, CategoriesState>(
         builder: (context, state) {
           if (state is CategoriesLoadingState) {

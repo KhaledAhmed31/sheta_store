@@ -73,7 +73,6 @@ import 'package:sheta_store/features/categories/domain/use_cases/get_sub_categor
     as _i39;
 import 'package:sheta_store/features/categories/presentation/cubit/categories_cubit.dart'
     as _i897;
-<<<<<<< Updated upstream
 import 'package:sheta_store/features/favorite/data/datasources/wishlist_data_source.dart'
     as _i651;
 import 'package:sheta_store/features/favorite/data/datasources/wishlist_remote_data_source.dart'
@@ -90,8 +89,6 @@ import 'package:sheta_store/features/favorite/domain/usecases/remove_from_wishli
     as _i677;
 import 'package:sheta_store/features/favorite/presentation/cubit/wishlist_cubit.dart'
     as _i206;
-=======
->>>>>>> Stashed changes
 import 'package:sheta_store/features/product/data/data%20sources/products_data_source.dart'
     as _i525;
 import 'package:sheta_store/features/product/data/data%20sources/products_remote_data_source.dart'
@@ -106,22 +103,6 @@ import 'package:sheta_store/features/product/domain/usecases/get_products_list.d
     as _i992;
 import 'package:sheta_store/features/product/presentation/cubit/product_cubit.dart'
     as _i1015;
-import 'package:sheta_store/features/wishlist/data/datasources/wishlist_data_source.dart'
-    as _i21;
-import 'package:sheta_store/features/wishlist/data/datasources/wishlist_remote_data_source.dart'
-    as _i266;
-import 'package:sheta_store/features/wishlist/data/repositories/wishlist_repo.dart'
-    as _i796;
-import 'package:sheta_store/features/wishlist/domain/repositories/wishlist_repo_interface.dart'
-    as _i1057;
-import 'package:sheta_store/features/wishlist/domain/usecases/add_to_wishlist_usecase.dart'
-    as _i960;
-import 'package:sheta_store/features/wishlist/domain/usecases/get_wishlist_usecase.dart'
-    as _i584;
-import 'package:sheta_store/features/wishlist/domain/usecases/remove_from_wishlist_usecase.dart'
-    as _i951;
-import 'package:sheta_store/features/wishlist/presentation/cubit/wishlist_cubit.dart'
-    as _i532;
 
 extension GetItInjectableX on _i174.GetIt {
   // initializes the registration of main-scope dependencies inside of GetIt
@@ -148,24 +129,15 @@ extension GetItInjectableX on _i174.GetIt {
     gh.singleton<_i525.ProductsDataSource>(
       () => _i320.ProductsRemoteDataSource(dio: gh<_i361.Dio>()),
     );
-    gh.lazySingleton<_i21.WishlistDataSource>(
-      () => _i266.WishlistRemoteDataSource(dio: gh<_i361.Dio>()),
-    );
     gh.singleton<_i78.ProductRepoInterface>(
       () =>
           _i629.ProductRepo(productDataSource: gh<_i525.ProductsDataSource>()),
     );
+    gh.singleton<_i651.WishlistDataSource>(
+      () => _i862.WishlistRemoteDataSource(dio: gh<_i361.Dio>()),
+    );
     gh.singleton<_i812.AuthRemoteData>(
       () => _i713.AuthDataBaseData(dio: gh<_i361.Dio>()),
-    );
-    gh.lazySingleton<_i1057.WishlistRepoInterface>(
-      () =>
-          _i796.WishlistRepo(wishlistDataSource: gh<_i21.WishlistDataSource>()),
-    );
-    gh.singleton<_i960.AddToWishlistUsecase>(
-      () => _i960.AddToWishlistUsecase(
-        wishlistRepoInterface: gh<_i1057.WishlistRepoInterface>(),
-      ),
     );
     gh.singleton<_i992.GetProductsList>(
       () => _i992.GetProductsList(gh<_i78.ProductRepoInterface>()),
@@ -176,6 +148,11 @@ extension GetItInjectableX on _i174.GetIt {
     gh.lazySingleton<_i16.CategoriesRepoInterface>(
       () => _i533.CategoriesRepo(
         categoriesRemoteDataSource: gh<_i1059.CategoriesRemoteDataSource>(),
+      ),
+    );
+    gh.lazySingleton<_i481.WishlistRepoInterface>(
+      () => _i806.WishlistRepo(
+        wishlistDataSource: gh<_i651.WishlistDataSource>(),
       ),
     );
     gh.singleton<_i513.CartRepoInterface>(
@@ -195,11 +172,10 @@ extension GetItInjectableX on _i174.GetIt {
         gh<_i513.CartRepoInterface>(),
       ),
     );
-    gh.singleton<_i584.GetWishlistUsecase>(
-      () => _i584.GetWishlistUsecase(gh<_i1057.WishlistRepoInterface>()),
-    );
-    gh.singleton<_i951.RemoveFromWishlistUsecase>(
-      () => _i951.RemoveFromWishlistUsecase(gh<_i1057.WishlistRepoInterface>()),
+    gh.singleton<_i963.AddToWishlistUsecase>(
+      () => _i963.AddToWishlistUsecase(
+        wishlistRepoInterface: gh<_i481.WishlistRepoInterface>(),
+      ),
     );
     gh.factory<_i1015.ProductCubit>(
       () => _i1015.ProductCubit(
@@ -207,10 +183,23 @@ extension GetItInjectableX on _i174.GetIt {
         gh<_i992.GetProductsList>(),
       ),
     );
+    gh.singleton<_i740.GetWishlistUsecase>(
+      () => _i740.GetWishlistUsecase(gh<_i481.WishlistRepoInterface>()),
+    );
+    gh.singleton<_i677.RemoveFromWishlistUsecase>(
+      () => _i677.RemoveFromWishlistUsecase(gh<_i481.WishlistRepoInterface>()),
+    );
     gh.singleton<_i968.AuthRepoInterface>(
       () => _i118.AuthRepo(
         authRemoteData: gh<_i812.AuthRemoteData>(),
         authLocalData: gh<_i447.AuthLocalData>(),
+      ),
+    );
+    gh.singleton<_i206.WishlistCubit>(
+      () => _i206.WishlistCubit(
+        gh<_i963.AddToWishlistUsecase>(),
+        gh<_i677.RemoveFromWishlistUsecase>(),
+        gh<_i740.GetWishlistUsecase>(),
       ),
     );
     gh.singleton<_i645.GetCategoriesUseCase>(
@@ -231,13 +220,6 @@ extension GetItInjectableX on _i174.GetIt {
         gh<_i886.GetCartUseCase>(),
         gh<_i309.DeleteCartProductUseCase>(),
         gh<_i521.UpdateCartProductQuantatiyUseCase>(),
-      ),
-    );
-    gh.lazySingleton<_i532.WishlistCubit>(
-      () => _i532.WishlistCubit(
-        gh<_i960.AddToWishlistUsecase>(),
-        gh<_i951.RemoveFromWishlistUsecase>(),
-        gh<_i584.GetWishlistUsecase>(),
       ),
     );
     gh.singleton<_i275.SignInUseCase>(

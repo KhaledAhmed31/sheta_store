@@ -9,5 +9,5 @@ class GetWishlistUsecase {
   final WishlistRepoInterface wishlistRepoInterface;
   GetWishlistUsecase(this.wishlistRepoInterface); 
 
-  Future<(Failure?,WishlistEntity)> call() => wishlistRepoInterface.getWishlist();
+  Future<(Failure?,WishlistEntity?)> call() => wishlistRepoInterface.getWishlist();
 }

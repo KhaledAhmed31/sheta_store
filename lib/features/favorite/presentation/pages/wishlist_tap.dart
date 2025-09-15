@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:loader_overlay/loader_overlay.dart';
 import 'package:sheta_store/core/dependency_injection/identifiers.dart';
 import 'package:sheta_store/core/ui/app_colors.dart';
 import 'package:sheta_store/features/favorite/presentation/cubit/wishlist_cubit.dart';
@@ -16,7 +15,7 @@ class WishlistTap extends StatefulWidget {
   State<WishlistTap> createState() => _WishlistTapState();
 }
 
-class _WishlistTapState extends State<WishlistTap> {
+class _WishlistTapState extends State<WishlistTap> with AutomaticKeepAliveClientMixin {
   WishlistCubit? wishlistCubit;
   @override
   void initState() {
@@ -28,6 +27,7 @@ class _WishlistTapState extends State<WishlistTap> {
 
   @override
   Widget build(BuildContext context) {
+    super.build(context);
     return BlocProvider<WishlistCubit>.value(
       value: wishlistCubit!,
       child: BlocConsumer<WishlistCubit, WishlistState>(
@@ -46,27 +46,21 @@ class _WishlistTapState extends State<WishlistTap> {
               ),
             );
           } else {
-            return Expanded(
-              child: ListView.builder(
-                itemCount:
-                    (wishlistCubit!.wishlistEntity!.wishlistEnitityItem ?? [])
-                        .length,
-                itemBuilder:
-                    (context, index) => WishlistCard(
-                      wishlistEnitityItem:
-                          (wishlistCubit!.wishlistEntity!.wishlistEnitityItem ??
-                              [])[index],
-                    ),
-              ),
+            return ListView.builder(
+              itemCount:
+                  (wishlistCubit!.wishlistEntity!.wishlistEnitityItem ?? [])
+                      .length,
+              itemBuilder:
+                  (context, index) => WishlistCard(
+                    wishlistEnitityItem:
+                        (wishlistCubit!.wishlistEntity!.wishlistEnitityItem ??
+                            [])[index],
+                  ),
             );
           }
         },
         listener: (context, state) {
-          if (state is EditeWishlistLoadingState) {
-            context.loaderOverlay.show();
-          } else if (state is EditeWishlistSuccessState) {
-            context.loaderOverlay.hide();
-          } else if (state is GetWishlistErrorState) {
+          if (state is GetWishlistErrorState) {
             Fluttertoast.showToast(
               msg: state.message,
               toastLength: Toast.LENGTH_SHORT,
@@ -81,4 +75,6 @@ class _WishlistTapState extends State<WishlistTap> {
       ),
     );
   }
+  @override
+  bool get wantKeepAlive => true;
 }
