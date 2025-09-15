@@ -1,5 +1,5 @@
 
-import 'package:sheta_store/features/product/domain/entities/product_entity.dart';
+import '../../domain/entities/product_entity.dart';
 
 class ProductState {}
 class ProductChangeQuantityState extends ProductState {}

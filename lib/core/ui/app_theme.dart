@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:sheta_store/core/ui/app_colors.dart';
+
+import 'app_colors.dart';
 
 class AppTheme {
   static ThemeData myTheme = ThemeData(

@@ -2,15 +2,15 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
-import 'package:sheta_store/core/fonts/font_size_manager.dart';
-import 'package:sheta_store/core/fonts/font_style_manager.dart';
-import 'package:sheta_store/core/routes/route_name.dart';
-import 'package:sheta_store/core/ui/app_colors.dart';
-import 'package:sheta_store/core/ui/app_radius.dart';
-import 'package:sheta_store/features/wishlist/data/mapper/wishlist_to_product_entity_mapper.dart';
-import 'package:sheta_store/features/wishlist/domain/entities/wishlist_entity.dart';
-import 'package:sheta_store/features/wishlist/presentation/widgets/add_to_cart_button.dart';
-import 'package:sheta_store/features/product/presentation/widgets/fav_botton.dart';
+import '../../../../core/fonts/font_size_manager.dart';
+import '../../../../core/fonts/font_style_manager.dart';
+import '../../../../core/routes/route_name.dart';
+import '../../../../core/ui/app_colors.dart';
+import '../../../../core/ui/app_radius.dart';
+import '../../data/mapper/wishlist_to_product_entity_mapper.dart';
+import '../../domain/entities/wishlist_entity.dart';
+import 'add_to_cart_button.dart';
+import '../../../product/presentation/widgets/fav_botton.dart';
 
 class WishlistCard extends StatefulWidget {
   const WishlistCard({super.key, required this.wishlistEnitityItem});

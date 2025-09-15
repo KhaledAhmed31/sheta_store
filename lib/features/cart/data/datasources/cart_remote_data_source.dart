@@ -1,10 +1,10 @@
 import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
-import 'package:sheta_store/core/constants/api/api_constants.dart';
-import 'package:sheta_store/core/errors/remote_errors_handler/remote_errors_handler.dart';
-import 'package:sheta_store/features/cart/data/datasources/cart_data_source.dart';
-import 'package:sheta_store/features/cart/data/models/add_to_cart_response.dart';
-import 'package:sheta_store/features/cart/data/models/cart_response.dart';
+import '../../../../core/constants/api/api_constants.dart';
+import '../../../../core/errors/remote_errors_handler/remote_errors_handler.dart';
+import 'cart_data_source.dart';
+import '../models/add_to_cart_response.dart';
+import '../models/cart_response.dart';
 
 @Singleton(as:CartDataSource)
 class CartRemoteDataSource  implements CartDataSource {

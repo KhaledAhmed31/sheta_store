@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:sheta_store/core/routes/route_name.dart';
-import 'package:sheta_store/features/auth/presentation/screens/sign_in_screen.dart';
-import 'package:sheta_store/features/auth/presentation/screens/sign_up_screen.dart';
-import 'package:sheta_store/features/cart/presentation/screens/cart_screen.dart';
-import 'package:sheta_store/features/main_layout/presentation/main_layout.dart';
-import 'package:sheta_store/features/product/domain/entities/product_entity.dart';
-import 'package:sheta_store/features/product/presentation/pages/product_details.dart';
-import 'package:sheta_store/features/product/presentation/pages/product_list.dart';
+import 'route_name.dart';
+import '../../features/auth/presentation/screens/sign_in_screen.dart';
+import '../../features/auth/presentation/screens/sign_up_screen.dart';
+import '../../features/cart/presentation/screens/cart_screen.dart';
+import '../../features/main_layout/presentation/main_layout.dart';
+import '../../features/product/domain/entities/product_entity.dart';
+import '../../features/product/presentation/pages/product_details.dart';
+import '../../features/product/presentation/pages/product_list.dart';
 
 import '../../features/splash/splash_screen.dart';
 

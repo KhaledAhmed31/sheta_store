@@ -1,5 +1,5 @@
-import 'package:sheta_store/features/product/data/models/product_response.dart';
-import 'package:sheta_store/features/product/domain/entities/product_entity.dart';
+import '../models/product_response.dart';
+import '../../domain/entities/product_entity.dart';
 
 extension ProductResponseMapper on ProductModel {
   ProductEntity toEntity() {

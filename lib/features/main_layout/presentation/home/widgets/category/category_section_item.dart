@@ -1,12 +1,12 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:sheta_store/core/fonts/font_size_manager.dart';
-import 'package:sheta_store/core/fonts/font_style_manager.dart';
-import 'package:sheta_store/core/routes/route_name.dart';
-import 'package:sheta_store/core/ui/app_colors.dart';
-import 'package:sheta_store/core/ui/app_height.dart';
-import 'package:sheta_store/features/categories/domain/entities/category_entity.dart';
+import '../../../../../../core/fonts/font_size_manager.dart';
+import '../../../../../../core/fonts/font_style_manager.dart';
+import '../../../../../../core/routes/route_name.dart';
+import '../../../../../../core/ui/app_colors.dart';
+import '../../../../../../core/ui/app_height.dart';
+import '../../../../../categories/domain/entities/category_entity.dart';
 
 class CategorySectionItem extends StatelessWidget {
   const CategorySectionItem({super.key, required this.categoryData});

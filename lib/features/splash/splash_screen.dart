@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:sheta_store/core/assets/assets.dart';
-import 'package:sheta_store/core/dependency_injection/identifiers.dart';
-import 'package:sheta_store/core/routes/route_name.dart';
-import 'package:sheta_store/features/auth/presentation/cubit/auth_cubit.dart';
+import '../../core/assets/assets.dart';
+import '../../core/dependency_injection/identifiers.dart';
+import '../../core/routes/route_name.dart';
+import '../auth/presentation/cubit/auth_cubit.dart';
 
 class SplashScreen extends StatelessWidget {
   const SplashScreen({super.key});

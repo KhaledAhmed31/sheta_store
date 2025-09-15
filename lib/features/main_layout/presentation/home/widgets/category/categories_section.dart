@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:sheta_store/core/dependency_injection/identifiers.dart';
-import 'package:sheta_store/core/fonts/font_size_manager.dart';
-import 'package:sheta_store/core/fonts/font_style_manager.dart';
-import 'package:sheta_store/core/ui/app_colors.dart';
-import 'package:sheta_store/core/ui/app_height.dart';
-import 'package:sheta_store/core/ui/app_padding_margin.dart';
-import 'package:sheta_store/features/categories/presentation/cubit/categories_cubit.dart';
-import 'package:sheta_store/features/categories/presentation/cubit/states/categories_error_state.dart';
-import 'package:sheta_store/features/categories/presentation/cubit/states/categories_loading_state.dart';
-import 'package:sheta_store/features/categories/presentation/cubit/states/categories_state.dart';
-import 'package:sheta_store/features/categories/presentation/cubit/states/categories_success_state.dart';
-import 'package:sheta_store/features/main_layout/presentation/home/widgets/category/category_section_item.dart';
+import '../../../../../../core/dependency_injection/identifiers.dart';
+import '../../../../../../core/fonts/font_size_manager.dart';
+import '../../../../../../core/fonts/font_style_manager.dart';
+import '../../../../../../core/ui/app_colors.dart';
+import '../../../../../../core/ui/app_height.dart';
+import '../../../../../../core/ui/app_padding_margin.dart';
+import '../../../../../categories/presentation/cubit/categories_cubit.dart';
+import '../../../../../categories/presentation/cubit/states/categories_error_state.dart';
+import '../../../../../categories/presentation/cubit/states/categories_loading_state.dart';
+import '../../../../../categories/presentation/cubit/states/categories_state.dart';
+import '../../../../../categories/presentation/cubit/states/categories_success_state.dart';
+import 'category_section_item.dart';
 
 class CategoriesSection extends StatefulWidget {
   const CategoriesSection({super.key});

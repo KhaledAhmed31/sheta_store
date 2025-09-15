@@ -1,5 +1,5 @@
-import 'package:sheta_store/features/wishlist/domain/entities/wishlist_entity.dart';
-import 'package:sheta_store/features/product/domain/entities/product_entity.dart';
+import '../../domain/entities/wishlist_entity.dart';
+import '../../../product/domain/entities/product_entity.dart';
 
 extension WishlistToProductEntityMapper on WishlistEnitityItem {
   ProductEntity toProductEntity() => ProductEntity(

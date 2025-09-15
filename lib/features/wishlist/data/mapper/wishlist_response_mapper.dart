@@ -1,5 +1,5 @@
-import 'package:sheta_store/features/wishlist/data/models/wishlist_response.dart';
-import 'package:sheta_store/features/wishlist/domain/entities/wishlist_entity.dart';
+import '../models/wishlist_response.dart';
+import '../../domain/entities/wishlist_entity.dart';
 
 extension WishlistResponseMapper on WishlistResponse {
   WishlistEntity toEntity() => WishlistEntity(

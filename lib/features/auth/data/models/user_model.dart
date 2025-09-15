@@ -1,4 +1,4 @@
-import 'package:sheta_store/features/auth/domain/entities/user_entite.dart';
+import '../../domain/entities/user_entite.dart';
 
 class UserModel extends UserEntite {
   UserModel({super.name, super.email, super.role});

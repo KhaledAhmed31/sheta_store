@@ -1,12 +1,12 @@
 import 'package:injectable/injectable.dart';
-import 'package:sheta_store/features/auth/data/auth_remote_data_source/auth_remote_data.dart';
-import 'package:sheta_store/features/auth/data/models/sign_in_params.dart';
-import 'package:sheta_store/features/auth/data/models/sign_in_response.dart';
-import 'package:sheta_store/features/auth/data/models/sign_up_model.dart';
+import 'auth_remote_data.dart';
+import '../models/sign_in_params.dart';
+import '../models/sign_in_response.dart';
+import '../models/sign_up_model.dart';
 import 'package:dio/dio.dart';
-import 'package:sheta_store/core/constants/api/api_constants.dart';
-import 'package:sheta_store/core/errors/auth_errors_handlers/auth/auth_error_handler.dart';
-import 'package:sheta_store/core/errors/remote_errors_handler/remote_errors_handler.dart';
+import '../../../../core/constants/api/api_constants.dart';
+import '../../../../core/errors/auth_errors_handlers/auth/auth_error_handler.dart';
+import '../../../../core/errors/remote_errors_handler/remote_errors_handler.dart';
 @Singleton(as: AuthRemoteData)
 class AuthDataBaseData implements AuthRemoteData {
   final Dio dio ;

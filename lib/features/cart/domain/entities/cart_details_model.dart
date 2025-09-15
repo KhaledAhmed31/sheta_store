@@ -1,4 +1,4 @@
-import 'package:sheta_store/features/cart/domain/entities/cart_item_model.dart';
+import 'cart_item_model.dart';
 
 class CartDetailsModel {
   int? totalCartPrice;

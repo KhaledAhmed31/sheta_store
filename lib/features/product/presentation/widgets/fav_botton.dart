@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:sheta_store/core/assets/assets.dart';
-import 'package:sheta_store/core/dependency_injection/identifiers.dart';
-import 'package:sheta_store/core/ui/app_colors.dart';
-import 'package:sheta_store/features/wishlist/presentation/cubit/wishlist_cubit.dart';
-import 'package:sheta_store/features/wishlist/presentation/cubit/wishlist_state.dart';
+import '../../../../core/assets/assets.dart';
+import '../../../../core/dependency_injection/identifiers.dart';
+import '../../../../core/ui/app_colors.dart';
+import '../../../wishlist/presentation/cubit/wishlist_cubit.dart';
+import '../../../wishlist/presentation/cubit/wishlist_state.dart';
 
 class FavButton extends StatefulWidget {
   const FavButton({super.key, this.isSelected, this.productId});

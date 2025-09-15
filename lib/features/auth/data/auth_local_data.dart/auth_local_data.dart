@@ -1,5 +1,5 @@
 
-import 'package:sheta_store/features/auth/domain/entities/user_entite.dart';
+import '../../domain/entities/user_entite.dart';
 
 abstract class AuthLocalData {
   Future<void> saveToken(String token);

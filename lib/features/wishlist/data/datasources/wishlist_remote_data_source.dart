@@ -1,8 +1,8 @@
 
 import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
-import 'package:sheta_store/core/constants/api/api_constants.dart';
-import 'package:sheta_store/core/errors/remote_errors_handler/remote_errors_handler.dart';
+import '../../../../core/constants/api/api_constants.dart';
+import '../../../../core/errors/remote_errors_handler/remote_errors_handler.dart';
 import '../models/wishlist_response.dart';
 import 'wishlist_data_source.dart';
 

@@ -1,13 +1,13 @@
 import 'package:injectable/injectable.dart';
-import 'package:sheta_store/features/auth/data/auth_local_data.dart/auth_local_data.dart';
-import 'package:sheta_store/features/auth/data/auth_remote_data_source/auth_remote_data.dart';
-import 'package:sheta_store/features/auth/data/models/sign_in_params.dart';
-import 'package:sheta_store/features/auth/data/models/sign_in_response.dart';
-import 'package:sheta_store/features/auth/data/models/sign_up_model.dart';
-import 'package:sheta_store/core/errors/app_exception.dart';
-import 'package:sheta_store/core/errors/failure/failure.dart';
-import 'package:sheta_store/features/auth/domain/entities/user_entite.dart';
-import 'package:sheta_store/features/auth/domain/repo/auth_repo_interface.dart';
+import '../auth_local_data.dart/auth_local_data.dart';
+import '../auth_remote_data_source/auth_remote_data.dart';
+import '../models/sign_in_params.dart';
+import '../models/sign_in_response.dart';
+import '../models/sign_up_model.dart';
+import '../../../../core/errors/app_exception.dart';
+import '../../../../core/errors/failure/failure.dart';
+import '../../domain/entities/user_entite.dart';
+import '../../domain/repo/auth_repo_interface.dart';
 
 @Singleton(as: AuthRepoInterface)
 class AuthRepo implements AuthRepoInterface {

@@ -1,12 +1,12 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:injectable/injectable.dart';
-import 'package:sheta_store/features/categories/domain/use_cases/get_categories.dart';
-import 'package:sheta_store/features/categories/domain/use_cases/get_sub_categories_use_case.dart';
-import 'package:sheta_store/features/categories/presentation/cubit/states/categories_error_state.dart';
-import 'package:sheta_store/features/categories/presentation/cubit/states/categories_initial_state.dart';
-import 'package:sheta_store/features/categories/presentation/cubit/states/categories_loading_state.dart';
-import 'package:sheta_store/features/categories/presentation/cubit/states/categories_state.dart';
-import 'package:sheta_store/features/categories/presentation/cubit/states/categories_success_state.dart';
+import '../../domain/use_cases/get_categories.dart';
+import '../../domain/use_cases/get_sub_categories_use_case.dart';
+import 'states/categories_error_state.dart';
+import 'states/categories_initial_state.dart';
+import 'states/categories_loading_state.dart';
+import 'states/categories_state.dart';
+import 'states/categories_success_state.dart';
 
 @injectable
 class CategoriesCubit extends Cubit<CategoriesState> {

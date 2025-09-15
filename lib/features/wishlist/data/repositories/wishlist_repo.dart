@@ -1,11 +1,11 @@
 import 'dart:developer';
 
 import 'package:injectable/injectable.dart';
-import 'package:sheta_store/core/errors/failure/failure.dart';
-import 'package:sheta_store/features/wishlist/data/datasources/wishlist_data_source.dart';
-import 'package:sheta_store/features/wishlist/data/mapper/wishlist_response_mapper.dart';
-import 'package:sheta_store/features/wishlist/domain/entities/wishlist_entity.dart';
-import 'package:sheta_store/features/wishlist/domain/repositories/wishlist_repo_interface.dart';
+import '../../../../core/errors/failure/failure.dart';
+import '../datasources/wishlist_data_source.dart';
+import '../mapper/wishlist_response_mapper.dart';
+import '../../domain/entities/wishlist_entity.dart';
+import '../../domain/repositories/wishlist_repo_interface.dart';
 
 @LazySingleton(as: WishlistRepoInterface)
 class WishlistRepo implements WishlistRepoInterface{

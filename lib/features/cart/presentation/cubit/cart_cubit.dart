@@ -1,14 +1,14 @@
 
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:injectable/injectable.dart';
-import 'package:sheta_store/core/errors/failure/failure.dart';
-import 'package:sheta_store/features/cart/domain/entities/add_to_cart_model.dart';
-import 'package:sheta_store/features/cart/domain/entities/cart_model.dart';
-import 'package:sheta_store/features/cart/domain/usecases/add_to_cart_use_case.dart';
-import 'package:sheta_store/features/cart/domain/usecases/delete_cart_product_use_case.dart';
-import 'package:sheta_store/features/cart/domain/usecases/get_cart_use_case.dart';
-import 'package:sheta_store/features/cart/domain/usecases/update_cart_product_quantatiy_use_case.dart';
-import 'package:sheta_store/features/cart/presentation/cubit/cart_state.dart';
+import '../../../../core/errors/failure/failure.dart';
+import '../../domain/entities/add_to_cart_model.dart';
+import '../../domain/entities/cart_model.dart';
+import '../../domain/usecases/add_to_cart_use_case.dart';
+import '../../domain/usecases/delete_cart_product_use_case.dart';
+import '../../domain/usecases/get_cart_use_case.dart';
+import '../../domain/usecases/update_cart_product_quantatiy_use_case.dart';
+import 'cart_state.dart';
 
 @singleton
 class CartCubit extends Cubit<CartState> {

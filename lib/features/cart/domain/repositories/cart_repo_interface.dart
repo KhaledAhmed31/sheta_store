@@ -1,7 +1,7 @@
 import 'package:injectable/injectable.dart';
-import 'package:sheta_store/core/errors/failure/failure.dart';
-import 'package:sheta_store/features/cart/domain/entities/add_to_cart_model.dart';
-import 'package:sheta_store/features/cart/domain/entities/cart_model.dart';
+import '../../../../core/errors/failure/failure.dart';
+import '../entities/add_to_cart_model.dart';
+import '../entities/cart_model.dart';
 
 @factoryMethod
 abstract class CartRepoInterface {

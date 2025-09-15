@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:sheta_store/core/fonts/font_size_manager.dart';
-import 'package:sheta_store/core/ui/app_colors.dart';
+import 'font_size_manager.dart';
+import '../ui/app_colors.dart';
 
 class FontStyleManager {
   static TextStyle _getStyel({

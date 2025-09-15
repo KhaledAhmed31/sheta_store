@@ -3,13 +3,13 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:loader_overlay/loader_overlay.dart';
-import 'package:sheta_store/core/dependency_injection/identifiers.dart';
-import 'package:sheta_store/core/notificaton%20service/notification_service.dart';
-import 'package:sheta_store/core/routes/routes_generator.dart';
-import 'package:sheta_store/core/ui/app_colors.dart';
-import 'package:sheta_store/core/ui/app_theme.dart';
+import 'core/dependency_injection/identifiers.dart';
+import 'core/notificaton%20service/notification_service.dart';
+import 'core/routes/routes_generator.dart';
+import 'core/ui/app_colors.dart';
+import 'core/ui/app_theme.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:sheta_store/firebase_options.dart';
+import 'firebase_options.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();

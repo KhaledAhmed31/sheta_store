@@ -1,8 +1,8 @@
 import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:sheta_store/core/constants/api/api_constants.dart';
-import 'package:sheta_store/core/constants/shared_preferences/shared_preferences.dart';
+import '../constants/api/api_constants.dart';
+import '../constants/shared_preferences/shared_preferences.dart';
 
 @module
 abstract class RegisterModule {

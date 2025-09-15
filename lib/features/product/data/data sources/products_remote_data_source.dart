@@ -1,10 +1,10 @@
 import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
-import 'package:sheta_store/core/constants/api/api_constants.dart';
-import 'package:sheta_store/core/errors/remote_errors_handler/remote_errors_handler.dart';
-import 'package:sheta_store/features/product/data/data%20sources/products_data_source.dart';
-import 'package:sheta_store/features/product/data/models/product_response.dart';
-import 'package:sheta_store/features/product/data/models/product_request.dart';
+import '../../../../core/constants/api/api_constants.dart';
+import '../../../../core/errors/remote_errors_handler/remote_errors_handler.dart';
+import '../data%20sources/products_data_source.dart';
+import '../models/product_response.dart';
+import '../models/product_request.dart';
 
 @Singleton(as: ProductsDataSource)
 class ProductsRemoteDataSource implements ProductsDataSource {

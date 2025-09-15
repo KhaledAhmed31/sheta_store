@@ -1,10 +1,10 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:injectable/injectable.dart';
-import 'package:sheta_store/features/wishlist/domain/entities/wishlist_entity.dart';
-import 'package:sheta_store/features/wishlist/domain/usecases/add_to_wishlist_usecase.dart';
-import 'package:sheta_store/features/wishlist/domain/usecases/get_wishlist_usecase.dart';
-import 'package:sheta_store/features/wishlist/domain/usecases/remove_from_wishlist_usecase.dart';
-import 'package:sheta_store/features/wishlist/presentation/cubit/wishlist_state.dart';
+import '../../domain/entities/wishlist_entity.dart';
+import '../../domain/usecases/add_to_wishlist_usecase.dart';
+import '../../domain/usecases/get_wishlist_usecase.dart';
+import '../../domain/usecases/remove_from_wishlist_usecase.dart';
+import 'wishlist_state.dart';
 
 @singleton
 class WishlistCubit extends Cubit<WishlistState> {

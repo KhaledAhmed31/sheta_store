@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:sheta_store/core/assets/assets.dart';
-import 'package:sheta_store/core/ui/app_padding_margin.dart';
-import 'package:sheta_store/core/widgets/cart_button.dart';
+import '../../../../core/assets/assets.dart';
+import '../../../../core/ui/app_padding_margin.dart';
+import '../../../../core/widgets/cart_button.dart';
 
-import 'package:sheta_store/features/main_layout/domain/entities/banner_entitie.dart';
-import 'package:sheta_store/features/main_layout/presentation/home/widgets/banner/app_banner.dart';
-import 'package:sheta_store/features/main_layout/presentation/home/widgets/category/categories_section.dart';
-import 'package:sheta_store/features/main_layout/presentation/home/widgets/search_bar.dart';
+import '../../domain/entities/banner_entitie.dart';
+import 'widgets/banner/app_banner.dart';
+import 'widgets/category/categories_section.dart';
+import 'widgets/search_bar.dart';
 
 class HomeTap extends StatefulWidget {
   const HomeTap({super.key});

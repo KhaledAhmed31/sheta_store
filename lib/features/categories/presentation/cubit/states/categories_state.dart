@@ -1,4 +1,4 @@
-import 'package:sheta_store/features/categories/domain/entities/category_entity.dart';
+import '../../../domain/entities/category_entity.dart';
 
 abstract class CategoriesState {}
 

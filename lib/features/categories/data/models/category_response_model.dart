@@ -1,4 +1,4 @@
-import 'package:sheta_store/features/categories/data/models/category_model.dart';
+import 'category_model.dart';
 
 class CategoryResponseModel {
   final List<CategoryModel>categories;

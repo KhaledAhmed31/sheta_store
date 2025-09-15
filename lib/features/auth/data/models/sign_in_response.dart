@@ -1,4 +1,4 @@
-import 'package:sheta_store/features/auth/data/models/user_model.dart';
+import 'user_model.dart';
 
 class SignInResponse {
   String message;

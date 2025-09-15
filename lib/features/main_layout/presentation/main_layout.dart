@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:sheta_store/core/assets/assets.dart';
-import 'package:sheta_store/core/ui/app_colors.dart';
-import 'package:sheta_store/core/ui/app_height.dart';
-import 'package:sheta_store/features/categories/presentation/category_tap/category_tap.dart';
-import 'package:sheta_store/features/wishlist/presentation/pages/wishlist_tap.dart';
-import 'package:sheta_store/features/main_layout/presentation/home/home_tap.dart';
-import 'package:sheta_store/features/main_layout/presentation/home/widgets/bottom_nav_bar_item.dart';
+import '../../../core/assets/assets.dart';
+import '../../../core/ui/app_colors.dart';
+import '../../../core/ui/app_height.dart';
+import '../../categories/presentation/category_tap/category_tap.dart';
+import '../../wishlist/presentation/pages/wishlist_tap.dart';
+import 'home/home_tap.dart';
+import 'home/widgets/bottom_nav_bar_item.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});

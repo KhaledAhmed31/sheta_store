@@ -1,10 +1,10 @@
 
 import 'package:injectable/injectable.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:sheta_store/features/auth/data/auth_local_data.dart/auth_local_data.dart';
-import 'package:sheta_store/core/constants/shared_preferences/shared_preferences.dart';
-import 'package:sheta_store/core/errors/local_error_handler/local_error_handler.dart';
-import 'package:sheta_store/features/auth/domain/entities/user_entite.dart';
+import 'auth_local_data.dart';
+import '../../../../core/constants/shared_preferences/shared_preferences.dart';
+import '../../../../core/errors/local_error_handler/local_error_handler.dart';
+import '../../domain/entities/user_entite.dart';
 
 @Singleton(as: AuthLocalData)
 class AuthCacheData implements AuthLocalData {

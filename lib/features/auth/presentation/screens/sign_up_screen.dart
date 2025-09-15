@@ -3,21 +3,21 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:go_router/go_router.dart';
 import 'package:loader_overlay/loader_overlay.dart';
-import 'package:sheta_store/core/dependency_injection/identifiers.dart';
-import 'package:sheta_store/core/routes/route_name.dart';
+import '../../../../core/dependency_injection/identifiers.dart';
+import '../../../../core/routes/route_name.dart';
 
-import 'package:sheta_store/features/auth/data/models/sign_up_model.dart';
-import 'package:sheta_store/features/auth/presentation/cubit/states/sign_up_error_state.dart';
-import 'package:sheta_store/features/auth/presentation/cubit/states/sign_up_success_state.dart';
+import '../../data/models/sign_up_model.dart';
+import '../cubit/states/sign_up_error_state.dart';
+import '../cubit/states/sign_up_success_state.dart';
 
-import 'package:sheta_store/core/ui/app_colors.dart';
-import 'package:sheta_store/core/assets/assets.dart';
-import 'package:sheta_store/core/fonts/font_size_manager.dart';
-import 'package:sheta_store/core/ui/app_height.dart';
-import 'package:sheta_store/core/ui/app_padding_margin.dart';
-import 'package:sheta_store/core/validator/validators.dart';
-import 'package:sheta_store/core/widgets/custom_text_feild.dart';
-import 'package:sheta_store/core/widgets/sign_button.dart';
+import '../../../../core/ui/app_colors.dart';
+import '../../../../core/assets/assets.dart';
+import '../../../../core/fonts/font_size_manager.dart';
+import '../../../../core/ui/app_height.dart';
+import '../../../../core/ui/app_padding_margin.dart';
+import '../../../../core/validator/validators.dart';
+import '../../../../core/widgets/custom_text_feild.dart';
+import '../../../../core/widgets/sign_button.dart';
 
 import '../cubit/auth_cubit.dart';
 import '../cubit/states/sign_in_state.dart';

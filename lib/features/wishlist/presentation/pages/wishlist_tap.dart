@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:sheta_store/core/dependency_injection/identifiers.dart';
-import 'package:sheta_store/core/ui/app_colors.dart';
-import 'package:sheta_store/features/wishlist/presentation/cubit/wishlist_cubit.dart';
-import 'package:sheta_store/features/wishlist/presentation/cubit/wishlist_state.dart';
-import 'package:sheta_store/features/wishlist/presentation/widgets/wishlist_card.dart';
+import '../../../../core/dependency_injection/identifiers.dart';
+import '../../../../core/ui/app_colors.dart';
+import '../cubit/wishlist_cubit.dart';
+import '../cubit/wishlist_state.dart';
+import '../widgets/wishlist_card.dart';
 
 class WishlistTap extends StatefulWidget {
   const WishlistTap({super.key});

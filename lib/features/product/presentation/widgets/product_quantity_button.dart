@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:sheta_store/core/fonts/font_size_manager.dart';
-import 'package:sheta_store/core/fonts/font_style_manager.dart';
-import 'package:sheta_store/core/ui/app_colors.dart';
-import 'package:sheta_store/features/product/presentation/cubit/product_cubit.dart';
-import 'package:sheta_store/features/product/presentation/cubit/product_state.dart';
+import '../../../../core/fonts/font_size_manager.dart';
+import '../../../../core/fonts/font_style_manager.dart';
+import '../../../../core/ui/app_colors.dart';
+import '../cubit/product_cubit.dart';
+import '../cubit/product_state.dart';
 
 class ProductQuantityButton extends StatefulWidget {
   const ProductQuantityButton({

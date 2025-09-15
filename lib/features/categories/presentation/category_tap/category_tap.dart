@@ -1,15 +1,15 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:sheta_store/core/dependency_injection/identifiers.dart';
-import 'package:sheta_store/core/ui/app_colors.dart';
-import 'package:sheta_store/core/ui/app_padding_margin.dart';
-import 'package:sheta_store/features/categories/presentation/cubit/categories_cubit.dart';
-import 'package:sheta_store/features/categories/presentation/cubit/states/categories_loading_state.dart';
-import 'package:sheta_store/features/categories/presentation/cubit/states/categories_state.dart';
-import 'package:sheta_store/features/categories/presentation/cubit/states/categories_success_state.dart';
-import 'package:sheta_store/features/categories/presentation/widgets/select_category_bar.dart';
-import 'package:sheta_store/features/categories/presentation/widgets/sub_categories_list.dart';
+import '../../../../core/dependency_injection/identifiers.dart';
+import '../../../../core/ui/app_colors.dart';
+import '../../../../core/ui/app_padding_margin.dart';
+import '../cubit/categories_cubit.dart';
+import '../cubit/states/categories_loading_state.dart';
+import '../cubit/states/categories_state.dart';
+import '../cubit/states/categories_success_state.dart';
+import '../widgets/select_category_bar.dart';
+import '../widgets/sub_categories_list.dart';
 
 class CategoryTap extends StatefulWidget {
   const CategoryTap({super.key});

@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:sheta_store/core/assets/assets.dart';
-import 'package:sheta_store/features/cart/presentation/cubit/cart_cubit.dart';
+import '../../../../core/assets/assets.dart';
+import '../cubit/cart_cubit.dart';
 
 class DeleteItemButton extends StatefulWidget {
   const DeleteItemButton({super.key, required this.id});

@@ -1,5 +1,5 @@
 
-import 'package:sheta_store/features/auth/presentation/cubit/states/sign_in_state.dart';
+import 'sign_in_state.dart';
 
 class SignInErrorState implements AuthState {
   String errorMessage;

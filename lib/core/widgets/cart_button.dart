@@ -3,11 +3,11 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:go_router/go_router.dart';
-import 'package:sheta_store/core/assets/assets.dart';
-import 'package:sheta_store/core/dependency_injection/identifiers.dart';
-import 'package:sheta_store/core/routes/route_name.dart';
-import 'package:sheta_store/features/cart/presentation/cubit/cart_cubit.dart';
-import 'package:sheta_store/features/cart/presentation/cubit/cart_state.dart';
+import '../assets/assets.dart';
+import '../dependency_injection/identifiers.dart';
+import '../routes/route_name.dart';
+import '../../features/cart/presentation/cubit/cart_cubit.dart';
+import '../../features/cart/presentation/cubit/cart_state.dart';
 
 class CartButton extends StatefulWidget {
   const CartButton({super.key});

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:sheta_store/core/fonts/font_size_manager.dart';
-import 'package:sheta_store/core/fonts/font_style_manager.dart';
-import 'package:sheta_store/core/ui/app_colors.dart';
+import '../../../../core/fonts/font_size_manager.dart';
+import '../../../../core/fonts/font_style_manager.dart';
+import '../../../../core/ui/app_colors.dart';
 
 class ChackOutButton extends StatelessWidget {
   const ChackOutButton({super.key, required this.onTap});

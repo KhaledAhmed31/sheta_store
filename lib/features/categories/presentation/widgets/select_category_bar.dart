@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:sheta_store/core/ui/app_colors.dart' show AppColors;
-import 'package:sheta_store/features/categories/domain/entities/category_entity.dart';
-import 'package:sheta_store/features/categories/presentation/widgets/select_category_bar_item.dart';
+import '../../../../core/ui/app_colors.dart' show AppColors;
+import '../../domain/entities/category_entity.dart';
+import 'select_category_bar_item.dart';
 
 class SelectCategoryBar extends StatefulWidget {
   const SelectCategoryBar({

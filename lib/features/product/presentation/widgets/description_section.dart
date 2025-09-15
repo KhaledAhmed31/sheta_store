@@ -1,8 +1,8 @@
 import 'package:flutter/widgets.dart';
 import 'package:readmore/readmore.dart';
-import 'package:sheta_store/core/fonts/font_size_manager.dart';
-import 'package:sheta_store/core/fonts/font_style_manager.dart';
-import 'package:sheta_store/core/ui/app_colors.dart';
+import '../../../../core/fonts/font_size_manager.dart';
+import '../../../../core/fonts/font_style_manager.dart';
+import '../../../../core/ui/app_colors.dart';
 
 class DescriptionSection extends StatelessWidget {
   const DescriptionSection({super.key, required this.description});

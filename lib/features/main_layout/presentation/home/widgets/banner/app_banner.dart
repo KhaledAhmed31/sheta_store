@@ -2,11 +2,11 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:sheta_store/core/ui/app_colors.dart';
-import 'package:sheta_store/core/ui/app_height.dart';
-import 'package:sheta_store/core/ui/app_padding_margin.dart';
-import 'package:sheta_store/features/main_layout/domain/entities/banner_entitie.dart';
-import 'package:sheta_store/features/main_layout/presentation/home/widgets/banner/banner_item.dart';
+import '../../../../../../core/ui/app_colors.dart';
+import '../../../../../../core/ui/app_height.dart';
+import '../../../../../../core/ui/app_padding_margin.dart';
+import '../../../../domain/entities/banner_entitie.dart';
+import 'banner_item.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class AppBanner extends StatefulWidget {

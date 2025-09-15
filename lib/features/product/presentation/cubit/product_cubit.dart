@@ -1,10 +1,10 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:injectable/injectable.dart';
-import 'package:sheta_store/features/product/data/models/product_request.dart';
-import 'package:sheta_store/features/product/domain/entities/product_entity.dart';
-import 'package:sheta_store/features/product/domain/usecases/get_product_details.dart';
-import 'package:sheta_store/features/product/domain/usecases/get_products_list.dart';
-import 'package:sheta_store/features/product/presentation/cubit/product_state.dart';
+import '../../data/models/product_request.dart';
+import '../../domain/entities/product_entity.dart';
+import '../../domain/usecases/get_product_details.dart';
+import '../../domain/usecases/get_products_list.dart';
+import 'product_state.dart';
 
 @injectable
 class ProductCubit extends Cubit<ProductState> {

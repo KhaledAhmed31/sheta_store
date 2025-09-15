@@ -1,21 +1,21 @@
 
 import 'package:injectable/injectable.dart';
-import 'package:sheta_store/features/auth/data/models/sign_in_params.dart';
-import 'package:sheta_store/features/auth/domain/entities/user_entite.dart';
-import 'package:sheta_store/features/auth/domain/use_cases/check_token_use_case.dart';
-import 'package:sheta_store/features/auth/domain/use_cases/get_user_use_case.dart';
-import 'package:sheta_store/features/auth/domain/use_cases/save_user_use_case.dart';
-import 'package:sheta_store/features/auth/domain/use_cases/sign_in_use_case.dart';
-import 'package:sheta_store/features/auth/domain/use_cases/sign_out_use_case.dart';
-import 'package:sheta_store/features/auth/domain/use_cases/sign_up_use_case.dart';
-import 'package:sheta_store/features/auth/presentation/cubit/states/error_state.dart';
-import 'package:sheta_store/features/auth/presentation/cubit/states/initial_state.dart';
-import 'package:sheta_store/features/auth/presentation/cubit/states/loading_state.dart';
-import 'package:sheta_store/features/auth/presentation/cubit/states/sign_in_state.dart';
-import 'package:sheta_store/features/auth/presentation/cubit/states/sign_up_error_state.dart';
-import 'package:sheta_store/features/auth/presentation/cubit/states/sign_up_loading_state.dart';
-import 'package:sheta_store/features/auth/presentation/cubit/states/sign_up_success_state.dart';
-import 'package:sheta_store/features/auth/presentation/cubit/states/success_state.dart';
+import '../../data/models/sign_in_params.dart';
+import '../../domain/entities/user_entite.dart';
+import '../../domain/use_cases/check_token_use_case.dart';
+import '../../domain/use_cases/get_user_use_case.dart';
+import '../../domain/use_cases/save_user_use_case.dart';
+import '../../domain/use_cases/sign_in_use_case.dart';
+import '../../domain/use_cases/sign_out_use_case.dart';
+import '../../domain/use_cases/sign_up_use_case.dart';
+import 'states/error_state.dart';
+import 'states/initial_state.dart';
+import 'states/loading_state.dart';
+import 'states/sign_in_state.dart';
+import 'states/sign_up_error_state.dart';
+import 'states/sign_up_loading_state.dart';
+import 'states/sign_up_success_state.dart';
+import 'states/success_state.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../data/models/sign_up_model.dart';

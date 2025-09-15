@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:sheta_store/core/ui/app_colors.dart';
-import 'package:sheta_store/core/fonts/font_size_manager.dart';
+import '../ui/app_colors.dart';
+import '../fonts/font_size_manager.dart';
 
 class CustomTextFeild extends StatefulWidget {
   const CustomTextFeild(

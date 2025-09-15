@@ -1,5 +1,5 @@
-import 'package:sheta_store/features/cart/data/models/add_to_cart_response.dart';
-import 'package:sheta_store/features/cart/data/models/cart_response.dart';
+import '../models/add_to_cart_response.dart';
+import '../models/cart_response.dart';
 
 abstract class CartDataSource {
   Future<CartResponse> getCart();

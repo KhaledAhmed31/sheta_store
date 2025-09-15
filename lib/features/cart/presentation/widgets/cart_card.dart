@@ -3,16 +3,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
-import 'package:sheta_store/core/fonts/font_size_manager.dart';
-import 'package:sheta_store/core/fonts/font_style_manager.dart';
-import 'package:sheta_store/core/routes/route_name.dart';
-import 'package:sheta_store/core/ui/app_colors.dart';
-import 'package:sheta_store/core/ui/app_radius.dart';
-import 'package:sheta_store/features/cart/presentation/widgets/delete_item_button.dart';
-import 'package:sheta_store/features/cart/domain/entities/cart_item_model.dart';
-import 'package:sheta_store/features/cart/presentation/widgets/quantity_button.dart';
-import 'package:sheta_store/features/product/domain/entities/product_entity.dart';
-import 'package:sheta_store/features/product/presentation/cubit/product_cubit.dart';
+import '../../../../core/fonts/font_size_manager.dart';
+import '../../../../core/fonts/font_style_manager.dart';
+import '../../../../core/routes/route_name.dart';
+import '../../../../core/ui/app_colors.dart';
+import '../../../../core/ui/app_radius.dart';
+import 'delete_item_button.dart';
+import '../../domain/entities/cart_item_model.dart';
+import 'quantity_button.dart';
+import '../../../product/domain/entities/product_entity.dart';
+import '../../../product/presentation/cubit/product_cubit.dart';
 
 class CartCard extends StatefulWidget {
   const CartCard({super.key, required this.cartItemModel});

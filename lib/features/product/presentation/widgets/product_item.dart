@@ -3,13 +3,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_rating_stars/flutter_rating_stars.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
-import 'package:sheta_store/core/fonts/font_style_manager.dart';
-import 'package:sheta_store/core/routes/route_name.dart';
-import 'package:sheta_store/core/ui/app_colors.dart';
-import 'package:sheta_store/core/ui/app_radius.dart';
-import 'package:sheta_store/features/product/domain/entities/product_entity.dart';
-import 'package:sheta_store/features/product/presentation/widgets/cart_botton.dart';
-import 'package:sheta_store/features/product/presentation/widgets/fav_botton.dart';
+import '../../../../core/fonts/font_style_manager.dart';
+import '../../../../core/routes/route_name.dart';
+import '../../../../core/ui/app_colors.dart';
+import '../../../../core/ui/app_radius.dart';
+import '../../domain/entities/product_entity.dart';
+import 'cart_botton.dart';
+import 'fav_botton.dart';
 
 class ProductItem extends StatefulWidget {
   const ProductItem({super.key, required this.product});
